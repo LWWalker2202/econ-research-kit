@@ -15,7 +15,7 @@ Economics research as a set of executable steps. Not a prompt collection — a w
 
 **Also not**: a substitute for your judgement about identification. The skills here force you to state your assumptions and their threats. They cannot tell you whether the assumptions hold.
 
-**Companion book**: `book/` holds *Prompt Engineering for Economists* by LW Walker, with friends and family, 208 pages and sixty templates. The book says why each stage is shaped this way; this repository says what to do in it. `book/README.md` maps chapters onto stages.
+**Companion book**: `book/` holds *Prompt Engineering for Economists* by LW Walker, with dear friends and lovely family, 208 pages and sixty templates. The book says why each stage is shaped this way; this repository says what to do in it. `book/README.md` maps chapters onto stages.
 
 ## The eight stages
 

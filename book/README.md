@@ -15,7 +15,7 @@ It contains sixty templates. Twelve are general-purpose (decomposing a hard ques
 
 ## Author and acknowledgement
 
-Written by **LW Walker, with friends and family**. The book grew out of material prepared for a research group, and the debts are personal as much as intellectual: the people who read drafts, sat through the walkthroughs, and kept asking the question that made a section get rewritten.
+Written by **LW Walker, with dear friends and lovely family**. The book grew out of material prepared for a research group, and the debts are personal as much as intellectual: the people who read drafts, sat through the walkthroughs, and kept asking the question that made a section get rewritten.
 
 ## How the book and this kit differ
 
