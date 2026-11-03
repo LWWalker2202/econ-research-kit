@@ -71,6 +71,15 @@ If the term is not in the glossary at all, keep the Chinese original and give an
 | Energy and environmental economics | `domains/energy-env/` |
 | Labour economics | `domains/labor/` |
 | Behavioural and experimental economics | `domains/behavioral/` |
+| Development and field experiments | `domains/development/` |
+| Public economics and policy evaluation | `domains/public/` |
+| Industrial organization and regulation | `domains/industrial-organization/` |
+| Trade and spatial economics | `domains/trade-spatial/` |
+| Macroeconomics and finance | `domains/macro-finance/` |
+| Economic history and textual sources | `domains/economic-history/` |
+| Theoretical modelling and mechanism design | `domains/theory/` |
+
+Ten directions are covered. The first three are the ones this kit was built around; the rest were added so that a reader outside applied micro still finds a shelf to stand on.
 
 Each direction has four files: `institutional.md` (background and ready-to-cite paragraphs), `measures.md` (how the treatment variable is built), `data.md` (sources and variable names), `pitfalls.md` (what referees ask and how to answer).
 
