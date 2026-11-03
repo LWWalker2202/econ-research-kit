@@ -25,7 +25,7 @@ description: Turn frozen estimation output into submission-ready tables and figu
 
 ## Procedure
 
-The target form is fixed before the script is written: a booktabs-style table with three horizontal rules and no vertical rules, the coefficient on its own line with the standard error in parentheses on the line below, significance stars with their thresholds defined in the note, the note placed below the table, and no column running past the text block.
+The target form is fixed before the script is written: a booktabs-style table with three horizontal rules and no vertical rules, the coefficient on its own line with the standard error in parentheses on the line below, significance stars with their thresholds defined in the note, the note placed below the table, and no column running past the text block. For a submission to a Chinese journal the form is not this default but the one measured from published papers in `overrides/journal-cn.md`: table title above the table, note below it, no vertical rules in the body, and figure captions below the figure, which is the opposite of the convention in step 8. Where that file disagrees with the defaults here, the file wins.
 
 1. Write `output/tables/table_index.csv` with one row per numbered exhibit: ID, the manuscript sentence it supports, the estimate file it reads, and the build status. Done when every exhibit mentioned in the draft has a row and no row lacks an estimate file.
 2. Write one build script per exhibit under `code/tables/` and `code/figures/`. Each script reads only the frozen estimate files and never reruns a regression. Done when editing a coefficient in the estimate file changes that table and nothing else.
