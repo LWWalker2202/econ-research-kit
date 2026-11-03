@@ -2,7 +2,7 @@
 
 An executable workflow library for empirical economics. Eight stages, each with inputs, artifacts, and acceptance checks.
 
-**Version 0.1.0** · Mirror of the Chinese edition: [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh) (parity checked in CI)
+**Version 0.1.1** · Mirror of the Chinese edition: [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh) (parity checked in CI)
 
 ---
 
@@ -175,7 +175,7 @@ Three rules hold for every vendored directory: copy verbatim and never edit; car
 
 ## Status
 
-Version 0.1.0. Eight skills, three domains, four data dictionaries, three teaching tracks. Vendoring done in two passes: graph schemes, prompt specifications, three management-journal table and figure skill directories, and LaTeX table fragments; licences recorded under `skills/*/vendor/`. Chinese mirror at parity.
+Version 0.1.1. Eight skills, three domains, four data dictionaries, three teaching tracks. Three stages ship with a runnable template and a golden output to diff against: `data-prep`, `estimation`, and `tables-figures`. Vendoring done in two passes: graph schemes, prompt specifications, three management-journal table and figure skill directories, and LaTeX table fragments; licences recorded under `skills/*/vendor/`. Reporting conventions measured from 28 Chinese-journal articles sit under `skills/*/overrides/`. Chinese mirror at parity.
 
 ## Licence
 

@@ -27,7 +27,7 @@ Estimation looks like a technical step and is really an interpretive one. Every 
 
 ## Procedure
 
-1. Rebuild the baseline regression from the frozen specification and report the coefficient with clustered standard errors at the pre-specified level. Completion condition: the table matches the specification in the memo variable by variable.
+1. Rebuild the baseline regression from the frozen specification and report the coefficient with clustered standard errors at the pre-specified level. Completion condition: the table matches the specification in the memo variable by variable. A worked reference is in `templates/estimate_main.py`, with the Stata counterpart in `templates/estimate_main.do` and the pinned report in `expected/estimation-results.md`: run `python skills/estimation/templates/estimate_main.py --lang en` from the repository root and diff `output/estimation-results.md` and `output/estimation-results.json` against the golden files before adapting the script.
 2. Justify the fixed effects. For each set, write the variation it absorbs and the variation it leaves. Completion condition: no fixed effect is included only because it is conventional.
 3. Justify the clustering level. State the level at which the treatment variable is assigned and the level at which errors are correlated, then report one alternative clustering as a check. Completion condition: the clustering sentence in the memo and the command file use the same level.
 4. Run only the robustness checks that answer a threat on the list, and place every other check in an appendix with a one-line reason. Completion condition: each main-text check names the threat it addresses in its table note.
@@ -78,3 +78,4 @@ Estimation looks like a technical step and is really an interpretive one. Every 
 - `domains/labor/pitfalls.md` for the objections that follow wage and labor mobility estimates.
 - `domains/behavioral/pitfalls.md` for what a manipulation check and a balance check must show before results are interpreted.
 - `data-dict/` for measurement cautions that change how a coefficient should be read.
+- `overrides/identification-reporting-cn.md` for how Chinese journals expect causal estimates to be reported: which rows the table must carry, which base period the event study uses, whether pre-trends appear as a figure or a table, and where robustness checks are placed.
