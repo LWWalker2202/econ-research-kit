@@ -119,7 +119,7 @@ The agent should enter `skills/tables-figures/`, ask Stata or Python, and match 
 
 The heavy lifting for tables, figures, and data cleaning is already solved by open-source projects. Do not rewrite it, and do not edit it in place.
 
-`skills/tables-figures/` (and later `skills/data-prep/`) contains two layers:
+`skills/tables-figures/` and `skills/data-prep/` each contain two layers:
 
 | Layer | Rule |
 |---|---|
@@ -128,17 +128,31 @@ The heavy lifting for tables, figures, and data cleaning is already solved by op
 
 Vendored content is code and LaTeX templates — language-neutral — so it is **byte-identical in both language mirrors**. Only `overrides/` is translated.
 
-Candidate upstreams, to be vendored after a licence check:
+Vendored so far:
 
-| Need | Upstream type |
-|---|---|
-| Multi-column regression tables | `esttab` (Stata), `modelsummary` / `fixest::etable` (R) |
-| Event-study and coefficient plots | `coefplot` (Stata), `fixest::iplot` (R) |
-| Publication-quality graphics themes | Kieran Healy's ggplot conventions |
-| End-to-end pipelines | `codex-stata-for-economists` (Stata pipeline for economists) |
-| Analysis skills | `awesome-econ-ai-stuff` (Data and Analysis categories) |
+| Directory | Upstream | Commit | Licence |
+|---|---|---|---|
+| `skills/tables-figures/vendor/stata-schemepack/` | asjadnaqvi/Stata-schemes (package `schemepack`) | `580187ca3cd1101a17da6518a258b8ac533f7c5e` | MIT |
+| `skills/tables-figures/vendor/awesome-econ-ai-stuff/` | meleantonio/awesome-econ-ai-stuff | `dd890d51c789fb8f8e316a2d7e4ed5d4bd793c50` | CC0 1.0 Universal |
+| `skills/tables-figures/vendor/mgmt-paper-skills/` | HaonanAlex/mgmt-paper-skills | `971d2f510dc849b3fbf55836f78f6f2847203a1f` | Apache-2.0; `LICENSE` and `NOTICE` travel with it |
+| `skills/tables-figures/vendor/tex4econ-tab/` | FanWangEcon/Tex4Econ | `8f7a254656b98ce5c152ea3b5ed1f2833cca496e` | MIT |
+| `skills/data-prep/vendor/awesome-econ-ai-stuff/` | meleantonio/awesome-econ-ai-stuff | `dd890d51c789fb8f8e316a2d7e4ed5d4bd793c50` | CC0 1.0 Universal |
 
-**Not vendored here yet.** Vendoring requires a network fetch and a licence audit per repository. The directories are reserved; the instructions above are the checklist. Do not paste code in without recording its commit.
+Five vendor directories, 103 files, about 350 KB. What they carry:
+
+- Ten Stata graph schemes: the complete white-background family plus one colour-blind-safe scheme.
+- Three prompt specifications with worked skeletons: `booktabs` regression tables, `ggplot2` figures, a Stata cleaning do-file.
+- `mgmt-paper-skills/` contributes three whole subdirectories, copied unmodified: `mgmt-paper-tables/` with journal table rules for 《经济研究》, 《管理世界》, Journal of Finance and Management Science, significance and standard-error conventions, and Stata, R and Python templates with tests; `mgmt-paper-publication-figures/` with Chinese-journal figure and table conventions and seven matplotlib templates; `mgmt-paper-journal-figures/` with figure profiles across the UTD 24 business journals.
+- Five LaTeX table fragments from `Tex4Econ`'s `_tab/`: estimation, multi-panel and text tables, `.tex` sources only.
+
+Licence check outcome:
+
+- `codex-stata-for-economists` looks useful, but the repository has no `LICENSE`, `LICENCE` or `COPYING` file and no licence statement in any of its markdown. No licence means no permission, so it is not vendored.
+- `EthanDeng/Chinese-ERJ` at `8cd9523ae8f34c3d272e5369a66a341317bc6c96` is LPPL 1.3c. Verbatim redistribution is permitted, so copying unchanged would not conflict with it, but the material is one journal's document class (`chinese-erj.cls` for 《经济研究》) that depends on the external `biblatex-gb7714-2015` package: too narrow to carry, so not vendored.
+- `esttab`, `coefplot`, `modelsummary` and `fixest` remain the right answer for tables and coefficient plots, but they are installed by the user's own Stata or R, so their code is not copied here.
+- A candidate without a plain-text MIT, BSD-2, BSD-3, Apache-2.0, CC-BY or CC0 grant is rejected. Being public on GitHub is not a licence.
+
+Three rules hold for every vendored directory: copy verbatim and never edit; carry a `LICENSES.md` recording repository URL, commit hash, the exact files copied, the licence, where the licence file sits, and the copy date; no git submodules, so a plain clone is complete. Each `vendor/` directory also carries an index `LICENSES.md` listing its upstreams and the candidates rejected. Journal conventions belong in `overrides/`. Do not paste code in without recording its commit.
 
 ## Parity with the Chinese mirror
 
@@ -161,7 +175,7 @@ Candidate upstreams, to be vendored after a licence check:
 
 ## Status
 
-Version 0.1.0. Eight skills, three domains, four data dictionaries, three teaching tracks. Vendoring pending. Chinese mirror at parity.
+Version 0.1.0. Eight skills, three domains, four data dictionaries, three teaching tracks. Vendoring done in two passes: graph schemes, prompt specifications, three management-journal table and figure skill directories, and LaTeX table fragments; licences recorded under `skills/*/vendor/`. Chinese mirror at parity.
 
 ## Licence
 
