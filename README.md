@@ -38,9 +38,10 @@ econ-research-kit/
 │   ├── labor/
 │   └── behavioral/
 ├── data-dict/               CFPS · CHARLS · industrial firms · pollution monitoring
+│   └── _catalog.md          pointer to an external directory of 1000+ sources
 ├── teaching/                undergraduate · master · PhD
 ├── index/actions.csv        the action checklist (bilingual columns, one source)
-├── scripts/                 structure checks
+├── scripts/                 structure checks, source lookup
 ├── glossary.yaml            locked terminology
 ├── VERSION
 └── LICENSE
@@ -140,6 +141,7 @@ Candidate upstreams, to be vendored after a licence check:
 2. New skills need all eight sections. `scripts/lint_content.py` will tell you what is missing.
 3. Do not add a ninth skill without removing one. Eight stages is the design, not a starting point.
 4. Numbers, page references, and policy document numbers are never invented. Write `[to fill]` instead.
+5. Looking for a source? `scripts/lookup_source.py CFPS` searches an external directory of over a thousand sources. A hit is a lead; write a numbered entry in `data-dict/` once you actually use it.
 
 ## Status
 

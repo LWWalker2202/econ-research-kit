@@ -8,6 +8,19 @@ This directory is not a complete list of datasets an economist might use. It can
 
 So the directory is open-ended by design: there is no "supported sources" list to fall off. What is fixed is the procedure below, and it is exhaustive — every source, including one that does not exist yet, falls into class A, B, or C. A source you have never seen is not an exception to the rules; it is exactly what the rules are for.
 
+## The second layer: where to find a source at all
+
+`_catalog.md` in this directory points at **Econ Datalab**, an external field guide to research data with over a thousand sources, each carrying access links and the papers that used it. It answers a question this directory does not: whether a source exists for the thing you want to study, and who to ask for it.
+
+The two layers do not compete and neither is the real one. The catalogue gives breadth in one line per source; the numbered entries here give depth for the handful of sources someone actually worked with. Look in the catalogue first, then write an entry when you start using the source for real — the procedure below is how.
+
+Query it without leaving the session:
+
+```bash
+python scripts/lookup_source.py CFPS
+python scripts/lookup_source.py --region 中国数据 --topic 环境数据
+```
+
 ## The four sections every entry has
 
 1. `## Basic information` — full name in Chinese and English, abbreviation, maintaining institution, first year, update frequency, unit of observation.

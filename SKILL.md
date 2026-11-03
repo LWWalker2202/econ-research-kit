@@ -78,6 +78,8 @@ Each direction has four files: `institutional.md` (background and ready-to-cite 
 
 `data-dict/` holds Chinese micro-data sources: CFPS, CHARLS, the Chinese Industrial Enterprises Database, and pollution monitoring data. Check it before inventing a variable name — the dataset probably already has one. If your source is not there, read `data-dict/README.md` first: some sources get an entry and some deliberately do not, and a guessed variable name is worse than a marked one.
 
+When the question is not "what is this variable called" but "does a source even exist for this", `data-dict/_catalog.md` and `scripts/lookup_source.py` search an external directory of over a thousand sources with access links and application papers. Those hits are leads, not entries: the numbered files here stay the only place where variable-level detail is written down.
+
 ## What this kit will not do
 
 - It will not decide whether your identification is credible. It will make you write down the threats.
