@@ -46,6 +46,8 @@ Saying no without compromising, the reusable shape: accept the concern, state th
 | `review/revision_log.md` | change-by-change record with section, page, and line | corresponding author |
 | `manuscript/manuscript_v2.tex` | revised manuscript with tracked changes marked | submission system |
 
+- `skills/review/templates/check_response.py` — run it on `review/response_letter.md` before it goes out; the expected report is `skills/review/expected/check-report.txt`.
+
 ## Acceptance
 
 - [ ] `review/comments.csv` holds one row per comment paragraph and its row count matches a manual count of both reports.

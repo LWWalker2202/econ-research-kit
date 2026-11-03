@@ -48,6 +48,8 @@ House conventions in this skill: refer to the paper as "this paper" and reserve 
 | `review/response_letter.md` | point-by-point response with quoted comments and change locations | editor and referees |
 | `submission/checklist.md` | every required portal item with its status | corresponding author |
 
+- `skills/writing/templates/check_abstract.py` — run it on the drafted abstract before the portal; the expected report is `skills/writing/expected/check-report.txt`.
+
 ## Acceptance
 
 - [ ] The abstract falls within the journal limit, 100 to 150 words by default, and contains no citation.

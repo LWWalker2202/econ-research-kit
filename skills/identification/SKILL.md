@@ -45,6 +45,8 @@ An identification design answers one question: compared to what. The treatment v
 | `pre-registration-draft.md` | Main specification, sample rules, robustness plan, analysis start date | Registry, journal, or funder |
 | `specification-table.tex` | Main equation plus the list of fixed effects and controls with the variation each uses | The empirical strategy section of the paper |
 
+- Worked example and check: `templates/check_design.py` grades a design memo on the six items above, `expected/identification-memo.md` is a filled example, and `expected/check-report.txt` is the pinned output; run `python skills/identification/templates/check_design.py skills/identification/expected/identification-memo.md` from the repository root and compare the report with the pinned one.
+
 ## Acceptance
 
 - [ ] Treatment and control are defined from the codebook, not from the sample left after matching.

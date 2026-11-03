@@ -15,6 +15,8 @@ Economics research as a set of executable steps. Not a prompt collection — a w
 
 **Also not**: a substitute for your judgement about identification. The skills here force you to state your assumptions and their threats. They cannot tell you whether the assumptions hold.
 
+**Companion book**: `book/` holds *Prompt Engineering for Economists* by LW Walker, with friends and family, 208 pages and sixty templates. The book says why each stage is shaped this way; this repository says what to do in it. `book/README.md` maps chapters onto stages.
+
 ## The eight stages
 
 | # | Stage | Skill | The question it answers |
@@ -70,6 +72,8 @@ If the term is not in the glossary at all, keep the Chinese original and give an
 |---|---|
 | Energy and environmental economics | `domains/energy-env/` |
 | Labour economics | `domains/labor/` |
+| Economics of education | `domains/education/` |
+| Health economics | `domains/health/` |
 | Behavioural and experimental economics | `domains/behavioral/` |
 | Development and field experiments | `domains/development/` |
 | Public economics and policy evaluation | `domains/public/` |
@@ -79,7 +83,7 @@ If the term is not in the glossary at all, keep the Chinese original and give an
 | Economic history and textual sources | `domains/economic-history/` |
 | Theoretical modelling and mechanism design | `domains/theory/` |
 
-Ten directions are covered. The first three are the ones this kit was built around; the rest were added so that a reader outside applied micro still finds a shelf to stand on.
+Twelve directions are covered. The first three are the ones this kit was built around; labour, education and health are the three fields the book treats together under applied micro; the rest were added so that a reader outside applied micro still finds a shelf to stand on.
 
 Each direction has four files: `institutional.md` (background and ready-to-cite paragraphs), `measures.md` (how the treatment variable is built), `data.md` (sources and variable names), `pitfalls.md` (what referees ask and how to answer).
 

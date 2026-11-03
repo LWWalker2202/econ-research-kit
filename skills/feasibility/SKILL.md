@@ -44,6 +44,8 @@ The feasibility gate is the cheapest stage of a project and the only stage whose
 | `data-access-plan.md` | Dataset, access route, lead time, responsible person, fallback source | Whoever files the data application |
 | `stop-criteria.md` | Pre-committed thresholds and decision rules, with the review date | Opened when a later stage stalls, to decide whether to abandon |
 
+- `templates/check_memo.py` machine-checks a filled memo against the six gate items (slots, coverage classes, stop thresholds, verdict, binding constraint, access lead times) in English or Chinese; `expected/feasibility-memo.md` is a completed sample and `expected/check-report.txt` is the report it produced.
+
 ## Acceptance
 
 - [ ] The question is one sentence naming unit, treatment variable, outcome, and comparison.

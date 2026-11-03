@@ -1,189 +1,163 @@
 # econ-research-kit
 
-An executable workflow library for empirical economics. Eight stages, each with inputs, artifacts, and acceptance checks.
+A workbench for empirical economics: **eight stages, twelve fields**, and for every stage either a runnable template with a golden output to diff against, or a checker that reads what you produced.
 
-**Version 0.2.0** · Mirror of the Chinese edition: [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh) (parity checked in CI)
-
----
+**Version 0.3.0** · Mirror of the Chinese edition: [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh) (parity checked in CI)
 
 ## Why this exists
 
-Most "AI for research" advice stops at prompts. A prompt produces a paragraph. A paper needs a pipeline: a feasibility judgement, an identification design, a clean dataset, a defensible specification, journal-formatted outputs, and a replication package.
+Three things go wrong when you ask a language model to help with research, and none of them is "the model is not smart enough".
 
-This kit turns that pipeline into eight skills. Each skill answers four questions:
+1. **You explain the project from scratch every time.** The setup lives in a chat window that scrolls away, so the hundredth conversation is as uninformed as the first.
+2. **The code looks right and you cannot tell whether it is.** A defensible-looking table is not a table. Nothing in a chat checks whether the clustering matches the treatment assignment.
+3. **Everyone in the group does it differently.** Handing a project over means handing over a conversation, and the student who inherits it cannot see what was tried and rejected.
 
-1. **When** do I enter this stage? (concrete triggers, not "when you need analysis")
-2. **What do I need** to get in? (inputs, and what to do when they are missing)
-3. **What do I do**? (steps with checkable completion conditions)
-4. **What must come out**? (named files, plus an acceptance checklist)
+This kit takes the opposite bet: **write the procedure down once, as files, so that the model reads the same procedure you do.** A file can be checked, versioned, argued with and replaced. A conversation cannot.
 
-A stage is finished when the files exist and every acceptance item can be answered yes.
+## What is in the box
 
-## What's inside
+| Layer | What it holds | The question it answers |
+|---|---|---|
+| `skills/` | eight stage procedures | How is this step actually done? |
+| `domains/` | twelve field packs, five files each | What is special about my field here? |
+| `data-dict/` | Chinese micro data sources | What is this variable called? |
+| `index/actions.csv` | forty-nine actions, bilingual columns | What am I trying to do right now? |
+| `scripts/` | four checks | Is the repository still consistent? |
+| `book/` | the companion handbook | Why is it built this way? |
 
-```
-econ-research-kit/
-├── SKILL.md                 router — which skill for which request
-├── skills/                  eight stages
-│   ├── feasibility/         stage 0 — can this be done at all?
-│   ├── identification/      stage 2 — what variation identifies the effect?
-│   ├── data-prep/           stage 3 — are the variables what I think they are?
-│   ├── estimation/          stage 4 — is the specification defensible?
-│   ├── tables-figures/      stage 5 — do outputs meet journal format?
-│   ├── report/              stage 6 — can someone else reproduce this?
-│   ├── writing/             stage 7 — does the prose carry the design?
-│   └── review/              referee responses
-├── domains/                 domain knowledge, no procedure
-│   ├── energy-env/         institutional · measures · data · pitfalls
-│   ├── labor/
-│   ├── behavioral/
-│   ├── development/
-│   ├── public/
-│   ├── industrial-organization/
-│   ├── trade-spatial/
-│   ├── macro-finance/
-│   ├── economic-history/
-│   └── theory/
-├── data-dict/               CFPS · CHARLS · industrial firms · pollution monitoring
-│   └── _catalog.md          pointer to an external directory of 1000+ sources
-├── teaching/                undergraduate · master · PhD
-├── index/actions.csv        the action checklist (bilingual columns, one source)
-├── scripts/                 structure checks, source lookup
-├── glossary.yaml            locked terminology
-├── VERSION
-└── LICENSE
-```
+One sentence: `skills/` tells you **how**, `domains/` tells you **what is special here**, `data-dict/` tells you **what the variable is called**.
 
-**Division of labour**: `skills/` says how to work; `domains/` says what is special about this field; `data-dict/` says what the data looks like. Skills never contain domain facts, and domains never contain procedures.
+## Five minutes
 
-## Install
-
-Clone into your agent's skills directory.
-
-**Codex**
+Nothing to install. Python 3.11 or newer, standard library only.
 
 ```bash
-git clone https://github.com/LWWalker2202/econ-research-kit.git \
-  ~/.codex/skills/econ-research-kit
+# 1. is the content clean?
+python scripts/lint_content.py .
+
+# 2. do the two editions still match?
+python scripts/check_parity.py
+
+# 3. produce a table and diff it against the golden output
+cd skills/tables-figures
+python templates/panel_ols.py --lang en
+diff output/table1.tex expected/table1.tex
 ```
 
-**Claude Code**
+If the third command prints nothing, you have just reproduced a publication-grade three-line table from a fixed seed. That is the whole idea: the interesting part is not that the table appeared, it is that you can tell whether it is right.
 
-```bash
-git clone https://github.com/LWWalker2202/econ-research-kit.git \
-  ~/.claude/skills/econ-research-kit
-```
+## The eight stages
 
-**DSH (DeepSeek Harness)**
+| # | Stage | Skill | The question it answers |
+|---|---|---|---|
+| 0 | Feasibility gate | `skills/feasibility/` | Can this be done at all with the data and variation available? |
+| 1 | Problem and literature | `skills/feasibility/` (part two) | Is the gap real, and is it worth a paper? |
+| 2 | Identification design | `skills/identification/` | What variation identifies the effect, and what would break it? |
+| 3 | Data | `skills/data-prep/` | Are the variables defined the way I think they are? |
+| 4 | Estimation | `skills/estimation/` | Is the specification defensible, and what does each robustness check protect against? |
+| 5 | Tables and figures | `skills/tables-figures/` | Do the outputs meet journal format? |
+| 6 | Report | `skills/report/` | Can someone else reproduce this from my files? |
+| 7 | Writing and submission | `skills/writing/` | Does the prose carry the identification story? |
+| - | Referee response | `skills/review/` | How do I answer without conceding what I should not? |
 
-DSH reads two skill directories, a shared one and its own:
+**Stage 0 is a gate, not a step.** If it fails, stop. Do not clean data for a project whose identification cannot work; that is how a year disappears.
 
-```bash
-# shared across agents, recommended
-git clone https://github.com/LWWalker2202/econ-research-kit.git \
-  ~/.agents/skills/econ-research-kit
+## Twelve domains
 
-# or DSH-only
-git clone https://github.com/LWWalker2202/econ-research-kit.git \
-  ~/.dsh/skills/econ-research-kit
-```
+| Directory | Field |
+|---|---|
+| `domains/energy-env/` | Energy and environmental economics |
+| `domains/labor/` | Labour economics |
+| `domains/education/` | Economics of education |
+| `domains/health/` | Health economics |
+| `domains/behavioral/` | Behavioural and experimental economics |
+| `domains/development/` | Development and field experiments |
+| `domains/public/` | Public economics and policy evaluation |
+| `domains/industrial-organization/` | Industrial organisation and regulation |
+| `domains/trade-spatial/` | Trade and spatial economics |
+| `domains/macro-finance/` | Macroeconomics and finance |
+| `domains/economic-history/` | Economic history and textual sources |
+| `domains/theory/` | Theoretical modelling and mechanism design |
 
-On Windows these are `%USERPROFILE%\.agents\skills\` and `%USERPROFILE%\.dsh\skills\`; one skill is one directory that contains `SKILL.md`, so no extra registration step is needed. If DSH is already running, start a new session so the skill list is rebuilt.
+Each pack has five files: `institutional.md` (background, timeline, paragraphs you can paste), `measures.md` (how the treatment variable is built, and what each definition assumes), `data.md` (sources, variable names, coverage, known problems), `pitfalls.md` (what referees ask and how to answer), and `route.md` (which of the eight stages to look at, and what to confirm there).
 
-Restart the agent. To verify it loaded, ask: *"In econ-research-kit, what does the feasibility skill decide?"* If the agent cannot answer, the skill is not on its path.
+**Fields are a filter, not a funnel.** A paper on environmental regulation and firm investment touches energy, public economics and industrial organisation at once. Read the packs you need; do not pick one and stay in it.
 
-No build step, no dependencies beyond Python 3.9+ for the scripts in `scripts/`.
+## Which stages can actually run
 
-## Quick start
+Three stages produce artefacts; five read what you produced. No stage is a memo asking you to be careful.
 
-**Check whether a project is worth starting**
+| Stage | What ships | How to check it |
+|---|---|---|
+| Feasibility | `check_memo.py`, a filled memo, six machine checks | `python skills/feasibility/templates/check_memo.py skills/feasibility/expected/feasibility-memo.md` |
+| Identification | `check_design.py`, a filled memo, six machine checks | `python skills/identification/templates/check_design.py skills/identification/expected/identification-memo.md` |
+| Data | `clean_panel.py` and a Stata twin, cleaning log as golden output | run the script twice, the hash must not move |
+| Estimation | `estimate_main.py` and a Stata twin, a five-step specification chain | `python skills/estimation/templates/estimate_main.py --lang en` |
+| Tables | `latex_table.py`, `panel_ols.py`, `table1.tex` as golden output | diff against `expected/table1.tex` |
+| Report | `build_report.py`, turns artefacts into a report | numbers come only from the input files, never invented |
+| Writing | `check_abstract.py`, seven machine checks | `python skills/writing/templates/check_abstract.py skills/writing/expected/abstract.md` |
+| Review | `check_response.py`, five machine checks | `python skills/review/templates/check_response.py skills/review/expected/response-letter.md` |
 
-> My data is a firm-level panel from 2010 to 2019. I want to know whether the central environmental inspection reduced firm emissions. Is this feasible?
+Two habits sit behind all of it: **deterministic fixtures** (fixed seeds, so a hash that moves means you changed something) and **a golden output for every generator** (so a library upgrade that silently changes formatting is visible the next time you run it).
 
-The agent should enter `skills/feasibility/`, enumerate the data and the variation, and produce `feasibility.md` with an explicit stop/go verdict — before writing any code.
+## The companion book
 
-**Clean a panel and document the definitions**
+`book/` holds *Prompt Engineering for Economists* by LW Walker, with friends and family: 208 pages, sixty templates, written for undergraduate, master's and PhD readers at once. The book explains why the procedure looks like this; this repository is the version you run. `book/README.md` says which file to read and which chapter pairs with which stage.
 
-> Merge the firm panel with the pollution monitoring data and construct the emission variable.
-
-The agent should enter `skills/data-prep/`, check variable definitions across years first, and produce a cleaning script plus a variable-definition table. It should not hand-edit the data.
-
-**Produce a journal-formatted regression table**
-
-> Turn these three specifications into a table for submission.
-
-The agent should enter `skills/tables-figures/`, ask Stata or Python, and match the target journal's format — booktabs rules, coefficients with standard errors beneath, note placement.
+Its one-line thesis is also this repository's: **a prompt that cannot be checked is a wish, not a specification.** If you only read one chapter, read the third one, the eight elements of an economics problem description, and then open `skills/identification/SKILL.md` to see the same idea as a file.
 
 ## Design principles
 
-1. **Stage 0 is a gate, not a step.** If feasibility fails, stop. Never clean data for a project whose identification cannot work.
-2. **Artifacts over prose.** Every stage leaves a named file. A paragraph is not an artifact.
-3. **Scripts over results.** A number that cannot be regenerated by running a script does not exist.
-4. **Domain knowledge is separate from procedure.** It is the only part that cannot be outsourced to a generic toolkit, so it gets its own directory.
-5. **Acceptance items must be answerable yes/no.** "The table looks good" is not an acceptance item. "Column widths do not overflow the text block" is.
+1. **Stage 0 is a gate, not a step.** A project that fails feasibility does not deserve clean data.
+2. **Artefacts over prose.** Every stage must leave a file. If a session produced only a nice answer, it produced nothing.
+3. **Scripts over results.** A number without a script is a rumour. Always generate the script, not just the output.
+4. **Domain knowledge and procedure live apart.** `skills/` says how to do it; `domains/` says what is special here. Mixing them makes both stale.
+5. **An acceptance item you cannot answer yes or no is a broken item.** Rewrite it; do not soften it.
+6. **Anything that can be machine-checked is not left to memory.** Machines do not get tired at eleven at night.
 
-## Vendoring third-party toolkits
+## Common misreadings
 
-The heavy lifting for tables, figures, and data cleaning is already solved by open-source projects. Do not rewrite it, and do not edit it in place.
+- **It is not a prompt collection.** Sixty templates live in the book. These are eight procedures with inputs, steps, artefacts and acceptance lists.
+- **It does not run your research.** It stops you from spending three months on something that could not have worked, and it makes what you did defensible afterwards.
+- **Twelve domains are not twelve skills.** A domain answers "what is special in my field"; a skill answers "how is this step done". They are orthogonal on purpose.
+- **Golden outputs are not data.** Every fixture is synthetic. Never cite a number from a directory called `expected`.
+- **The Chinese mirror is not a translation.** The differences that matter are submission conventions: abstract length, JEL codes versus a Chinese classification number, table notes, online appendices. That is why `writing` and `tables-figures` differ between editions while everything else matches.
 
-`skills/tables-figures/` and `skills/data-prep/` each contain two layers:
+## Install
 
-| Layer | Rule |
-|---|---|
-| `vendor/` | Copied verbatim, never modified. Each directory carries a `LICENSES.md` recording upstream repository, commit hash, licence, and "unmodified". |
-| `overrides/` | Our own layer. Journal-specific formatting, Chinese-journal conventions, fixes for data quirks. This is the only place we edit. |
+Four ways, pick one.
 
-Vendored content is code and LaTeX templates — language-neutral — so it is **byte-identical in both language mirrors**. Only `overrides/` is translated.
+```bash
+# Codex
+git clone https://github.com/LWWalker2202/econ-research-kit.git ~/.codex/skills/econ-research-kit
 
-Vendored so far:
+# Claude Code
+git clone https://github.com/LWWalker2202/econ-research-kit.git ~/.claude/skills/econ-research-kit
 
-| Directory | Upstream | Commit | Licence |
-|---|---|---|---|
-| `skills/tables-figures/vendor/stata-schemepack/` | asjadnaqvi/Stata-schemes (package `schemepack`) | `580187ca3cd1101a17da6518a258b8ac533f7c5e` | MIT |
-| `skills/tables-figures/vendor/awesome-econ-ai-stuff/` | meleantonio/awesome-econ-ai-stuff | `dd890d51c789fb8f8e316a2d7e4ed5d4bd793c50` | CC0 1.0 Universal |
-| `skills/tables-figures/vendor/mgmt-paper-skills/` | HaonanAlex/mgmt-paper-skills | `971d2f510dc849b3fbf55836f78f6f2847203a1f` | Apache-2.0; `LICENSE` and `NOTICE` travel with it |
-| `skills/tables-figures/vendor/tex4econ-tab/` | FanWangEcon/Tex4Econ | `8f7a254656b98ce5c152ea3b5ed1f2833cca496e` | MIT |
-| `skills/data-prep/vendor/awesome-econ-ai-stuff/` | meleantonio/awesome-econ-ai-stuff | `dd890d51c789fb8f8e316a2d7e4ed5d4bd793c50` | CC0 1.0 Universal |
+# DSH: the shared directory is read by DSH and others; the second is DSH only
+git clone https://github.com/LWWalker2202/econ-research-kit.git ~/.agents/skills/econ-research-kit
+git clone https://github.com/LWWalker2202/econ-research-kit.git ~/.dsh/skills/econ-research-kit
+```
 
-Five vendor directories, 103 files, about 350 KB. What they carry:
+On Windows the same paths are `%USERPROFILE%\.codex\skills\`, `%USERPROFILE%\.agents\skills\` and so on. The fourth way needs no agent at all: read `SKILL.md`, follow the routing table, open the file it names. The repository is designed to be useful as a document.
 
-- Ten Stata graph schemes: the complete white-background family plus one colour-blind-safe scheme.
-- Three prompt specifications with worked skeletons: `booktabs` regression tables, `ggplot2` figures, a Stata cleaning do-file.
-- `mgmt-paper-skills/` contributes three whole subdirectories, copied unmodified: `mgmt-paper-tables/` with journal table rules for 《经济研究》, 《管理世界》, Journal of Finance and Management Science, significance and standard-error conventions, and Stata, R and Python templates with tests; `mgmt-paper-publication-figures/` with Chinese-journal figure and table conventions and seven matplotlib templates; `mgmt-paper-journal-figures/` with figure profiles across the UTD 24 business journals.
-- Five LaTeX table fragments from `Tex4Econ`'s `_tab/`: estimation, multi-panel and text tables, `.tex` sources only.
+## Check that it loaded
 
-Licence check outcome:
+Ask the agent three things. If the first answer is vague, the skill was not picked up.
 
-- `codex-stata-for-economists` looks useful, but the repository has no `LICENSE`, `LICENCE` or `COPYING` file and no licence statement in any of its markdown. No licence means no permission, so it is not vendored.
-- `EthanDeng/Chinese-ERJ` at `8cd9523ae8f34c3d272e5369a66a341317bc6c96` is LPPL 1.3c. Verbatim redistribution is permitted, so copying unchanged would not conflict with it, but the material is one journal's document class (`chinese-erj.cls` for 《经济研究》) that depends on the external `biblatex-gb7714-2015` package: too narrow to carry, so not vendored.
-- `esttab`, `coefplot`, `modelsummary` and `fixest` remain the right answer for tables and coefficient plots, but they are installed by the user's own Stata or R, so their code is not copied here.
-- A candidate without a plain-text MIT, BSD-2, BSD-3, Apache-2.0, CC-BY or CC0 grant is rejected. Being public on GitHub is not a licence.
+1. "What does the feasibility stage decide, and what happens if it fails?"
+2. "Which file do I read before I construct an environmental regulation treatment variable?"
+3. "What are the six checks in the identification checker?"
 
-Three rules hold for every vendored directory: copy verbatim and never edit; carry a `LICENSES.md` recording repository URL, commit hash, the exact files copied, the licence, where the licence file sits, and the copy date; no git submodules, so a plain clone is complete. Each `vendor/` directory also carries an index `LICENSES.md` listing its upstreams and the candidates rejected. Journal conventions belong in `overrides/`. Do not paste code in without recording its commit.
+## Extending this
 
-## Parity with the Chinese mirror
+- **Add a field.** Copy any `domains/<field>/` directory, keep the five file names, write `route.md` last. Then run both checks.
+- **Add a stage.** Create `skills/<name>/SKILL.md` with the eight fixed sections, and add the actions to `index/actions.csv`. The CSV has bilingual columns on purpose: one file serves both editions and stays byte-identical.
+- **Vendor an upstream.** Copy it byte for byte into `skills/<name>/vendor/<upstream>/`, keep its licence and notice files beside it, record the commit and the copied date in `LICENSES.md`, and never edit inside `vendor/`. If a repository has no licence, do not vendor it at all.
+- **After any edit**, run `lint_content.py`, then `check_parity.py`, then push the English repository first and the mirror second. The parity check is what keeps two editions from drifting into two projects.
 
-`econ-research-kit-zh` is the same tree in Chinese. Rules:
+## Status and licence
 
-- File paths and filenames are identical and never translated.
-- `scripts/` and `glossary.yaml` are **byte-identical**.
-- Every other file has the same heading structure, the same acceptance-item count, and the same placeholder set — only the language differs.
-- `writing` and `tables-figures` are the deliberate exception: the English edition documents English-journal conventions, the Chinese edition documents Chinese-journal conventions. Same sections, different content.
+Version 0.3.0. Eight stages, twelve field packs, four data dictionaries, three teaching tracks, twelve vendored upstream components, two sets of conventions measured from actual journal issues, and a runnable artefact or a checker for every stage.
 
-`scripts/check_parity.py` enforces all of this. CI runs it on every push.
-
-## Contributing
-
-1. Read `_glossary` rules first: method terms must use `locked` translations.
-2. New skills need all eight sections. `scripts/lint_content.py` will tell you what is missing.
-3. Do not add a ninth skill without removing one. Eight stages is the design, not a starting point.
-4. Numbers, page references, and policy document numbers are never invented. Write `[to fill]` instead.
-5. Looking for a source? `scripts/lookup_source.py CFPS` searches an external directory of over a thousand sources. A hit is a lead; write a numbered entry in `data-dict/` once you actually use it.
-
-## Status
-
-Version 0.2.0. Eight skills, ten domains, four data dictionaries, three teaching tracks. Three stages ship with a runnable template and a golden output to diff against: `data-prep`, `estimation`, and `tables-figures`. Vendoring done in two passes: graph schemes, prompt specifications, three management-journal table and figure skill directories, and LaTeX table fragments; licences recorded under `skills/*/vendor/`. Reporting conventions measured from 28 Chinese-journal articles sit under `skills/*/overrides/`. Chinese mirror at parity.
-
-## Licence
-
-MIT for our content. Vendored material keeps its own licence, recorded in each `vendor/LICENSES.md`.
+The kit is MIT licensed. Vendored material keeps its own licence; the licence, notice and commit for each upstream are recorded in the `LICENSES.md` next to it. The companion book is a working handbook distributed for reference and teaching, by LW Walker, with friends and family.

@@ -51,6 +51,8 @@ Why the report must be generated and never hand-edited: a hand-edited report is 
 | `manifests/provenance.json` | data snapshot, code commit, software environment | editor, referee |
 | `build/build.log` | timestamped log of the last full build | troubleshooting |
 
+- Runnable template and gold sample: `skills/report/templates/build_report.py` builds the report from one frozen table file and one frozen estimate file, `skills/report/templates/README.md` states the input and output contract, and `skills/report/expected/report.md` is the builder's own output on the gold sample inputs.
+
 ## Acceptance
 
 - [ ] From a clean checkout, one command rebuilds the intermediate data, the tables, the figures, and both reports with no manual step.
