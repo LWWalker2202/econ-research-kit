@@ -67,6 +67,22 @@ git clone https://github.com/LWWalker2202/econ-research-kit.git \
   ~/.claude/skills/econ-research-kit
 ```
 
+**DSH (DeepSeek Harness)**
+
+DSH reads two skill directories, a shared one and its own:
+
+```bash
+# shared across agents, recommended
+git clone https://github.com/LWWalker2202/econ-research-kit.git \
+  ~/.agents/skills/econ-research-kit
+
+# or DSH-only
+git clone https://github.com/LWWalker2202/econ-research-kit.git \
+  ~/.dsh/skills/econ-research-kit
+```
+
+On Windows these are `%USERPROFILE%\.agents\skills\` and `%USERPROFILE%\.dsh\skills\`; one skill is one directory that contains `SKILL.md`, so no extra registration step is needed. If DSH is already running, start a new session so the skill list is rebuilt.
+
 Restart the agent. To verify it loaded, ask: *"In econ-research-kit, what does the feasibility skill decide?"* If the agent cannot answer, the skill is not on its path.
 
 No build step, no dependencies beyond Python 3.9+ for the scripts in `scripts/`.
