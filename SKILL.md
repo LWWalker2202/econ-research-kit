@@ -22,7 +22,7 @@ Economics research as a set of executable steps. Not a prompt collection — a w
 | # | Stage | Skill | The question it answers |
 |---|---|---|---|
 | 0 | Feasibility gate | `skills/feasibility/` | Can this be done at all with the data and variation available? |
-| 1 | Problem and literature | `skills/feasibility/` (part 2) | Is the gap real, and is it worth a paper? |
+| 1 | Problem and literature | `skills/literature/` | Is the gap real, and is it worth a paper? |
 | 2 | Identification design | `skills/identification/` | What variation identifies the effect, and what would break it? |
 | 3 | Data | `skills/data-prep/` | Are the variables defined the way I think they are? |
 | 4 | Estimation | `skills/estimation/` | Is the specification defensible, and what does each robustness check protect against? |
@@ -40,7 +40,7 @@ Before reading the table below, run `python scripts/preflight.py "<the user's wo
 | The user says something like | Enter | First move |
 |---|---|---|
 | "我想研究 X，这东西能做吗？" / "有没有数据？" / "this is probably infeasible" | `skills/feasibility/` | Enumerate the data and the variation before writing any code |
-| "这个题目有没有人做过？" / "novelty" / "文献缺口" | `skills/feasibility/` | Build the literature matrix, then look for the gap |
+| "这个题目有没有人做过？" / "novelty" / "文献缺口" | `skills/literature/` | Write the search plan first, then build the matrix |
 | "我用 DID / IV / RDD / 事件研究" / "识别策略" / "how do I identify this" | `skills/identification/` | Write the threat list before the regression |
 | "数据洗一下" / "变量怎么构造" / "merge 不上" / "口径" | `skills/data-prep/` | Check variable definitions across years first |
 | "跑个回归" / "加固定效应" / "稳健性" / "robustness" | `skills/estimation/` | Justify the clustering level and the FE set |

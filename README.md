@@ -2,7 +2,7 @@
 
 A **stage-by-stage toolkit for empirical work in economics**: from "is this question even answerable", through "run the regression", "produce a publication table", "write the report", to "answer the referee", in eight stages. Every stage ships either a template you can actually run (and compare against a golden output) or a checker that reads what you produced and tells you line by line what is missing.
 
-**Version 0.3.7** ｜ This is the English master repository; the Chinese mirror is [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh), and CI compares the structure of the two on every push.
+**Version 0.3.8** ｜ This is the English master repository; the Chinese mirror is [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh), and CI compares the structure of the two on every push.
 
 > First time here? Jump straight to "Step one". You do not need to understand why the repository is shaped this way before you use it.
 
@@ -102,7 +102,7 @@ python scripts\lint_content.py .
 python scripts\check_parity.py
 ```
 
-The first prints `OK` plus how many markdown files are clean. The second prints `OK — parity holds. 227 files, 121 markdown files compared.` If both are OK, the repository is intact.
+The first prints `OK` plus how many markdown files are clean. The second prints `OK — parity holds. 246 files, 131 markdown files compared.` If both are OK, the repository is intact.
 
 ## What each folder is for
 
