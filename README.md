@@ -141,6 +141,8 @@ git clone https://github.com/LWWalker2202/econ-research-kit.git ~/.dsh/skills/ec
 
 On Windows the same paths are `%USERPROFILE%\.codex\skills\`, `%USERPROFILE%\.agents\skills\` and so on. The fourth way needs no agent at all: read `SKILL.md`, follow the routing table, open the file it names. The repository is designed to be useful as a document.
 
+If you would rather not clone, take a packaged build from [the latest release](https://github.com/LWWalker2202/econ-research-kit/releases/latest). The `dsh-bundle` zip installs as a DeepSeek Harness plugin that the Plugins page can switch on and off; the `codex` zip is a plain skill pack to unpack into a skills directory.
+
 ## Check that it loaded
 
 Ask the agent three things. If the first answer is vague, the skill was not picked up.
