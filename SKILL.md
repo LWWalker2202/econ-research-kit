@@ -51,7 +51,7 @@ Before reading the table below, run `python scripts/preflight.py "<the user's wo
 
 If two skills could both apply, **go upstream**. A table problem is usually a specification problem; a specification problem is usually an identification problem.
 
-## Four hard rules
+## Five hard rules
 
 **1. Ask before you answer: do not proceed until the four slots are filled.**
 On any research request, the first action is `python scripts/preflight.py "<the user's words in their own language>"`. It splits the question into four slots — unit of analysis, treatment variable, outcome, comparison — and tells you which ones are missing.
@@ -68,6 +68,29 @@ Skills describe how to work. They do not describe what 中央环保督察 is, ho
 
 **4. Every stage must leave a file, and every file must pass its acceptance list.**
 `## Acceptance` is a checklist, not a suggestion. An item you cannot answer yes/no to is a badly written item — rewrite it.
+
+**5. Say where you are before you do anything else.**
+Every reply that enters a stage opens with three lines: which stage (number and name), what this step alone does (one sentence, never "analyse the data"), and which file it will produce plus whether the user must confirm before you continue. A reply without that header is a black box, and the user pays for it.
+
+Every stage also ends by asking one question and waiting. See the table below.
+
+## Eight confirmation points
+
+The gate at stage 0 is not the only one. Each stage closes with one question and stops. This is not politeness: a decision the user never saw is a decision the user cannot correct.
+
+| Stage | The question to stop and ask | Continue without an answer |
+|---|---|---|
+| 0 Feasibility | The four slots are filled; can you settle the two I inferred? | No |
+| 1 Problem and literature | Which of these three candidate questions? Is the gap this one? | No |
+| 2 Identification design | Treatment group, comparison group, timing set this way: do you accept it? | No |
+| 3 Data | Variable definitions and sample boundaries drawn this way: do you accept it? | No |
+| 4 Estimation | Main specification and this robustness list: add or drop anything? | No |
+| 5 Tables and figures | This table layout and note style: is this what you want? | No |
+| 6 Report | One-page conclusion written this way: any change to how the numbers read? | No |
+| 7 Writing | Which part of this draft goes back? | No |
+| 8 Referee response | Do we revise this comment or push back, and is this the reason? | No |
+
+`python scripts/stage.py 3` prints the header and the question for any stage, so the wording does not drift between sessions.
 
 ## When a term is uncertain
 
