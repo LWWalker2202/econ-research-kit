@@ -1,165 +1,192 @@
 # econ-research-kit
 
-A workbench for empirical economics: **eight stages, twelve fields**, and for every stage either a runnable template with a golden output to diff against, or a checker that reads what you produced.
+A **stage-by-stage toolkit for empirical work in economics**: from "is this question even answerable", through "run the regression", "produce a publication table", "write the report", to "answer the referee", in eight stages. Every stage ships either a template you can actually run (and compare against a golden output) or a checker that reads what you produced and tells you line by line what is missing.
 
-**Version 0.3.3** · Mirror of the Chinese edition: [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh) (parity checked in CI)
+**Version 0.3.4** ｜ This is the English master repository; the Chinese mirror is [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh), and CI compares the structure of the two on every push.
 
-## Why this exists
+> First time here? Jump straight to "Step one". You do not need to understand why the repository is shaped this way before you use it.
 
-Three things go wrong when you ask a language model to help with research, and none of them is "the model is not smart enough".
+## What this is, in one sentence
 
-1. **You explain the project from scratch every time.** The setup lives in a chat window that scrolls away, so the hundredth conversation is as uninformed as the first.
-2. **The code looks right and you cannot tell whether it is.** A defensible-looking table is not a table. Nothing in a chat checks whether the clustering matches the treatment assignment.
-3. **Everyone in the group does it differently.** Handing a project over means handing over a conversation, and the student who inherits it cannot see what was tried and rejected.
+You have a research question but you are not sure what the first step is, or the second. This repository splits the work into eight stages and states, for each stage: **what you must have in hand before you start, two questions to ask yourself, which file you must hand over when you finish, and what makes that file acceptable**.
 
-This kit takes the opposite bet: **write the procedure down once, as files, so that the model reads the same procedure you do.** A file can be checked, versioned, argued with and replaced. A conversation cannot.
+It will not write the paper for you and it will not tell you whether your identification strategy holds up. It does one thing only: **it forces you to put the things you should have thought about into files, and then checks whether you actually did.**
 
-## What is in the box
+## When you will need it
 
-| Layer | What it holds | The question it answers |
+Any one of these situations is enough:
+
+1. You have been handed a topic and do not know where to start, and you do not want to open with "write me the code" the moment you open a chatbot.
+2. You ran the regression and produced a table, but you do not know whether that table can go into a paper.
+3. A referee asks about parallel trends or about why you clustered at that level, and you do not know how to answer.
+4. You want AI help, but you re-explain the project every single time, and the output looks plausible while being unusable.
+5. You are supervising an undergraduate or a first-year student and need something they can follow without you sitting next to them.
+
+## Step one: install nothing, read three things first
+
+About three minutes, no commands.
+
+| Read | File | What you will know afterwards |
 |---|---|---|
-| `skills/` | eight stage procedures | How is this step actually done? |
-| `domains/` | twelve field packs, five files each | What is special about my field here? |
-| `data-dict/` | Chinese micro data sources | What is this variable called? |
-| `index/actions.csv` | forty-nine actions, bilingual columns | What am I trying to do right now? |
-| `scripts/` | four checks | Is the repository still consistent? |
-| `book/` | the companion handbook | Why is it built this way? |
+| One, the overall shape | this file | eight stages, twelve fields, how to install |
+| Two, what is special about your field | the five files in `domains/labor/` or `domains/energy-env/` | where your project most often goes wrong |
+| Three, how one stage actually runs | `skills/feasibility/SKILL.md` | the four questions to ask before you start |
 
-One sentence: `skills/` tells you **how**, `domains/` tells you **what is special here**, `data-dict/` tells you **what the variable is called**.
+Only come back and install something if you still want to.
 
-## Five minutes
+## Step two: pick one of three ways to install it
 
-Nothing to install. Python 3.11 or newer, standard library only.
+Ask yourself one question: **which AI tool do you use?**
 
-```bash
-# 1. is the content clean?
-python scripts/lint_content.py .
+| Your tool | How to install | Where you then use it |
+|---|---|---|
+| An AI coding tool (Codex desktop, Claude Code, DeepSeek Harness) | copy this whole repository into that tool's skills directory (table below) | in the chat, say "help me check whether this question is answerable"; it reads the skill by itself |
+| A web chatbot only (ChatGPT, Claude, Kimi, Doubao) | do not install anything. open the stage you need under `skills/`, copy the prompt body in full, paste it into the chat | paste and go |
+| No AI at all | do not install anything. read it as documentation | follow it while you work |
 
-# 2. do the two editions still match?
-python scripts/check_parity.py
+Skills directories (pick one; replace `<you>` with your Windows user name):
 
-# 3. produce a table and diff it against the golden output
-cd skills/tables-figures
-python templates/panel_ols.py --lang en
-diff output/table1.tex expected/table1.tex
-```
-
-If the third command prints nothing, you have just reproduced a publication-grade three-line table from a fixed seed. That is the whole idea: the interesting part is not that the table appeared, it is that you can tell whether it is right.
-
-## The eight stages
-
-| # | Stage | Skill | The question it answers |
-|---|---|---|---|
-| 0 | Feasibility gate | `skills/feasibility/` | Can this be done at all with the data and variation available? |
-| 1 | Problem and literature | `skills/feasibility/` (part two) | Is the gap real, and is it worth a paper? |
-| 2 | Identification design | `skills/identification/` | What variation identifies the effect, and what would break it? |
-| 3 | Data | `skills/data-prep/` | Are the variables defined the way I think they are? |
-| 4 | Estimation | `skills/estimation/` | Is the specification defensible, and what does each robustness check protect against? |
-| 5 | Tables and figures | `skills/tables-figures/` | Do the outputs meet journal format? |
-| 6 | Report | `skills/report/` | Can someone else reproduce this from my files? |
-| 7 | Writing and submission | `skills/writing/` | Does the prose carry the identification story? |
-| - | Referee response | `skills/review/` | How do I answer without conceding what I should not? |
-
-**Stage 0 is a gate, not a step.** If it fails, stop. Do not clean data for a project whose identification cannot work; that is how a year disappears.
-
-## Twelve domains
-
-| Directory | Field |
+| Tool | Where to put it |
 |---|---|
-| `domains/energy-env/` | Energy and environmental economics |
-| `domains/labor/` | Labour economics |
-| `domains/education/` | Economics of education |
-| `domains/health/` | Health economics |
-| `domains/behavioral/` | Behavioural and experimental economics |
-| `domains/development/` | Development and field experiments |
-| `domains/public/` | Public economics and policy evaluation |
-| `domains/industrial-organization/` | Industrial organisation and regulation |
-| `domains/trade-spatial/` | Trade and spatial economics |
-| `domains/macro-finance/` | Macroeconomics and finance |
-| `domains/economic-history/` | Economic history and textual sources |
-| `domains/theory/` | Theoretical modelling and mechanism design |
+| Codex desktop | `C:\Users\<you>\.codex\skills\econ-research-kit\` |
+| Claude Code | `C:\Users\<you>\.claude\skills\econ-research-kit\` |
+| DeepSeek Harness | `C:\Users\<you>\.agents\skills\econ-research-kit\` |
 
-Each pack has five files: `institutional.md` (background, timeline, paragraphs you can paste), `measures.md` (how the treatment variable is built, and what each definition assumes), `data.md` (sources, variable names, coverage, known problems), `pitfalls.md` (what referees ask and how to answer), and `route.md` (which of the eight stages to look at, and what to confirm there).
+After copying, that directory must contain `SKILL.md` immediately. Do not leave one extra folder of the same name on top of it; that is the most common mistake.
 
-**Fields are a filter, not a funnel.** A paper on environmental regulation and firm investment touches energy, public economics and industrial organisation at once. Read the packs you need; do not pick one and stay in it.
+## Step three: confirm that it is really loaded
 
-## Which stages can actually run
+Open a **new** chat (the skills list is read when a chat starts), then ask:
 
-Three stages produce artefacts; five read what you produced. No stage is a memo asking you to be careful.
+> What does the feasibility stage decide?
 
-| Stage | What ships | How to check it |
-|---|---|---|
-| Feasibility | `check_memo.py`, a filled memo, six machine checks | `python skills/feasibility/templates/check_memo.py skills/feasibility/expected/feasibility-memo.md` |
-| Identification | `check_design.py`, a filled memo, six machine checks | `python skills/identification/templates/check_design.py skills/identification/expected/identification-memo.md` |
-| Data | `clean_panel.py` and a Stata twin, cleaning log as golden output | run the script twice, the hash must not move |
-| Estimation | `estimate_main.py` and a Stata twin, a five-step specification chain | `python skills/estimation/templates/estimate_main.py --lang en` |
-| Tables | `latex_table.py`, `panel_ols.py`, `table1.tex` as golden output | diff against `expected/table1.tex` |
-| Report | `build_report.py`, turns artefacts into a report | numbers come only from the input files, never invented |
-| Writing | `check_abstract.py`, seven machine checks | `python skills/writing/templates/check_abstract.py skills/writing/expected/abstract.md` |
-| Review | `check_response.py`, five machine checks | `python skills/review/templates/check_response.py skills/review/expected/response-letter.md` |
+If the answer mentions the four slots, the data coverage matrix, stop criteria, and a go / reduce-scope / stop verdict, the skill is loaded.
 
-Two habits sit behind all of it: **deterministic fixtures** (fixed seeds, so a hash that moves means you changed something) and **a golden output for every generator** (so a library upgrade that silently changes formatting is visible the next time you run it).
+If it instead gives you a generic paragraph about "considering feasibility", the skill was not read. Say:
 
-## The companion book
+> Did you load the econ-research-kit skill? Read its SKILL.md first, then answer.
 
-`book/` holds *Prompt Engineering for Economists* by LW Walker, with friends and family: 208 pages, sixty templates, written for undergraduate, master's and PhD readers at once. The book explains why the procedure looks like this; this repository is the version you run. `book/README.md` says which file to read and which chapter pairs with which stage.
+## Step four: run it once and look at three outputs
 
-Its one-line thesis is also this repository's: **a prompt that cannot be checked is a wish, not a specification.** If you only read one chapter, read the third one, the eight elements of an economics problem description, and then open `skills/identification/SKILL.md` to see the same idea as a file.
+This step produces real files. You need Python 3.11 or newer (type `python --version` in PowerShell; if you see a version number, you have it) and one install command.
 
-## Design principles
+Install two libraries first:
 
-1. **Stage 0 is a gate, not a step.** A project that fails feasibility does not deserve clean data.
-2. **Artefacts over prose.** Every stage must leave a file. If a session produced only a nice answer, it produced nothing.
-3. **Scripts over results.** A number without a script is a rumour. Always generate the script, not just the output.
-4. **Domain knowledge and procedure live apart.** `skills/` says how to do it; `domains/` says what is special here. Mixing them makes both stale.
-5. **An acceptance item you cannot answer yes or no is a broken item.** Rewrite it; do not soften it.
-6. **Anything that can be machine-checked is not left to memory.** Machines do not get tired at eleven at night.
-
-## Common misreadings
-
-- **It is not a prompt collection.** Sixty templates live in the book. These are eight procedures with inputs, steps, artefacts and acceptance lists.
-- **It does not run your research.** It stops you from spending three months on something that could not have worked, and it makes what you did defensible afterwards.
-- **Twelve domains are not twelve skills.** A domain answers "what is special in my field"; a skill answers "how is this step done". They are orthogonal on purpose.
-- **Golden outputs are not data.** Every fixture is synthetic. Never cite a number from a directory called `expected`.
-- **The Chinese mirror is not a translation.** The differences that matter are submission conventions: abstract length, JEL codes versus a Chinese classification number, table notes, online appendices. That is why `writing` and `tables-figures` differ between editions while everything else matches.
-
-## Install
-
-Four ways, pick one.
-
-```bash
-# Codex
-git clone https://github.com/LWWalker2202/econ-research-kit.git ~/.codex/skills/econ-research-kit
-
-# Claude Code
-git clone https://github.com/LWWalker2202/econ-research-kit.git ~/.claude/skills/econ-research-kit
-
-# DSH: the shared directory is read by DSH and others; the second is DSH only
-git clone https://github.com/LWWalker2202/econ-research-kit.git ~/.agents/skills/econ-research-kit
-git clone https://github.com/LWWalker2202/econ-research-kit.git ~/.dsh/skills/econ-research-kit
+```
+pip install pandas pyfixest
 ```
 
-On Windows the same paths are `%USERPROFILE%\.codex\skills\`, `%USERPROFILE%\.agents\skills\` and so on. The fourth way needs no agent at all: read `SKILL.md`, follow the routing table, open the file it names. The repository is designed to be useful as a document.
+Now open PowerShell, go to the root of this repository (the level where you can see the `skills` and `domains` folders), and paste these three commands **one at a time**:
 
-If you would rather not clone, take a packaged build from [the latest release](https://github.com/LWWalker2202/econ-research-kit/releases/latest). The `dsh-bundle` zip installs as a DeepSeek Harness plugin that the Plugins page can switch on and off; the `codex` zip is a plain skill pack to unpack into a skills directory.
+```
+python skills\estimation\templates\estimate_main.py --lang en
+python skills\tables-figures\templates\panel_ols.py --lang en
+python skills\report\templates\build_report.py --results output\estimation-results.json --tables output\table1.tex --out output\report.md --lang en
+```
 
-## Check that it loaded
+Each command prints a line starting with `wrote`. When all three have run, an `output` folder appears with four files:
 
-Ask the agent three things. If the first answer is vague, the skill was not picked up.
+| File | What it is |
+|---|---|
+| `estimation-results.md` | a description of three regression specifications: coefficients, standard errors, clustering level |
+| `estimation-results.json` | the same results in machine-readable form, used by the next step |
+| `table1.tex` | a booktabs regression table you can drop into a paper |
+| `report.md` | a reproducible report: one-line conclusion, main results, robustness, how to reproduce |
 
-1. "What does the feasibility stage decide, and what happens if it fails?"
-2. "Which file do I read before I construct an environmental regulation treatment variable?"
-3. "What are the six checks in the identification checker?"
+**Important**: those three commands run on synthetic data made by the scripts themselves. The point is to show you the shape of the workflow; **none of the numbers may be cited**. Your own data belongs in your own project folder, never in this repository.
 
-## Extending this
+If you also want to confirm the repository has not been damaged, run the two self-checks:
 
-- **Add a field.** Copy any `domains/<field>/` directory, keep the five file names, write `route.md` last. Then run both checks.
-- **Add a stage.** Create `skills/<name>/SKILL.md` with the eight fixed sections, and add the actions to `index/actions.csv`. The CSV has bilingual columns on purpose: one file serves both editions and stays byte-identical.
-- **Vendor an upstream.** Copy it byte for byte into `skills/<name>/vendor/<upstream>/`, keep its licence and notice files beside it, record the commit and the copied date in `LICENSES.md`, and never edit inside `vendor/`. If a repository has no licence, do not vendor it at all.
-- **After any edit**, run `lint_content.py`, then `check_parity.py`, then push the English repository first and the mirror second. The parity check is what keeps two editions from drifting into two projects.
+```
+python scripts\lint_content.py .
+python scripts\check_parity.py
+```
 
-## Status and licence
+The first prints `OK` plus how many markdown files are clean. The second prints `OK — parity holds. 227 files, 121 markdown files compared.` If both are OK, the repository is intact.
 
-Version 0.3.3. Eight stages, twelve field packs, four data dictionaries, three teaching tracks, four vendored upstream projects, two sets of conventions measured from actual journal issues, and a runnable artefact or a checker for every stage.
+## What each folder is for
 
-The kit is MIT licensed: Copyright (c) 2026 LW Walker, with dear friends and lovely family. Vendored material keeps its own licence; the licence, notice and commit for each upstream are recorded in the `LICENSES.md` next to it. The companion book is a working handbook distributed for reference and teaching, and it carries the same credit.
+One line each. Do not memorise them; look them up when you need them.
+
+| Folder | What it is for |
+|---|---|
+| `skills/` | **how to do it.** one folder per stage, each with `SKILL.md` (the procedure), `templates/` (runnable scripts), `expected/` (the golden output) |
+| `domains/` | **what is special about this field.** twelve directions, five files each: institutional background, how the treatment variable is built, what the data look like, what referees ask, how the eight stages run in this field |
+| `data-dict/` | **what the variable is actually called.** one entry each for CFPS, CHARLS, the Chinese industrial firms database and pollution monitoring, plus a pointer to an external catalogue of data sources |
+| `index/` | a forty-nine-row list of actions: what you want to do now, and which stage it belongs to. readable by people and by models |
+| `scripts/` | four self-check and lookup scripts (content lint, cross-repository parity, action table rendering, data source lookup) |
+| `teaching/` | how to use the kit at undergraduate, master and doctoral level |
+| `book/` | reading notes for the companion booklet (first edition archive) |
+| `glossary.yaml` | the term table: what it is called in Chinese, in English, and which rendering is mandatory |
+
+## The eight stages: wherever you are stuck, go there
+
+| Stage | Name | What is in your head when you are stuck | The file you hand over |
+|---|---|---|---|
+| 0 | feasibility | "Can this even be done? Is my data enough?" | `feasibility-memo.md` |
+| 1 | question and literature | "How does this relate to the literature? What is my contribution?" | literature matrix and question statement |
+| 2 | identification | "How would someone argue my result is fake?" | `identification-memo.md` |
+| 3 | data | "Did this variable change definition between years?" | `cleaning-log.md` |
+| 4 | estimation | "How do baseline, robustness and event study line up?" | `estimation-results.json` |
+| 5 | tables and figures | "Can this table be submitted as it stands?" | `table1.tex` and figures |
+| 6 | report | "How do I turn these results into prose?" | `report.md` |
+| 7 | writing | "How do I write the abstract and the contribution sentence?" | the manuscript |
+| 8 | referee response | "How do I answer this comment without bluffing?" | the response letter |
+
+Note that stage 0 is a **gate, not a step**: if it returns "do not do this" or "do this with a reduced scope", the remaining seven stages stop. People ask whether they can skip it. Skip it and the remaining seven stages will multiply the mistake by seven.
+
+## The twelve fields: which cell does your question fall into
+
+| Directory | Field | Directory | Field |
+|---|---|---|---|
+| `energy-env` | energy and environment | `labor` | labour |
+| `education` | education | `health` | health |
+| `behavioral` | behavioural and experimental | `development` | development and field experiments |
+| `public` | public policy evaluation | `industrial-organization` | industrial organization and regulation |
+| `trade-spatial` | trade and spatial economics | `macro-finance` | macroeconomics and finance |
+| `economic-history` | economic history and sources | `theory` | theory and mechanism design |
+
+A question spanning two fields is normal (an environmental inspection affecting firm investment is both energy-environment and industrial organization). Read both; do not agonise over which cell it belongs to.
+
+## Five things people get wrong about it
+
+1. **It is not an automatic paper writer.** It produces no prose. It tells you which file to hand over and what makes that file acceptable.
+2. **It does not judge whether your identification strategy holds.** It forces you to list the threats and write the test for each one; the judgement stays yours.
+3. **The numbers in `expected/` cannot be cited.** They come from synthetic data and exist to pin down format and workflow, not to report a result.
+4. **`[待填]` and `[待核实]` are not missing text.** There are about two hundred of them on purpose: data definitions and literature references must be verified by you. If a model fills them in, it is inventing.
+5. **It is not a prompt collection.** The point of each stage is the sequence of files you hand over and the way you verify them; the prompt is only one part of it.
+
+## If you do not want to install anything, reading alone works
+
+That is a complete path, not a degraded one:
+
+1. Read section four of this file to learn the eight stages.
+2. Find the stage you are stuck at, open `skills/<that stage>/SKILL.md`, read three sections: when to enter, procedure, acceptance.
+3. Work down the procedure, tick off the acceptance list after each step.
+4. Any item you cannot tick: read the common failure modes in the same file.
+
+No AI tool, no scripts, still complete.
+
+## When something goes wrong, check these three first
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| the AI never mentions this kit | the skill is not loaded, or the folder is one level too deep | open a new chat; make sure `SKILL.md` sits directly inside the skill folder |
+| a script says "No module named pandas" | the libraries are not installed | run `pip install pandas pyfixest` |
+| the self-checks report a wall of errors that look unrelated | you ran them from the wrong directory | `cd` to the repository root (the level with `skills` and `domains`) and pass `.` as the argument |
+
+Longer troubleshooting (encoding, GitHub connectivity, red CI) lives in `02_组合包与Codex包_安装说明_v1.md` under `交付/` in the working project; that document is about "I cannot get it installed".
+
+## Who maintains it, and how to change it
+
+- Author and copyright holder: **LW Walker, with dear friends and lovely family**.
+- Relationship between the two repositories: the English one is the master, the Chinese one is a mirror. **The structures must stay identical**; `python scripts/check_parity.py` compares them on every push.
+- Order of work: change the English repository, mirror the change into the Chinese one, run the self-checks, then commit. **These must be byte-identical in both repositories**: every script under `scripts/`, `glossary.yaml`, `index/actions.csv`. Changing only one side is caught by CI immediately.
+- Where new material goes: new stages under `skills/`, new fields under `domains/`, new data under `data-dict/`, and each of them needs a matching row in `index/actions.csv`.
+
+## Licence, citation, and the companion book
+
+- Licence: MIT. Use it, change it, ship it inside your own project, keep the copyright notice.
+- The third-party material under `skills/*/vendor/` is **not** MIT: each directory keeps its own licence, and its `LICENSES.md` records the upstream repository, the commit, the exact files and where the licence text sits.
+- Citation: see `LICENSE` and the format given in `book/README.md`.
+- Companion booklet: `book/` keeps the first-edition archive only; the current edition is not distributed with the repository. A much more detailed **user manual** (58,000 characters, eighteen chapters, written for people with no command-line experience) sits in the release assets.
