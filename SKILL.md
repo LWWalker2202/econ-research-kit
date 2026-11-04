@@ -35,6 +35,8 @@ Economics research as a set of executable steps. Not a prompt collection — a w
 
 ## Routing: what the user says, which skill to enter
 
+Before reading the table below, run `python scripts/preflight.py "<the user's words>"`. It tells you which of the four slots are missing. Every "first move" in the table happens only after the four slots are filled; while a slot is open, the only move is to ask about it.
+
 | The user says something like | Enter | First move |
 |---|---|---|
 | "我想研究 X，这东西能做吗？" / "有没有数据？" / "this is probably infeasible" | `skills/feasibility/` | Enumerate the data and the variation before writing any code |
@@ -49,15 +51,22 @@ Economics research as a set of executable steps. Not a prompt collection — a w
 
 If two skills could both apply, **go upstream**. A table problem is usually a specification problem; a specification problem is usually an identification problem.
 
-## Three hard rules
+## Four hard rules
 
-**1. Read `glossary.yaml` before writing any method term.**
+**1. Ask before you answer: do not proceed until the four slots are filled.**
+On any research request, the first action is `python scripts/preflight.py "<the user's words in their own language>"`. It splits the question into four slots — unit of analysis, treatment variable, outcome, comparison — and tells you which ones are missing.
+- Missing slots: write **at most three questions**, ask them all at once, then stop and wait for the answer.
+- A slot you filled by inference must be marked "assuming X", and the user must confirm it.
+- Only when all four slots are filled — by the user, or by an assumption the user confirmed — may you enter step 2 of any skill.
+**This is the only rule in the kit that requires stopping to wait for a human.** Work produced past this gate is a guess wearing a document's clothes.
+
+**2. Read `glossary.yaml` before writing any method term.**
 It has three levels: `locked` (use verbatim), `pending` (use the first candidate and parenthesise the alternative), `fallback` (keep the Chinese proper noun, give the English expansion once). Violating a `locked` translation is a defect, not a style choice.
 
-**2. Domain specifics live in `domains/`, not in the skills.**
+**3. Domain specifics live in `domains/`, not in the skills.**
 Skills describe how to work. They do not describe what 中央环保督察 is, how CFPS defines education, or what referees ask about pollution exposure. Every skill's last section says which domain file to open. Open it.
 
-**3. Every stage must leave a file, and every file must pass its acceptance list.**
+**4. Every stage must leave a file, and every file must pass its acceptance list.**
 `## Acceptance` is a checklist, not a suggestion. An item you cannot answer yes/no to is a badly written item — rewrite it.
 
 ## When a term is uncertain
@@ -85,7 +94,7 @@ If the term is not in the glossary at all, keep the Chinese original and give an
 
 Twelve directions are covered. The first three are the ones this kit was built around; labour, education and health are the three fields the book treats together under applied micro; the rest were added so that a reader outside applied micro still finds a shelf to stand on.
 
-Each direction has four files: `institutional.md` (background and ready-to-cite paragraphs), `measures.md` (how the treatment variable is built), `data.md` (sources and variable names), `pitfalls.md` (what referees ask and how to answer).
+Each direction has five files: `institutional.md` (background and ready-to-cite paragraphs), `measures.md` (how the treatment variable is built), `data.md` (sources and variable names), `pitfalls.md` (what referees ask and how to answer), and `route.md` (how this direction walks the eight stages).
 
 ## Data
 

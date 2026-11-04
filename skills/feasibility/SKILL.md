@@ -19,7 +19,7 @@ The feasibility gate is the cheapest stage of a project and the only stage whose
 
 | What you need | Where it comes from | What if missing |
 |---|---|---|
-| Research question naming unit, treatment variable, outcome, and comparison | supervisor, reading list, policy documents | Write it on one line; if it cannot be written in one sentence, the idea is not ready |
+| Research question naming unit, treatment variable, outcome, and comparison | supervisor, reading list, policy documents | Run `scripts/preflight.py` first; ask the missing slots in at most three questions; if the question cannot be written in one sentence, the idea is not ready |
 | Candidate datasets and their access routes | `data-dict/`, agency portals, coauthors | List at least two alternatives; a dataset with no access route counts as unavailable |
 | Institutional detail on how treatment is assigned | `domains/*/institutional.md` | Read the primary policy documents and mark every claim `[to fill]` until verified |
 | Budget in person-weeks and compute hours | your own project history and the deadline | Fix a number before the assessment starts, not after the idea has become attractive |
@@ -27,7 +27,7 @@ The feasibility gate is the cheapest stage of a project and the only stage whose
 
 ## Procedure
 
-1. Write the question as four filled slots: unit, treatment variable, outcome, comparison. Completion condition: all four slots appear in one sentence and no slot contains "etc." or "various".
+1. Run `python scripts/preflight.py "<the user's words>"` and copy the four-slot table into the memo, marking each slot's source (given by the user / inferred by me). **Do not enter step 2 with an open slot**: ask at most three questions at once, then stop and wait. Completion condition: all four slots filled, every slot carries a source, and every inferred slot has been confirmed by the user.
 2. Screen data coverage. For each candidate dataset, mark each of the four fields present, proxy, or missing. Completion condition: a dataset-by-field matrix with no empty cell.
 3. Screen access. For each dataset record the access route, the responsible person, and the lead time in weeks. Completion condition: every dataset has a week count and a named person who will file the application.
 4. Name the source of exogenous variation in one sentence of the form "X varies across units because of Y, and Y is unrelated to Z". Completion condition: Y is an institution, a rule, or a mechanical formula, not a behavioral choice.
@@ -48,7 +48,7 @@ The feasibility gate is the cheapest stage of a project and the only stage whose
 
 ## Acceptance
 
-- [ ] The question is one sentence naming unit, treatment variable, outcome, and comparison.
+- [ ] All four slots are filled, each carrying a stated source (given by the user / a confirmed inference); none is an unconfirmed guess.
 - [ ] Every candidate dataset is marked present, proxy, or missing on each of the four fields.
 - [ ] Each dataset has an access route, a responsible person, and a lead time in weeks.
 - [ ] The variation sentence answers "variation from what" without referring to a regression.
