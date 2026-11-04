@@ -1,6 +1,6 @@
 # The companion book
 
-Two PDFs sit in this directory. They are the reason the rest of the repository is shaped the way it is, so they are worth five minutes even if you never read them cover to cover.
+One PDF sits in this directory: the archived first edition. The current edition is not distributed through this repository. The book is still the reason the rest of the repository is shaped the way it is, so the archive is worth five minutes even if you never read it cover to cover.
 
 ## What the book is
 
@@ -10,12 +10,11 @@ It contains sixty templates. Twelve are general-purpose (decomposing a hard ques
 
 ## Which file to read
 
-- `prompt-engineering-for-economists-v2.pdf` is the current edition. Read this one.
 - `prompt-engineering-for-economists-v1.pdf` is the first edition (170 pages, 42 templates). It is kept for the archive: if a reader cites a page number that no longer matches, this is why.
 
 ## Author and acknowledgement
 
-Written by **LW Walker, with dear friends and lovely family**. The book grew out of material prepared for a research group, and the debts are personal as much as intellectual: the people who read drafts, sat through the walkthroughs, and kept asking the question that made a section get rewritten.
+Written by **LW Walker, with dear friends and lovely family**. This little book is a flower nourished by countless ordinary days: everyone who helped me, everyone who walked beside me, is a co-author of it.
 
 ## How the book and this kit differ
 
@@ -41,6 +40,6 @@ The book's sixty templates are task templates. The kit re-cut them along a diffe
 
 The book is a working handbook, not a formally published title, and it is distributed here for reference and teaching. Cite it as:
 
-> LW Walker, with friends and family. *Prompt Engineering for Economists*, second edition, 2026.
+> LW Walker, with friends and family. *Prompt Engineering for Economists*, first edition, 2026.
 
 If you reuse a template in teaching material, keep the eight-part shape and the acceptance checklist; that shape is the part that took the longest to get right.
