@@ -2,7 +2,7 @@
 
 A workbench for empirical economics: **eight stages, twelve fields**, and for every stage either a runnable template with a golden output to diff against, or a checker that reads what you produced.
 
-**Version 0.3.1** · Mirror of the Chinese edition: [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh) (parity checked in CI)
+**Version 0.3.2** · Mirror of the Chinese edition: [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh) (parity checked in CI)
 
 ## Why this exists
 
@@ -158,6 +158,6 @@ Ask the agent three things. If the first answer is vague, the skill was not pick
 
 ## Status and licence
 
-Version 0.3.1. Eight stages, twelve field packs, four data dictionaries, three teaching tracks, twelve vendored upstream components, two sets of conventions measured from actual journal issues, and a runnable artefact or a checker for every stage.
+Version 0.3.2. Eight stages, twelve field packs, four data dictionaries, three teaching tracks, four vendored upstream projects, two sets of conventions measured from actual journal issues, and a runnable artefact or a checker for every stage.
 
 The kit is MIT licensed: Copyright (c) 2026 LW Walker, with dear friends and lovely family. Vendored material keeps its own licence; the licence, notice and commit for each upstream are recorded in the `LICENSES.md` next to it. The companion book is a working handbook distributed for reference and teaching, and it carries the same credit.
