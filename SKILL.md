@@ -90,7 +90,7 @@ The gate at stage 0 is not the only one. Each stage closes with one question and
 | 7 Writing | Which part of this draft goes back? | No |
 | 8 Referee response | Do we revise this comment or push back, and is this the reason? | No |
 
-`python scripts/stage.py 3` prints the header and the question for any stage, so the wording does not drift between sessions.
+`python scripts/stage.py 3` prints the header and the question for any stage, so the wording does not drift between sessions. To see what the checks of any stage actually look for, run `python scripts/explain.py 3` (`--list` shows all eight stages).
 
 ## When a term is uncertain
 

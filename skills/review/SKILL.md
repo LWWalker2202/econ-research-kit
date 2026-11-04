@@ -57,6 +57,7 @@ Saying no without compromising, the reusable shape: accept the concern, state th
 - [ ] Every comment ID appears exactly once in `review/response_letter.md`.
 - [ ] Every cited change resolves to a real page and line in the revised PDF.
 - [ ] The cover note names every refusal within its first page.
+- [ ] Every comment has a row in `response-matrix.md` and no row is still `unresolved`.
 
 ## Common failure modes
 

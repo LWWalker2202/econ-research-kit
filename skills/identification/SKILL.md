@@ -57,6 +57,7 @@ An identification design answers one question: compared to what. The treatment v
 - [ ] Every fixed effect and control in the main specification has a one-line reason stating the variation it uses.
 - [ ] Every robustness check in the plan names the threat it addresses.
 - [ ] The memo is dated, and every pre-registration field is filled or marked `[to fill]`.
+- [ ] Every threat in the memo has a row in `threat-table.md`, and every row carries a verdict of `cleared`, `weakened`, `binding` or `open`.
 
 ## Common failure modes
 

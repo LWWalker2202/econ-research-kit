@@ -62,6 +62,7 @@ Why the report must be generated and never hand-edited: a hand-edited report is 
 - [ ] A render from an empty `output/` directory completes without warnings.
 - [ ] `manifests/provenance.json` names the data snapshot date, the code commit, and the software environment.
 - [ ] The rebuilt tables and figures are identical to the reviewed versions, or every difference is explained in `build/build.log`.
+- [ ] `python skills/report/templates/check_report.py output/report.md` prints seven out of seven.
 
 ## Common failure modes
 
