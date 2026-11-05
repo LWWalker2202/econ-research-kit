@@ -1,0 +1,13 @@
+check_report — seven mechanical rules for one report
+file: skills/report/expected/report.md
+
+[OK] 1/8 the six required sections are all present: six sections found
+[OK] 2/8 the one-line conclusion carries a coefficient and a standard error: coefficient and standard error both given
+[OK] 3/8 the main results section embeds one complete table: one complete table embedded
+[OK] 4/8 robustness lists at least two alternatives, each with numbers: 4 alternatives each with numbers
+[OK] 5/8 data and definitions lists at least three fields: 4 fields listed
+[OK] 6/8 reproduction names a seed and the input files: seed and input files recorded
+[OK] 7/8 what is still missing lists at least one item: 5 open items
+[OK] 8/8 every decimal in the prose appears in the results file: 19 numbers matched
+5 placeholder(s) still to fill
+8/8 checks passed
