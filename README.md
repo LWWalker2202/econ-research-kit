@@ -2,7 +2,7 @@
 
 A **stage-by-stage toolkit for empirical work in economics**: from "is this question even answerable", through "run the regression", "produce a publication table", "write the report", to "answer the referee", in eight stages. Every stage ships either a template you can actually run (and compare against a golden output) or a checker that reads what you produced and tells you line by line what is missing.
 
-**Version 0.3.9** ｜ This is the English master repository; the Chinese mirror is [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh), and CI compares the structure of the two on every push.
+**Version 0.3.10** ｜ This is the English master repository; the Chinese mirror is [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh), and CI compares the structure of the two on every push.
 
 > First time here? Jump straight to "Step one". You do not need to understand why the repository is shaped this way before you use it.
 
@@ -118,6 +118,17 @@ One line each. Do not memorise them; look them up when you need them.
 | `teaching/` | how to use the kit at undergraduate, master and doctoral level |
 | `book/` | reading notes for the companion booklet (first edition archive) |
 | `glossary.yaml` | the term table: what it is called in Chinese, in English, and which rendering is mandatory |
+
+## One page that says where you are
+
+```
+python scripts/dashboard.py
+python scripts/dashboard.py --html dashboard.html
+```
+
+The first prints four things: which stage the project stands in, the question the next stage will ask, how many checks each checker passes, and how many rows the cleaning moved. The second writes the same page as one self-contained HTML file (inline CSS and inline SVG, no network, no scripts) that you can send to a coauthor or drop into a slide.
+
+It reads three things that already exist: `state/progress.json`, `.econ-kit/gate.json` in your research project, and whatever the runnable scripts wrote to `output/`. Nothing is typed twice.
 
 ## The eight stages: wherever you are stuck, go there
 

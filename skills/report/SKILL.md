@@ -57,6 +57,7 @@ Why the report must be generated and never hand-edited: a hand-edited report is 
 
 - [ ] From a clean checkout, one command rebuilds the intermediate data, the tables, the figures, and both reports with no manual step.
 - [ ] No number in the report prose is typed literally; every cited value resolves from `report/values.json`.
+- [ ] `python skills/report/templates/check_report.py report.md --results report/values.json` prints 8/8: every decimal in the prose was found in the results file.
 - [ ] Files under `data/raw/` hash the same before and after the build.
 - [ ] The English and the Chinese report show identical values for every shared exhibit.
 - [ ] A render from an empty `output/` directory completes without warnings.
