@@ -2,7 +2,7 @@
 
 A **stage-by-stage toolkit for empirical work in economics**: from "is this question even answerable", through "run the regression", "produce a publication table", "write the report", to "answer the referee", in eight stages. Every stage ships either a template you can actually run (and compare against a golden output) or a checker that reads what you produced and tells you line by line what is missing.
 
-**Version 0.3.8** ｜ This is the English master repository; the Chinese mirror is [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh), and CI compares the structure of the two on every push.
+**Version 0.3.9** ｜ This is the English master repository; the Chinese mirror is [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh), and CI compares the structure of the two on every push.
 
 > First time here? Jump straight to "Step one". You do not need to understand why the repository is shaped this way before you use it.
 
@@ -134,6 +134,17 @@ One line each. Do not memorise them; look them up when you need them.
 | 8 | referee response | "How do I answer this comment without bluffing?" | the response letter |
 
 Note that stage 0 is a **gate, not a step**: if it returns "do not do this" or "do this with a reduced scope", the remaining seven stages stop. People ask whether they can skip it. Skip it and the remaining seven stages will multiply the mistake by seven.
+
+## The stages hand work to each other
+
+`workflows/main.yaml` writes the eight stages as a contract. Every stage declares what must already be on
+disk before it starts (`requires`) and what it must leave behind (`produces`).
+
+- `python scripts/workflow_check.py` fails if a stage requires a file that no earlier stage produces.
+- `python scripts/gate.py status` shows where you are, and refuses to move on until the stage's artifacts
+  exist and you have given it one answer of your own words.
+- `python scripts/spec.py "<your sentence>"` prints the task spec and an editable prompt, which is what the
+  kit shows you before it does anything.
 
 ## The twelve fields: which cell does your question fall into
 

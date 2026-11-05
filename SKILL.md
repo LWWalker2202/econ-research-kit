@@ -35,7 +35,7 @@ Economics research as a set of executable steps. Not a prompt collection — a w
 
 ## Routing: what the user says, which skill to enter
 
-Before reading the table below, run `python scripts/preflight.py "<the user's words>"`. It tells you which of the four slots are missing. Every "first move" in the table happens only after the four slots are filled; while a slot is open, the only move is to ask about it.
+Before reading the table below, run `python scripts/preflight.py "<the user's words>"`. It tells you which of the four slots are missing. Then run `python scripts/spec.py "<the user's words>"`: it prints a task-spec draft — the four slots, the stage it reads, an editable prompt, and the three things to confirm — and **that draft is what you show the user before doing any work**. Edit it together, then start. Every "first move" in the table happens only after the four slots are filled; while a slot is open, the only move is to ask about it.
 
 | The user says something like | Enter | First move |
 |---|---|---|
@@ -50,6 +50,18 @@ Before reading the table below, run `python scripts/preflight.py "<the user's wo
 | "审稿意见怎么回" / "referee report" / "rebuttal" | `skills/review/` | Classify each comment as must-do / arguable / rejectable |
 
 If two skills could both apply, **go upstream**. A table problem is usually a specification problem; a specification problem is usually an identification problem.
+
+## Before anything else: recall, then ask
+
+Every session starts with files, not with memory:
+
+```
+python scripts/recall.py
+```
+
+It prints where the project stands, what the last step produced, and what is still open.
+A session that skips it will re-ask questions the repository already answers, or rebuild
+something that already exists. Run it first, then `scripts/preflight.py`, then answer.
 
 ## Five hard rules
 
@@ -90,7 +102,7 @@ The gate at stage 0 is not the only one. Each stage closes with one question and
 | 7 Writing | Which part of this draft goes back? | No |
 | 8 Referee response | Do we revise this comment or push back, and is this the reason? | No |
 
-`python scripts/stage.py 3` prints the header and the question for any stage, so the wording does not drift between sessions. To see what the checks of any stage actually look for, run `python scripts/explain.py 3` (`--list` shows all eight stages).
+`python scripts/stage.py 3` prints the header and the question for any stage, so the wording does not drift between sessions. `workflows/main.yaml` is the same mainline written as a machine-readable handoff contract: each stage declares `requires` (what must already be on disk) and `produces` (what it must leave behind), and `python scripts/workflow_check.py` fails if a stage requires something no earlier stage produces. `python scripts/gate.py status` makes the gate mechanical rather than a convention: it keeps a per-project state file (`.econ-kit/gate.json`), refuses to advance until the stage's artifacts exist and a human answer of at least eight characters is recorded, and logs the answer with a timestamp. `gate.py pass "<the answer>"` is the only way forward; `--force` exists but writes the gap on the record. To see what the checks of any stage actually look for, run `python scripts/explain.py 3` (`--list` shows all eight stages).
 
 ## When a term is uncertain
 
