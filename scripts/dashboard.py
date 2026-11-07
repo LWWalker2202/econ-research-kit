@@ -24,6 +24,7 @@
 """
 
 import argparse
+import datetime
 import io
 import json
 import os
@@ -1098,6 +1099,35 @@ def panel_path(project):
 PANEL_INDEX = "panel-index.json"
 
 
+def workspace_hub(project):
+    """项目往上的第一个「别人也在这干活的」工作区根：即上层某个已存在 .econ-kit 的目录。"""
+    cur = os.path.dirname(os.path.abspath(project))
+    for _ in range(4):
+        if cur and os.path.isdir(os.path.join(cur, ".econ-kit")):
+            return cur
+        parent = os.path.dirname(cur)
+        if not cur or parent == cur:
+            break
+        cur = parent
+    return None
+
+
+def write_active(project):
+    """在工作区根上记一笔：现在在做哪个项目。界面据此不再永远读根目录那份看板。"""
+    try:
+        base = workspace_hub(project)
+        if not base:
+            return None
+        rel = os.path.relpath(os.path.abspath(project), base).replace(os.sep, "/")
+        payload = {"project": rel, "name": os.path.basename(os.path.abspath(project)),
+                   "updated": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")}
+        with io.open(os.path.join(base, ".econ-kit", "active.json"), "w", encoding="utf-8", newline="\n") as f:
+            f.write(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
+        return payload
+    except Exception:
+        return None
+
+
 def workspace_root(project):
     """从项目出发往上找第一个带 .econ-kit 的目录；找不到就用项目自己。"""
     cur = os.path.abspath(project)
@@ -1177,6 +1207,7 @@ def write_panel(root, out_dir, lang, project):
         if parent == here:
             break
         here = parent
+    write_active(project)
     for t in targets:
         d = os.path.dirname(t)
         if d and not os.path.isdir(d):

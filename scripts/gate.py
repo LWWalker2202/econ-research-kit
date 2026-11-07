@@ -14,6 +14,7 @@
 """
 
 import argparse
+import datetime
 import io
 import json
 import os
@@ -224,12 +225,37 @@ def start_session(question):
     return st
 
 
+def _write_active():
+    """在工作区根上记一笔现在在做哪个项目，界面据此选对那份看板。"""
+    try:
+        proj = os.getcwd()
+        cur = os.path.dirname(os.path.abspath(proj))
+        for _ in range(4):
+            if cur and os.path.isdir(os.path.join(cur, ".econ-kit")):
+                rel = os.path.relpath(os.path.abspath(proj), cur).replace(os.sep, "/")
+                payload = {"project": rel, "name": os.path.basename(os.path.abspath(proj)),
+                           "updated": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")}
+                with io.open(os.path.join(cur, ".econ-kit", "active.json"), "w", encoding="utf-8", newline="\n") as f:
+                    f.write(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
+                return
+            parent = os.path.dirname(cur)
+            if not cur or parent == cur:
+                break
+            cur = parent
+    except Exception:
+        pass
+
+
 def save(st):
     if not os.path.isdir(STATE_DIR):
         os.makedirs(STATE_DIR)
     with io.open(STATE_FILE, "w", encoding="utf-8", newline="\n") as f:
         json.dump(st, f, ensure_ascii=False, indent=2)
     _refresh_panel()
+    try:
+        _write_active()
+    except Exception:
+        pass
 
 
 def stage_row(i):
