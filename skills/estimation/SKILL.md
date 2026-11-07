@@ -57,6 +57,8 @@ Estimation looks like a technical step and is really an interpretive one. Every 
 - [ ] A multiple-testing family is named and the correction applied to every confirmatory p-value.
 - [ ] The results memo names at least one claim the design cannot support.
 
+- `python scripts/../../crosscheck.py` (from a project root: `python scripts/crosscheck.py`) agrees with the golden coefficients; a coefficient that moves more than 1e-6 is a change of specification, not a rounding difference.
+
 ## Common failure modes
 
 | Pattern | Symptom | Correction |
