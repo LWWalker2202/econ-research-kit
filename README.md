@@ -2,7 +2,7 @@
 
 A **stage-by-stage toolkit for empirical work in economics**: from "is this question even answerable", through "run the regression", "produce a publication table", "write the report", to "answer the referee", in eight stages. Every stage ships either a template you can actually run (and compare against a golden output) or a checker that reads what you produced and tells you line by line what is missing.
 
-**Version 0.3.23** ｜ This is the English master repository; the Chinese mirror is [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh), and CI compares the structure of the two on every push.
+**Version 0.3.24** ｜ This is the English master repository; the Chinese mirror is [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh), and CI compares the structure of the two on every push.
 
 > First time here? Jump straight to "Step one". You do not need to understand why the repository is shaped this way before you use it.
 
@@ -124,6 +124,8 @@ One line each. Do not memorise them; look them up when you need them.
 ```
 python scripts/dashboard.py
 python scripts/dashboard.py --html dashboard.html
+python scripts/coverage.py                 # is the project itself complete? N/12
+python scripts/journal_pack.py "JEEM"      # one journal's checklist: measured / stated / unverified
 ```
 
 The first prints four things: which stage the project stands in, the question the next stage will ask, how many checks each checker passes, and how many rows the cleaning moved. The second writes the same page as one self-contained HTML file (inline CSS and inline SVG, no network, no scripts) that you can send to a coauthor or drop into a slide.

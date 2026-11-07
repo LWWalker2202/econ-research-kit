@@ -61,6 +61,7 @@ Why the form matters: a table that does not rebuild from the estimate file will 
 - [ ] Every exhibit is cited by number at least once, and no citation points to an exhibit that does not exist.
 - [ ] The Stata export and the Python export on the same estimate file agree digit for digit.
 - [ ] `python skills/tables-figures/templates/check_table.py output/table1.tex` prints seven out of seven.
+- [ ] `python scripts/journal_pack.py "<journal>"` was run and every `[待核实]` line is checked against the journal's current author guidelines or dropped.
 
 ## Common failure modes
 
