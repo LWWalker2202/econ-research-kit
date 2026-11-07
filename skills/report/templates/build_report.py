@@ -51,8 +51,9 @@ TEXT = {
         ),
         "main_embed": (
             "Table 1 is embedded verbatim from `{tables}`. A converter should pass the "
-            "fenced block through unchanged so that the booktabs-style layout and the "
-            "table note survive."
+            "fenced block through unchanged so that the booktabs-style layout, the label "
+            "and the table note survive. This demo deliberately embeds a table from a "
+            "different project: read the closing checklist and watch the guard fire."
         ),
         "main_missing": (
             "The results file contains no specification the builder can select, so the "
@@ -236,18 +237,26 @@ def script_display():
     return rel.replace("\\", "/")
 
 
+def _display(path):
+    """Print paths relative to the working directory so the golden report is path-stable."""
+    try:
+        return os.path.relpath(path).replace(os.sep, "/")
+    except ValueError:
+        return str(path).replace(os.sep, "/")
+
+
 def build_command(args, script_path):
     parts = [
         "python",
         script_path,
         "--tables",
-        args.tables,
+        _display(args.tables),
         "--results",
-        args.results,
+        _display(args.results),
         "--lang",
         args.lang,
         "--out",
-        args.out,
+        _display(args.out),
     ]
     if args.script:
         parts.extend(["--script", args.script])

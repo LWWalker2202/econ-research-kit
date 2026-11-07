@@ -7,7 +7,7 @@ A regression result is not one number but a path: each rung adds one decision, a
 - Copy it into the project as `spec-ladder.md`.
 - One rung per row, in the order you will actually run them: baseline first, then one change at a time.
 - Every rung states what changed relative to the rung above. "Add controls" is not enough; name them.
-- `python skills/estimation/templates/estimate_main.py --ladder` writes the filled table for the synthetic panel, one rung at a time.
+- `python skills/estimation/templates/estimate_main.py --ladder` writes all five rungs for the synthetic panel in one file; `--step N` is the incremental mode that stops after rung N.
 - Decide in advance which rung is the reported one. Writing it down first is what stops the reported rung from being chosen after the fact.
 
 ## The ladder

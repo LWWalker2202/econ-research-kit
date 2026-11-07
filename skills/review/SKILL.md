@@ -47,6 +47,7 @@ Saying no without compromising, the reusable shape: accept the concern, state th
 | `manuscript/manuscript_v2.tex` | revised manuscript with tracked changes marked | submission system |
 
 - `skills/review/templates/check_response.py` — run it on `review/response_letter.md` before it goes out; the expected report is `skills/review/expected/check-report.txt`.
+- `skills/review/templates/review-protocol.md` — the two-sided review: the machine side (`verify_chain.py`, `crosscheck.py`, `coverage.py`) and the five manual checks a second reader does.
 
 ## Acceptance
 

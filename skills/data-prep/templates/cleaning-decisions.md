@@ -19,8 +19,8 @@ Every row of this table is one action that changes the data. Fill it in, show it
 | 2 | Drop rows missing a key field | | | rows | drop, log the rate first | |
 | 3 | Report panel gaps, fill nothing | | | cells | report only | |
 | 4 | Winsorize ratios at 1 and 99 percent | | | values | clip, keep the row | |
-| 5 | Harmonise the unit in code | | | rows | add a new column, keep the old | |
-| 6 | Flag the definition drift | | | rows | add a vintage column | |
+| 5 | Harmonise the unit in code | | | rows | convert in place: build `revenue_wan`, drop the mixed-unit `revenue` | |
+| 6 | Flag the definition drift | | | variables | add a vintage column | |
 
 ## What to do with each row
 

@@ -10,12 +10,13 @@ The coefficient on `D` is 0.352, with a standard error of 0.143 (standard errors
 
 Baseline specification selected from `skills/estimation/expected/estimation-results.json`: `y ~ D + x1 + x2 | id + year` with fixed effects `id, year`; point estimate 0.352, standard error 0.143, p-value 0.017, R-squared 0.529, observations 600.
 
-Table 1 is embedded verbatim from `skills/tables-figures/expected/table1.tex`. A converter should pass the fenced block through unchanged so that the booktabs-style layout and the table note survive.
+Table 1 is embedded verbatim from `skills/tables-figures/expected/table1.tex`. A converter should pass the fenced block through unchanged so that the booktabs-style layout, the label and the table note survive. This demo deliberately embeds a table from a different project: read the closing checklist and watch the guard fire.
 
 ```latex
 \begin{table}[htbp]
 \centering
 \caption{Baseline results}
+\label{tab:main}
 \begin{tabular}{lccc}
 \toprule
 \multicolumn{4}{c}{y} \\
@@ -64,7 +65,7 @@ This section is written by the researcher. The builder leaves it open on purpose
 - Estimation script: `[to fill]`
 - Random seed: `20260315` (read from the results file)
 - Input files: `skills/tables-figures/expected/table1.tex` and `skills/estimation/expected/estimation-results.json`
-- Command: `python skills/report/templates/build_report.py --tables skills/tables-figures/expected/table1.tex --results skills/estimation/expected/estimation-results.json --lang en --out skills/report/expected/report.md`
+- Command: `python skills/report/templates/build_report.py --tables skills/tables-figures/expected/table1.tex --results skills/estimation/expected/estimation-results.json --lang en --out output/report.md`
 
 ## What is still missing
 
