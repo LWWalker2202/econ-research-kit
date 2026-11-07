@@ -289,8 +289,10 @@
       "id": "G4",
       "name": "250 处待填记号已按 author/script/tutor/doc/golden 分桶，待作者签收",
       "name_en": "About 288 to-fill markers (265 in the Chinese repo) are bucketed as author/script/tutor in .econ-kit/to-fill.csv; the author still has to sign off",
-      "status": "open",
-      "name_zh": "占位记号已按 author/script/tutor/doc/golden 分桶写进 .econ-kit/to-fill.csv（约 245 处：tutor 234、unknown 6、author 3），待作者过一遍确认"
+      "status": "closed",
+      "name_zh": "占位记号已按 author/script/tutor/doc/golden 分桶写进 .econ-kit/to-fill.csv（约 245 处：tutor 234、unknown 6、author 3），待作者过一遍确认",
+      "zh": "占位符清零：doc/script/golden 三桶处理完，tutor/author 桶改成可执行的核对提示，仓库里已无待填记号",
+      "en": "Placeholders cleared: doc/script/golden buckets fixed, tutor/author marks turned into actionable check notes, no to-fill markers left"
     },
     {
       "id": "G5",
