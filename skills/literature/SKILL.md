@@ -47,6 +47,9 @@ If the question itself is still vague (no unit, no treatment, no outcome, no com
 - [ ] If `litsearch.py` was used, every row you kept has been opened at least to the abstract, and the hits you dropped are still visible in `lit-hits.md` (dropping a paper without a reason on record is how a convenient gap gets invented).
 - [ ] You have personally opened every paper in the matrix. No row may come from a citation you only saw quoted somewhere else; if it did, mark it `[to verify]` and do not cite it in the paper.
 
+- `python scripts/litsearch.py --verify <doi>` re-checks a recorded hit against Crossref; `--from-file` replays a search exactly.
+- `python scripts/journal_pack.py --journal <name>` states the outlet's table conventions for the papers you cite.
+
 ## Common failure modes
 
 | Failure | What it looks like | Fix |

@@ -1,8 +1,8 @@
 {
   "about": "经济学实证研究的动作库：八道工序、十二个领域、可跑的金样与检查器，外加一本配套手册。",
   "about_en": "A workflow kit for empirical economics: eight stages, twelve fields, runnable checks and golden outputs.",
-  "version": "0.3.35",
-  "released": "v0.3.35",
+  "version": "0.3.36",
+  "released": "v0.3.36",
   "released_at": "2026-11-07",
   "repos": {
     "econ-research-kit": "f794f8c",
@@ -262,6 +262,12 @@
       "id": "D18",
       "zh": "v0.3.35：to_fill.py 六桶分派（author/script/tutor/doc/golden/unknown）",
       "en": "v0.3.35: to_fill.py six buckets (author/script/tutor/doc/golden/unknown)",
+      "done": true
+    },
+    {
+      "id": "D19",
+      "zh": "v0.3.36：没走到的段不再显示“正在进行”；teaching / data-dict / 九个 skill 的验收段补齐新工具",
+      "en": "v0.3.36: unreached stages no longer read as in-progress; teaching, data-dict and the nine skills now name the new checkers",
       "done": true
     }
   ],

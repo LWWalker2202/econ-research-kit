@@ -1,5 +1,7 @@
 # Data dictionaries
 
+> Where this sits: stage 3 (data). A dictionary entry is usable only when five fields are filled: unit of observation, coverage (years and regions), the key variables with their exact definitions, the access route, and the known defects. Anything still marked `[待核实]` / `[verify]` is a question for the person who owns the data, not a fact you may quote.
+
 ## What this directory is
 
 One file per data source, recording the things that are not in the official codebook and that a new user always gets wrong: the exact variable names, the definitions that changed across waves, the merge keys, the coverage holes.

@@ -57,6 +57,9 @@ The feasibility gate is the cheapest stage of a project and the only stage whose
 - [ ] The memo ends with one of the three verdicts and names the binding constraint.
 - [ ] No figure in the memo is presented as a finding; every unverified figure is marked `[to fill]`.
 
+- `python scripts/gate.py status` opens stage 0 and prints what it waits for; `gate.py pass "<your answer>"` records the answer, and `--extra` records work done beyond this stage.
+- `python scripts/coverage.py` lists whether this project has a spec, a ledger and the artifacts of each stage at all.
+
 ## Common failure modes
 
 | Pattern | Symptom | Correction |

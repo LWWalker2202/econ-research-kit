@@ -65,6 +65,9 @@ Why the report must be generated and never hand-edited: a hand-edited report is 
 - [ ] The rebuilt tables and figures are identical to the reviewed versions, or every difference is explained in `build/build.log`.
 - [ ] `python skills/report/templates/check_report.py output/report.md` prints seven out of seven.
 
+- `python scripts/check_report.py --results <results.json>` reconciles every decimal in the text with the results file.
+- `python scripts/verify_chain.py --project .` checks the row chain from cleaning to regression to the reported numbers.
+
 ## Common failure modes
 
 | Pattern | Symptom | Correction |

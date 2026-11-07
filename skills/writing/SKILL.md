@@ -60,6 +60,9 @@ House conventions in this skill: refer to the paper as "this paper" and reserve 
 - [ ] All five statements appear in `paper/statements.md`, with the data availability wording taken from the journal's required phrase.
 - [ ] Every referee comment in the response letter is quoted verbatim and carries a section, page, and line location that resolves in the compiled PDF.
 
+- `python scripts/check_abstract.py` checks the seven abstract rules; `coverage.py` shows whether the delivered files are complete.
+- `gate.py status` prints the stage you are in, so a draft is never written before its stage is answered.
+
 ## Common failure modes
 
 | Pattern | Symptom | Correction |

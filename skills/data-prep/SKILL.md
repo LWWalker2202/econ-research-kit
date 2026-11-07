@@ -57,6 +57,9 @@ Data preparation is where a reproducible paper is won or lost. The rule that gov
 - [ ] All unit conversions sit in the code, not in spreadsheet cells.
 - [ ] The cleaning log contains no step that lacks a stated reason.
 
+- `python scripts/verify_chain.py --project .` checks that rows in minus duplicates minus incomplete records equals the analysis sample.
+- `python scripts/to_fill.py` lists every placeholder in the project and who should fill it (author / script / tutor / doc / golden / unknown).
+
 ## Common failure modes
 
 | Pattern | Symptom | Correction |

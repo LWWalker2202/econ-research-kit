@@ -460,6 +460,18 @@ def find_artifact(project, rel):
     return ""
 
 
+def _stage_state(rec, gate, sid):
+    """把闸门记录的原始状态翻成看板的三种：done / doing / todo。
+    闸门把没走到的段也记成 open，所以这里必须按 current 再切一刀。"""
+    st = str(rec.get("status", "open"))
+    if st in ("passed", "forced"):
+        return "done"
+    cur = int((gate or {}).get("current", 0))
+    if st == "open" and int(sid) > cur:
+        return "todo"
+    return st
+
+
 def stage_details(root, wf, gate, checks, project):
     """每一段的点开视图：状态 / 闸门问句 / 你的回答 / 该交的文件在不在 / 流程要点 / 检查器。"""
     by_stage = {}
@@ -482,7 +494,7 @@ def stage_details(root, wf, gate, checks, project):
             "skill": w.get("skill", ""),
             "gate_zh": w.get("gate_zh", ""),
             "gate_en": w.get("gate_en", ""),
-            "status": rec.get("status", "todo"),
+            "status": _stage_state(rec, gate, sid),
             "answer": rec.get("answer", ""),
             "answered_at": rec.get("answered_at", ""),
             "forced_gaps": rec.get("forced_gaps") or [],

@@ -1,5 +1,7 @@
 # China Health and Retirement Longitudinal Study (CHARLS)
 
+> Where this sits: stage 3 (data). A dictionary entry is usable only when five fields are filled: unit of observation, coverage (years and regions), the key variables with their exact definitions, the access route, and the known defects. Anything still marked `[待核实]` / `[verify]` is a question for the person who owns the data, not a fact you may quote.
+
 ## Basic information
 
 | Item | Detail |

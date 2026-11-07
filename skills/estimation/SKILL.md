@@ -60,6 +60,9 @@ Estimation looks like a technical step and is really an interpretive one. Every 
 - `python scripts/crosscheck.py` (from a project root) agrees with the golden coefficients; a coefficient that moves more than 1e-6 is a change of specification, not a rounding difference.
 - `python scripts/verify_chain.py`: all three links hold - cleaning arithmetic, estimation N equals the cleaned rows, every decimal in the report traces back to the results file.
 
+- `python scripts/estimator_choice.py --data panel` prints the assumptions each estimator needs and when it fails.
+- `python scripts/coverage.py` reports whether the estimation section states its specification level.
+
 ## Common failure modes
 
 | Pattern | Symptom | Correction |
