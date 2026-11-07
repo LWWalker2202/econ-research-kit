@@ -1,8 +1,8 @@
 {
   "about": "经济学实证研究的动作库：八道工序、十二个领域、可跑的金样与检查器，外加一本配套手册。",
   "about_en": "A workflow kit for empirical economics: eight stages, twelve fields, runnable checks and golden outputs.",
-  "version": "0.3.31",
-  "released": "v0.3.31",
+  "version": "0.3.32",
+  "released": "v0.3.32",
   "released_at": "2026-11-07",
   "repos": {
     "econ-research-kit": "f794f8c",
@@ -238,6 +238,12 @@
       "id": "D14",
       "zh": "v0.3.31：报告金样改回 UTF-8 与相对路径，看板读文件容忍非 UTF-8",
       "en": "v0.3.31: report golden back to UTF-8/relative path, panel tolerates other encodings",
+      "done": true
+    },
+    {
+      "id": "D15",
+      "zh": "v0.3.32：时间线视图、全览筛选、键盘导航",
+      "en": "v0.3.32: ledger timeline view, stage filters, keyboard navigation",
       "done": true
     }
   ],

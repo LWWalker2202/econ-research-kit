@@ -412,6 +412,35 @@ def read_ledger(project, limit=400):
     return out[-limit:]
 
 
+def collect_timeline(project, wf, limit=200):
+    """账本摊平：每条一行，带上段名，供界面的「时间线」视图。"""
+    names = {}
+    for s in (wf or []):
+        try:
+            names[int(s.get("id"))] = {"zh": s.get("name_zh", ""), "en": s.get("name_en", "")}
+        except (TypeError, ValueError):
+            continue
+    out = []
+    for rec in read_ledger(project, limit * 2)[-limit:]:
+        try:
+            sid = int(rec.get("stage"))
+        except (TypeError, ValueError):
+            sid = None
+        nm = names.get(sid) or {}
+        out.append({
+            "ts": rec.get("ts", ""),
+            "event": rec.get("event", ""),
+            "stage": sid,
+            "name_zh": nm.get("zh", ""),
+            "name_en": nm.get("en", ""),
+            "question": rec.get("question", ""),
+            "answer": rec.get("answer", ""),
+            "gaps": rec.get("gaps") or [],
+            "note": rec.get("note", ""),
+        })
+    return out
+
+
 def stage_details(root, wf, gate, checks, project):
     """每一段的点开视图：状态 / 闸门问句 / 你的回答 / 该交的文件在不在 / 流程要点 / 检查器。"""
     by_stage = {}
@@ -506,6 +535,7 @@ def collect(root, out_dir, lang, project=None):
     board["build_total"] = len(board["steps"])
     board["stages"] = stage_details(root, board["workflow"], board["gate"],
                                     board["checks"], board["project"])
+    board["timeline"] = collect_timeline(board["project"], board["workflow"])
     return board
 
 
