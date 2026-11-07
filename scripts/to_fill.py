@@ -37,19 +37,37 @@ WHY = {
     "author": "需要你的数据或样本信息",
     "script": "跑模板脚本即可生成",
     "tutor": "口径/取舍，需要人拍板",
+    "doc": "文档里在讲“这些占位符”，不是真要填",
+    "golden": "金样文件，由脚本重生成",
     "unknown": "路径没规则，人工看一眼",
 }
 
 
-def classify(rel, kind):
+DOC_HINTS = ("not missing", "about two hundred", "to-fill", "placeholder",
+             "\u5360\u4f4d", "\u4e0d\u662f\u7f3a", "\u6bd4\u5982\u5199")
+FILL_HINTS = ("\u6837\u672c", "\u89c2\u6d4b", "\u6761\u6570", "\u4e2a\u7701", "\u4e2a\u57ce\u5e02",
+              "sample", "observations", "n =", "n=")
+TUTOR_HINTS = ("\u53e3\u5f84", "\u7edf\u8ba1\u53e3\u5f84", "define", "definition", "measure",
+               "\u6743\u91cd", "\u57fa\u51c6\u5e74", "\u4ef7\u683c")
+
+
+def classify(rel, kind, ctx=""):
+    """\u4e09\u6876\u5206\u6d3e\uff08author / script / tutor\uff09\uff0c\u53e6\u5916\u6807\u8bb0 doc \u4e0e golden\u3002"""
     p = "/" + rel.replace("\\", "/").lower()
+    low = ctx.lower()
+    if any(h in low for h in DOC_HINTS) and not any(h in low for h in FILL_HINTS):
+        return "doc"
+    if "/expected/" in p:
+        return "golden"
     if kind == "verify":
         return "tutor"
-    if "/templates/" in p or "/expected/" in p or p.startswith("scripts/"):
+    if "/templates/" in p or p.startswith("scripts/"):
         return "script"
-    if "/domains/" in p or "/data-dict/" in p:
+    if any(h in low for h in FILL_HINTS):
         return "author"
-    if "/overrides/" in p or p.endswith("skill.md") or "/chapter" in p:
+    if "/data-dict/" in p or "/domains/" in p or "/overrides/" in p or p.endswith("skill.md"):
+        return "tutor"
+    if any(h in low for h in TUTOR_HINTS):
         return "tutor"
     return "unknown"
 
@@ -76,7 +94,7 @@ def scan(root):
                         items.append({
                             "path": rel, "line": lineno, "kind": kind,
                             "marker": m.group(0),
-                            "by": classify(rel, kind),
+                            "by": classify(rel, kind, ctx),
                             "context": ctx,
                         })
     return items
@@ -86,7 +104,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="list every placeholder and who should fill it")
     ap.add_argument("--root", default=".")
     ap.add_argument("--out", default=os.path.join(".econ-kit", "to-fill.csv"))
-    ap.add_argument("--by", choices=["author", "script", "tutor", "unknown"])
+    ap.add_argument("--by", choices=["author", "script", "tutor", "doc", "golden", "unknown"])
     ap.add_argument("--json", action="store_true")
     a = ap.parse_args(argv)
 
@@ -98,9 +116,9 @@ def main(argv=None):
     if a.by:
         items = [i for i in items if i["by"] == a.by]
 
-    buckets = {k: 0 for k in ("author", "script", "tutor", "unknown")}
+    buckets = {k: 0 for k in ("author", "script", "tutor", "doc", "golden", "unknown")}
     for i in items:
-        buckets[i["by"]] += 1
+        buckets[i["by"]] = buckets.get(i["by"], 0) + 1
     per_file = {}
     for i in items:
         per_file[i["path"]] = per_file.get(i["path"], 0) + 1
@@ -123,8 +141,8 @@ def main(argv=None):
 
     print("# 占位符清单  %s" % root)
     print("")
-    for k in ("author", "script", "tutor", "unknown"):
-        print("%-8s %-6s %4d  %s" % (k, ZH[k], buckets[k], WHY[k]))
+    for k in ("author", "script", "tutor", "doc", "golden", "unknown"):
+        print("%-8s %-6s %4d  %s" % (k, ZH.get(k, k), buckets.get(k, 0), WHY[k]))
     print("")
     print("共 %d 处，落在 %d 个文件" % (len(items), len(per_file)))
     print("")

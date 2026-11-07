@@ -269,8 +269,14 @@ def main(argv=None):
 
     st = load()
     if st is None:
-        print(t["no_state"])
-        return 2
+        if a.cmd == "status":
+            probe = os.path.basename(os.path.abspath(os.getcwd())) or "project"
+            st = start_session("（自动开闸）" + probe)
+            print("（闸门原来没开过，已自动开在第 0 段。题目是占位的：「%s」；"
+                  "随时用 `gate.py start \"<你的题目>\"` 改成真的。）" % st["question"])
+        else:
+            print(t["no_state"])
+            return 2
 
     cur = st["current"]
     if a.cmd == "status" or a.cmd == "done":

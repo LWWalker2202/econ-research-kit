@@ -7,6 +7,10 @@ description: 经济学实证研究的动作库——把一次研究拆成八道�
 
 Economics research as a set of executable steps. Not a prompt collection — a workflow library where every skill declares its inputs, its artifacts, and its acceptance criteria.
 
+## 第一件事 / Before anything else
+
+In a research directory, **run `python scripts/gate.py status` first**。It prints which stage you are on, what that stage must hand over, and what it is waiting for; if the directory has never opened a gate, it opens one at stage 0 automatically. Skip it and the panel, the timeline and the coverage check all stay empty.
+
 ## What this is, and what it is not
 
 **This is** a set of eight skills, each covering one stage of an empirical project. Each skill tells you when to enter it, what it needs, what to do, what files it must produce, and how to check the result.
