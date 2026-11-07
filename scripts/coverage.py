@@ -50,6 +50,35 @@ CHECKS_EN = [
 ]
 
 
+
+def _find(p, rel):
+    """项目根、output、.econ-kit，再加一层编号子目录里找产物。"""
+    for d in _dirs(p):
+        cand = os.path.join(d, rel)
+        if os.path.isfile(cand):
+            return cand
+    return ""
+
+
+def _dirs(p):
+    out = [p, os.path.join(p, "output"), os.path.join(p, STATE)]
+    try:
+        for name in sorted(os.listdir(p)):
+            full = os.path.join(p, name)
+            if not os.path.isdir(full) or name.startswith(".") or name in ("node_modules", "__pycache__"):
+                continue
+            out.append(full)
+            try:
+                for sub in sorted(os.listdir(full)):
+                    deep = os.path.join(full, sub)
+                    if os.path.isdir(deep) and not sub.startswith("."):
+                        out.append(deep)
+            except OSError:
+                pass
+    except OSError:
+        pass
+    return out
+
 def read(path):
     try:
         with io.open(path, encoding="utf-8") as f:
@@ -106,27 +135,36 @@ def check_project(project):
         name = s.get("name") or ""
         art = ARTIFACT.get(name, [])
         for rel in art:
-            if not os.path.exists(os.path.join(p, rel)):
+            if not _find(p, rel):
                 missing.append(rel)
     out.append(("artifacts", not missing, ("缺 " + "、".join(missing[:3])) if missing else "都齐"))
 
-    rep = read(os.path.join(p, "report.md"))
+    rep = read(_find(p, "report.md"))
+    chk = [f for f in _dirs(p) if os.path.isfile(os.path.join(f, "report-check.txt"))]
+    if chk:
+        rep = rep + " 对账 " + read(os.path.join(chk[0], "report-check.txt"))
     numbers = ("对账" in rep) or ("reconcil" in rep.lower()) or ("checks passed" in rep)
     out.append(("numbers", numbers, "报告里提到对账" if numbers else "报告没提数字对账"))
 
     tex = []
-    for name in os.listdir(p) if os.path.isdir(p) else []:
-        if name.endswith(".tex"):
-            tex.append(name)
-    labelled = bool(tex) and all("\\label" in read(os.path.join(p, t)) for t in tex)
+    for d in _dirs(p):
+        for name in sorted(os.listdir(d) if os.path.isdir(d) else []):
+            if name.endswith(".tex"):
+                tex.append(os.path.join(d, name))
+    labelled = bool(tex) and all("\\label" in read(t) for t in tex)
     out.append(("label", labelled, ("%d 个 .tex" % len(tex)) if tex else "没有 .tex 表文件"))
 
 
-    cross = [f for f in (os.listdir(p) if os.path.isdir(p) else []) if "crosscheck" in f.lower()]
+    cross = []
+    for d in _dirs(p):
+        for name in sorted(os.listdir(d) if os.path.isdir(d) else []):
+            if "crosscheck" in name.lower():
+                cross.append(os.path.join(d, name))
     out.append(("cross", bool(cross), ", ".join(cross[:2]) if cross else "-"))
     tf = os.path.join(p, STATE, "to-fill.csv")
     tf_rows = max(0, len(read(tf).splitlines()) - 1) if os.path.isfile(tf) else 0
-    out.append(("tofill", tf_rows > 0, ("%d" % tf_rows) if tf_rows else "-"))
+    tf_exists = os.path.isfile(tf)
+    out.append(("tofill", tf_exists, ("%d 处" % tf_rows) if tf_rows else ("0 处（干净）" if tf_exists else "-")))
     panel = os.path.join(p, STATE, "dashboard.json")
     fresh = False
     if os.path.isfile(panel):
@@ -146,7 +184,7 @@ def check_project(project):
         chain_note = "没有回归结果"
     out.append(("chain", chain_ok, chain_note))
 
-    lad = read(os.path.join(p, "estimation-results.md"))
+    lad = read(_find(p, "estimation-results.md"))
     pinned = ("设定" in lad) or ("ladder" in lad.lower()) or ("specification" in lad.lower())
     out.append(("pinned", pinned, "写明设定层级" if pinned else "没写设定层级"))
     return out

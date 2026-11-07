@@ -1284,9 +1284,14 @@ def main(argv=None):
         print("not a kit root: %s" % root, file=sys.stderr)
         print("expected: state/progress.json under it", file=sys.stderr)
         return 2
-    out_dir = os.path.abspath(a.out_dir) if a.out_dir else os.path.join(root, "output")
-
     project = os.path.abspath(a.project)
+    # 缺省 out-dir：先看项目自己的 output，退而用库根的（库自带的示例）
+    if a.out_dir:
+        out_dir = os.path.abspath(a.out_dir)
+    elif os.path.isdir(os.path.join(project, "output")):
+        out_dir = os.path.join(project, "output")
+    else:
+        out_dir = os.path.join(root, "output")
     board = collect(root, out_dir, a.lang, project)
 
     target = None
