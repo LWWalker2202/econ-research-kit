@@ -2,7 +2,7 @@
 
 A **stage-by-stage toolkit for empirical work in economics**: from "is this question even answerable", through "run the regression", "produce a publication table", "write the report", to "answer the referee", in eight stages. Every stage ships either a template you can actually run (and compare against a golden output) or a checker that reads what you produced and tells you line by line what is missing.
 
-**Version 0.3.21** ｜ This is the English master repository; the Chinese mirror is [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh), and CI compares the structure of the two on every push.
+**Version 0.3.22** ｜ This is the English master repository; the Chinese mirror is [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh), and CI compares the structure of the two on every push.
 
 > First time here? Jump straight to "Step one". You do not need to understand why the repository is shaped this way before you use it.
 
