@@ -1083,6 +1083,63 @@ def panel_path(project):
     return os.path.join(os.path.abspath(project), ".econ-kit", "dashboard.json")
 
 
+PANEL_INDEX = "panel-index.json"
+
+
+def workspace_root(project):
+    """从项目出发往上找第一个带 .econ-kit 的目录；找不到就用项目自己。"""
+    cur = os.path.abspath(project)
+    for _ in range(4):
+        if os.path.isdir(os.path.join(cur, ".econ-kit")):
+            return cur
+        parent = os.path.dirname(cur)
+        if parent == cur:
+            break
+        cur = parent
+    return os.path.abspath(project)
+
+
+def write_index(project):
+    """把工作区里所有做过工序的项目登记下来，界面据此给出项目切换条。"""
+    try:
+        base = workspace_root(project)
+        kdir = os.path.join(base, ".econ-kit")
+        if not os.path.isdir(kdir):
+            return None
+        projects = []
+
+        def add(d, name):
+            pdir = os.path.join(d, ".econ-kit")
+            if not os.path.isdir(pdir):
+                return
+            dash = os.path.join(pdir, "dashboard.json")
+            gate = os.path.join(pdir, "gate.json")
+            if not (os.path.exists(dash) or os.path.exists(gate)):
+                return
+            rel = os.path.relpath(d, base).replace(os.sep, "/")
+            projects.append({"dir": rel, "name": name,
+                             "mtime": os.path.getmtime(dash) if os.path.exists(dash) else 0})
+
+        add(base, os.path.basename(base))
+        try:
+            for entry in sorted(os.listdir(base)):
+                sub = os.path.join(base, entry)
+                if entry.startswith(".") or not os.path.isdir(sub):
+                    continue
+                add(sub, entry)
+        except OSError:
+            pass
+        projects.sort(key=lambda x: -x.get("mtime", 0))
+        payload = {"updated": generated_at(), "base": base.replace(os.sep, "/"),
+                   "projects": projects}
+        import json as _json
+        with io.open(os.path.join(kdir, PANEL_INDEX), "w", encoding="utf-8", newline="\n") as f:
+            f.write(_json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
+        return payload
+    except Exception:
+        return None
+
+
 def write_panel(root, out_dir, lang, project):
     """把同一份数据写进项目里，返回落点路径。"""
     board = collect(root, out_dir, lang, project)

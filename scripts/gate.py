@@ -150,6 +150,18 @@ T = {
 }
 
 
+ART_DIRS = ("", ".econ-kit", "output")
+
+
+def find_artifact(rel):
+    """产物可能写在项目根、.econ-kit 或 output 下——三处都找（和看板一致）。"""
+    for d in ART_DIRS:
+        p = os.path.join(d, rel) if d else rel
+        if os.path.exists(p):
+            return p
+    return ""
+
+
 def load():
     if not os.path.exists(STATE_FILE):
         return None
@@ -312,7 +324,7 @@ def main(argv=None):
         if len(ans) < MIN_ANSWER:
             print(t["too_short"] % MIN_ANSWER)
             return 1
-        missing = [p for p in ARTIFACTS.get(cur, []) if not os.path.exists(p)]
+        missing = [p for p in ARTIFACTS.get(cur, []) if not find_artifact(p)]
         if not os.path.exists(SPEC_FILE):
             if not a.force:
                 print(t["no_spec"])
