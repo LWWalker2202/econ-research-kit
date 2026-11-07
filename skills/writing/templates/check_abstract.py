@@ -137,6 +137,13 @@ def status(ok: bool, weak: bool = False) -> str:
     return "WEAK" if weak else "MISSING"
 
 
+def guess_lang(text: str) -> str:
+    """没给 --lang 时按汉字占比猜，别让作者因为忘了个参数被判成 5/7。"""
+    cjk = len(CJK.findall(text))
+    latin = len(re.findall(r"[A-Za-z]", text))
+    return "zh" if cjk * 2 >= latin else "en"
+
+
 def check_length(body: str, lang: str) -> tuple:
     if lang == "zh":
         count = len(CJK.findall(body))
@@ -220,10 +227,14 @@ def main() -> int:
     parser.add_argument("--style", choices=("en", "zh"), help="alias of --lang for the target journal")
     args = parser.parse_args()
 
-    lang = args.style or args.lang or "en"
     text = read_text(args.path)
     parts = split_parts(text)
     body = parts["body"]
+    if args.style or args.lang:
+        lang = args.style or args.lang
+    else:
+        lang = guess_lang(body)
+        print("[info] language not given; guessed: %s" % lang)
 
     results = [
         ("字数区间", check_length(body, lang)),
