@@ -184,15 +184,21 @@ def parse_workflow(root):
     """手工解 main.yaml 里我们需要的几行（不为它引入 PyYAML）。"""
     text = read_text(os.path.join(root, "workflows", "main.yaml"))
     stages, cur = [], None
+    sect = ""
     for line in text.splitlines():
         m = re.match(r"^\s*-\s*id:\s*(\d+)\s*$", line)
         if m:
             if cur:
                 stages.append(cur)
             cur = {"id": int(m.group(1)), "name_zh": "", "name_en": "",
-                   "skill": "", "gate_zh": "", "gate_en": "", "produces": []}
+                   "skill": "", "gate_zh": "", "gate_en": "", "produces": [], "requires": []}
+            sect = ""
             continue
         if cur is None:
+            continue
+        m = re.match(r"^\s*(requires|produces):\s*$", line)
+        if m:
+            sect = m.group(1)
             continue
         m = re.match(r"^\s*(name_zh|name_en|skill|gate_zh|gate_en):\s*(.+?)\s*$", line)
         if m:
@@ -200,10 +206,11 @@ def parse_workflow(root):
             if val.startswith('"') and val.endswith('"'):
                 val = val[1:-1]
             cur[key] = val
+            sect = ""
             continue
         m = re.match(r"^\s*-\s*([A-Za-z0-9_.\-]+\.(?:md|csv|json|tex|py))\s*$", line)
-        if m:
-            cur["produces"].append(m.group(1))
+        if m and sect in ("requires", "produces"):
+            cur[sect].append(m.group(1))
     if cur:
         stages.append(cur)
     return stages
@@ -441,6 +448,18 @@ def collect_timeline(project, wf, limit=200):
     return out
 
 
+ART_DIRS = ("", ".econ-kit", "output")
+
+
+def find_artifact(project, rel):
+    """产物可能写在项目根、.econ-kit 或 output 下——三处都找。"""
+    for d in ART_DIRS:
+        p = os.path.join(project, d, rel) if d else os.path.join(project, rel)
+        if os.path.exists(p):
+            return p
+    return ""
+
+
 def stage_details(root, wf, gate, checks, project):
     """每一段的点开视图：状态 / 闸门问句 / 你的回答 / 该交的文件在不在 / 流程要点 / 检查器。"""
     by_stage = {}
@@ -454,7 +473,8 @@ def stage_details(root, wf, gate, checks, project):
         rec = by_stage.get(sid, {})
         files = []
         for rel in (w.get("produces") or []):
-            files.append({"path": rel, "exists": os.path.exists(os.path.join(project, rel))})
+            hit = find_artifact(project, rel)
+            files.append({"path": rel, "exists": bool(hit)})
         out.append({
             "id": sid,
             "name_zh": w.get("name_zh", ""),
@@ -536,6 +556,7 @@ def collect(root, out_dir, lang, project=None):
     board["stages"] = stage_details(root, board["workflow"], board["gate"],
                                     board["checks"], board["project"])
     board["timeline"] = collect_timeline(board["project"], board["workflow"])
+    board["inferred"] = infer_stage(board)
     return board
 
 
@@ -552,6 +573,23 @@ def rule(ch="-" * W):
 def bar(frac, width=28, fill="=", empty="."):
     n = int(round(max(0.0, min(1.0, frac)) * width))
     return fill * n + empty * (width - n)
+
+
+def infer_stage(board):
+    """闸门没开过时，按产物推断走到第几段（最高的一段有产物就算到那里）。"""
+    if board.get("gate"):
+        return None
+    best = None
+    for s in board.get("stages") or []:
+        files = s.get("files") or []
+        if any((f or {}).get("exists") for f in files):
+            try:
+                sid = int(s.get("id"))
+            except (TypeError, ValueError):
+                continue
+            if best is None or sid > best:
+                best = sid
+    return best
 
 
 def stage_records(gate):
@@ -580,7 +618,10 @@ def stage_records(gate):
 def stage_status(board, sid):
     g = board["gate"]
     if not g:
-        return "todo", ""
+        inf = board.get("inferred")
+        if inf is None:
+            return "todo", ""
+        return ("infer", "") if sid == inf else "todo", ""
     cur = g.get("current", 0)
     for rec in stage_records(g):
         if rec.get("stage") == sid:
@@ -613,12 +654,18 @@ def render_text(board):
         status, answer = stage_status(board, sid)
         name = s["name_zh"] if board["lang"] == "zh" else s["name_en"]
         label = {"passed": t["status_passed"], "forced": t["status_forced"],
-                 "open": t["status_open"], "todo": t["status_todo"]}.get(status, status)
+                 "open": t["status_open"], "todo": t["status_todo"]}.get(
+                     status, "按产物推断" if board["lang"] == "zh" else "inferred from files")
         mark = {"passed": "[x]", "forced": "[~]", "open": "[?]", "todo": "[ ]"}.get(status, "[ ]")
         L.append(" %s [%d] %s %s %s" % (mark, sid, pad(name, 18), pad(s["skill"], 15), label))
     if not board["gate"]:
         L.append("")
         L.append(" " + t["no_gate"])
+        if board.get("inferred") is not None:
+            L.append("   " + (("按磁盘上的产物推断：你停在第 %d 段（没有 gate.json，所以这是推断）"
+                               % board["inferred"]) if board["lang"] == "zh"
+                              else ("inferred from files: stage %d (no gate.json, so this is a guess)"
+                                    % board["inferred"])))
         L.append("   " + t["hint_start"])
     else:
         L.append("")
@@ -630,7 +677,12 @@ def render_text(board):
     L.append("")
     L.append(" " + t["s2"])
     L.append(rule())
-    nxt = 0 if not board["gate"] else board["gate"].get("current", 0)
+    if board["gate"]:
+        nxt = board["gate"].get("current", 0)
+    elif board.get("inferred") is not None:
+        nxt = board["inferred"]
+    else:
+        nxt = 0
     nxt = min(nxt, max(0, len(board["workflow"]) - 1)) if board["workflow"] else 0
     if board["workflow"]:
         s = board["workflow"][nxt]

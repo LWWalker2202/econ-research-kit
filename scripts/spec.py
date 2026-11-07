@@ -358,6 +358,17 @@ def main(argv=None):
         print(("规格草稿已落盘：%s" if a.lang == "zh" else "spec written: ") % target)
         print("下一步：把这份草稿给用户改；改完再 gate.py pass \"<用户的原话>\"" if a.lang == "zh"
               else "Next: let the user edit it, then gate.py pass \"<the user's words>\"")
+        try:
+            here2 = os.path.dirname(os.path.abspath(__file__))
+            if here2 not in sys.path:
+                sys.path.insert(0, here2)
+            import gate
+            if gate.load() is None:
+                gate.start_session(text)
+                print(("闸门原来没开过，已替你开在第 0 段（问题记成：%s）" if a.lang == "zh"
+                       else "Gate was not open; opened at stage 0 (question: %s)") % text)
+        except Exception:
+            pass
     print("")
     try:
         here = os.path.dirname(os.path.abspath(__file__))

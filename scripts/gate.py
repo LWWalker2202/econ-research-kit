@@ -201,6 +201,17 @@ def append_ledger(event, stage, question="", answer="", gaps=None, note=""):
         pass
 
 
+def start_session(question):
+    """开闸门（可被 spec.py 等脚本调用）：建 gate.json、写契约、记一行账本。"""
+    st = {"question": question, "current": 0, "blocked": False,
+          "stages": [{"stage": s[0], "name": s[1], "skill": s[2], "status": "open",
+                      "answer": "", "answered_at": "", "forced_gaps": []} for s in STAGES]}
+    append_ledger("start", 0, question=question)
+    save(st)
+    write_protocol()
+    return st
+
+
 def save(st):
     if not os.path.isdir(STATE_DIR):
         os.makedirs(STATE_DIR)
@@ -229,12 +240,7 @@ def main(argv=None):
         if not a.text.strip():
             print(t["no_state"])
             return 2
-        st = {"question": a.text.strip(), "current": 0, "blocked": False,
-              "stages": [{"stage": s[0], "name": s[1], "skill": s[2], "status": "open",
-                          "answer": "", "answered_at": "", "forced_gaps": []} for s in STAGES]}
-        append_ledger("start", 0, question=st["question"])
-        save(st)
-        write_protocol()
+        st = start_session(a.text.strip())
         print(t["started"] % (st["question"], 0, STAGES[0][1]))
         print(t["need_spec"])
         status_card(0)
