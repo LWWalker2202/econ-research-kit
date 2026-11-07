@@ -154,14 +154,32 @@ T = {
 ART_DIRS = ("", ".econ-kit", "output")
 
 
+def _search_dirs():
+    """项目根、.econ-kit、output，再加一层编号子目录（01_文献 / 02_数据 …）。"""
+    dirs = ["", ".econ-kit", "output"]
+    try:
+        for name in sorted(os.listdir(".")):
+            if not os.path.isdir(name) or name.startswith(".") or name in ("node_modules", "__pycache__"):
+                continue
+            dirs.append(name)
+            try:
+                for sub in sorted(os.listdir(name)):
+                    if os.path.isdir(os.path.join(name, sub)) and not sub.startswith("."):
+                        dirs.append(os.path.join(name, sub))
+            except OSError:
+                pass
+    except OSError:
+        pass
+    return dirs
+
+
 def find_artifact(rel):
-    """产物可能写在项目根、.econ-kit 或 output 下——三处都找（和看板一致）。"""
-    for d in ART_DIRS:
+    """产物可能写在项目根、.econ-kit、output 或编号子目录里——都算。"""
+    for d in _search_dirs():
         p = os.path.join(d, rel) if d else rel
         if os.path.exists(p):
             return p
     return ""
-
 
 def load():
     if not os.path.exists(STATE_FILE):

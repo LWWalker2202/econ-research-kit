@@ -11,6 +11,25 @@ Economics research as a set of executable steps. Not a prompt collection — a w
 
 In a research directory, **run `python scripts/gate.py status` first**。It prints which stage you are on, what that stage must hand over, and what it is waiting for; if the directory has never opened a gate, it opens one at stage 0 automatically. Skip it and the panel, the timeline and the coverage check all stay empty.
 
+## One board per project folder
+
+The panel is **per project folder**, not per conversation. Every folder you actually work in gets its own `.econ-kit/dashboard.json`:
+
+```bash
+cd "<your project folder>"          # 01_文献 / 02_数据 / output all live under here
+python scripts/dashboard.py          # writes .econ-kit/dashboard.json in this folder
+python scripts/dashboard.py --project "<another project>"   # or aim it at another folder
+```
+
+Two more files keep the panel honest:
+
+- `<project>/.econ-kit/dashboard.json` — this project's numbers, regenerated after every gate command.
+- `<workspace>/.econ-kit/active.json` — which project you are working in right now. The sidebar panel reads this first, so two conversations in the same workspace stop sharing one board; when several projects exist a switcher appears at the top.
+
+Artifacts are found in the project root, `.econ-kit/`, `output/`, and one level of numbered subfolders (`01_文献/`, `03_可行性与识别/`, ...), so organise the folder the way you would on paper — the checker still finds `feasibility-memo.md`.
+
+Nothing to start by hand: the bundle's host half rescans the session directory plus any first-level subfolder that already has `.econ-kit` every ten seconds, and reruns `dashboard.py` whenever `gate.json` changes.
+
 ## What this is, and what it is not
 
 **This is** a set of eight skills, each covering one stage of an empirical project. Each skill tells you when to enter it, what it needs, what to do, what files it must produce, and how to check the result.

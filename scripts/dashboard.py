@@ -453,13 +453,32 @@ ART_DIRS = ("", ".econ-kit", "output")
 
 
 def find_artifact(project, rel):
-    """产物可能写在项目根、.econ-kit 或 output 下——三处都找。"""
-    for d in ART_DIRS:
+    """产物可能写在项目根、.econ-kit、output 或编号子目录里——都算。"""
+    for d in _search_dirs(project):
         p = os.path.join(project, d, rel) if d else os.path.join(project, rel)
         if os.path.exists(p):
             return p
     return ""
 
+
+def _search_dirs(project):
+    """项目根、.econ-kit、output，再加一层编号子目录（01_文献 / 02_数据 …）。"""
+    dirs = ["", ".econ-kit", "output"]
+    try:
+        for name in sorted(os.listdir(project)):
+            full = os.path.join(project, name)
+            if not os.path.isdir(full) or name.startswith(".") or name in ("node_modules", "__pycache__"):
+                continue
+            dirs.append(name)
+            try:
+                for sub in sorted(os.listdir(full)):
+                    if os.path.isdir(os.path.join(full, sub)) and not sub.startswith("."):
+                        dirs.append(os.path.join(name, sub))
+            except OSError:
+                pass
+    except OSError:
+        pass
+    return dirs
 
 def _stage_state(rec, gate, sid):
     """把闸门记录的原始状态翻成看板的三种：done / doing / todo。
