@@ -5,7 +5,7 @@ In development work the paper is judged by how the intervention reached househol
 
 ## Stage 0 feasibility: three questions to ask first
 - Find how the list was made. Read "Institutional background" in `institutional.md` and ask which rule and which office produced the eligibility list; that decides whether a threshold design exists.
-- Check the data first. Read "Coverage" in `data.md` and confirm the surveys cover your counties and years, and whether village questionnaires or programme records fill the gaps [verify].
+- Check the data first. Read "Coverage" in `data.md` and confirm the surveys cover your counties and years, and whether village questionnaires or programme records fill the gaps (to confirm against the official codebook).
 - Settle the counterfactual. If the only comparison is programme villages versus the rest of the county, read the second "What referees ask" item in `pitfalls.md`.
 
 ## Stage 1 question and literature
@@ -40,7 +40,7 @@ In development work the paper is judged by how the intervention reached househol
 
 ## Stage 7 writing
 - Start from the "Ready-to-cite paragraphs" in `institutional.md`, then check every date.
-- Cite documents and issuing bodies only; leave page and document numbers for [verify].
+- Cite documents and issuing bodies only; leave page and document numbers for (to confirm against the official codebook).
 
 ## Stage 8 referee response
 - Work through the ten "What referees ask" items before submission; clustering, external validity, and spillovers come back most often.

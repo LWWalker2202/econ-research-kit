@@ -6,7 +6,7 @@ Macro and finance causal work is blocked by the reaction problem: the central ba
 ## Stage 0 feasibility: three questions to ask first
 - Ask what the policy rule is. Read "Institutional background" in `institutional.md` and write down the reaction function, the regulatory indicators, and the operating target, then decide which variation is exogenous.
 - Ask about event timing. Read the second "What referees ask" item in `pitfalls.md` and confirm that policy announcements and data releases do not fall on the same day.
-- Ask about exposure shares. Read "Constructing the treatment variable" in `measures.md` and check that shares are measured before the shock [verify].
+- Ask about exposure shares. Read "Constructing the treatment variable" in `measures.md` and check that shares are measured before the shock (to confirm against the official codebook).
 
 ## Stage 1 question and literature
 - Read "Timeline" in `institutional.md` and align interest-rate liberalisation, the LPR reform, reserve-requirement changes, and revisions of the regulatory indicators.
@@ -40,7 +40,7 @@ Macro and finance causal work is blocked by the reaction problem: the central ba
 
 ## Stage 7 writing
 - Start the institutional section from the "Ready-to-cite paragraphs" in `institutional.md`, and check the names and years of the reform documents.
-- Cite institutions, reports, and statistical definitions only; leave page and document numbers for [verify].
+- Cite institutions, reports, and statistical definitions only; leave page and document numbers for (to confirm against the official codebook).
 
 ## Stage 8 referee response
 - Prepare the "What referees ask" items in `pitfalls.md`; policy endogeneity, window contamination, and endogenous exposure are the most common.

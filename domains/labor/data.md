@@ -4,26 +4,26 @@ The Chinese labor literature draws on a small set of surveys plus the census. Ea
 
 ## Data sources
 
-**China Household Income Project (CHIP, 中国住户收入调查).** Repeated cross-sections with waves in 1988, 1995, 2002, 2007, 2013, and 2018 [verify], covering urban households, rural households, and migrants as separate samples. It has the most detailed income components of any public Chinese survey and a long span, which makes it the standard source for wage structure and inequality over time. It is not a panel, and the wave spacing is irregular.
+**China Household Income Project (CHIP, 中国住户收入调查).** Repeated cross-sections with waves in 1988, 1995, 2002, 2007, 2013, and 2018 (to confirm against the official codebook), covering urban households, rural households, and migrants as separate samples. It has the most detailed income components of any public Chinese survey and a long span, which makes it the standard source for wage structure and inequality over time. It is not a panel, and the wave spacing is irregular.
 
-**China Family Panel Studies (CFPS, 中国家庭追踪调查).** A longitudinal survey starting in 2010 with biennial follow-ups [verify], covering individuals, households, and communities. It carries the hukou and migration modules and a full employment and wage block, so it supports panel designs on labor mobility and on the returns to education. Wage questions have changed across waves, and province-by-year cells are thin.
+**China Family Panel Studies (CFPS, 中国家庭追踪调查).** A longitudinal survey starting in 2010 with biennial follow-ups (to confirm against the official codebook), covering individuals, households, and communities. It carries the hukou and migration modules and a full employment and wage block, so it supports panel designs on labor mobility and on the returns to education. Wage questions have changed across waves, and province-by-year cells are thin.
 
-**China Health and Retirement Longitudinal Study (CHARLS, 中国健康与养老追踪调查).** A biennial survey starting in 2011 that samples people aged 45 and above [verify], with rich retirement, pension, health, and consumption modules. It is the workhorse for retirement designs and for health-labor interactions. It is not representative of prime-age workers, so employment and wage levels estimated on CHARLS cannot be read as national labor-market statistics.
+**China Health and Retirement Longitudinal Study (CHARLS, 中国健康与养老追踪调查).** A biennial survey starting in 2011 that samples people aged 45 and above (to confirm against the official codebook), with rich retirement, pension, health, and consumption modules. It is the workhorse for retirement designs and for health-labor interactions. It is not representative of prime-age workers, so employment and wage levels estimated on CHARLS cannot be read as national labor-market statistics.
 
-**Chinese General Social Survey (CGSS, 中国综合社会调查).** A repeated cross-section run annually to 2008 and irregularly afterwards [verify]. It covers occupation, industry, income, hukou, and attitudes. It is useful for cross-sectional wage gaps and for validating the distribution of occupation and industry codes, but it has no panel structure and its income variable is a broad category rather than a wage.
+**Chinese General Social Survey (CGSS, 中国综合社会调查).** A repeated cross-section run annually to 2008 and irregularly afterwards (to confirm against the official codebook). It covers occupation, industry, income, hukou, and attitudes. It is useful for cross-sectional wage gaps and for validating the distribution of occupation and industry codes, but it has no panel structure and its income variable is a broad category rather than a wage.
 
-**China Labor-force Dynamics Survey (CLDS, 中国劳动力动态调查).** A labor-force oriented survey starting in 2012 [verify], with household rosters, job characteristics, employment status, and migration histories. It is the best public source on informal employment and job quality, at the cost of a shorter time span than CHIP or CFPS.
+**China Labor-force Dynamics Survey (CLDS, 中国劳动力动态调查).** A labor-force oriented survey starting in 2012 (to confirm against the official codebook), with household rosters, job characteristics, employment status, and migration histories. It is the best public source on informal employment and job quality, at the cost of a shorter time span than CHIP or CFPS.
 
 **Population Census and 1% population sample surveys (全国人口普查与 1% 人口抽样调查).** Census rounds and the 1% sample surveys between them. Coverage is national and near-universal, with occupation, industry, education, hukou, and migration for every person enumerated work, but there is no wage information. Their role in labor research is to supply denominators, migration flows, and reweighting targets, not outcome variables.
 
-**Urban Household Survey (UHS, 城镇住户调查).** An annual survey of urban registered households with detailed income and expenditure, organised by the National Bureau of Statistics. It excludes most migrants and covers registered urban residents, so it is a good source for urban wage structure before the 2010s and a misleading source for anything involving migration. It was integrated into the national household survey after 2013 [verify].
+**Urban Household Survey (UHS, 城镇住户调查).** An annual survey of urban registered households with detailed income and expenditure, organised by the National Bureau of Statistics. It excludes most migrants and covers registered urban residents, so it is a good source for urban wage structure before the 2010s and a misleading source for anything involving migration. It was integrated into the national household survey after 2013 (to confirm against the official codebook).
 
 ## Variables and definitions
 
 The table gives the variable name as it appears in most public codebooks; confirm the exact name in the wave you use, because naming conventions change between waves.
 
 | Concept | Typical public variable name | What to confirm |
-| Person identifier | pid or ID | Whether the identifier is stable across waves [verify] |
+| Person identifier | pid or ID | Whether the identifier is stable across waves (to confirm against the official codebook) |
 | Household identifier | fid or householdID | Whether household composition is measured at the same time as income |
 | Province | provcd or province | Whether codes are harmonised across waves |
 | Hukou | hukou or hukou status | Agricultural versus non-agricultural, and local versus non-local |
@@ -35,13 +35,13 @@ The table gives the variable name as it appears in most public codebooks; confir
 ## Coverage
 
 | Dataset | Years | Level | Sample magnitude |
-| CHIP | 1988 to 2018, six waves [verify] | Household and individual | Tens of thousands of households per wave |
-| CFPS | 2010 onward, biennial [verify] | Individual, household, community | About ten thousand households [verify] |
-| CHARLS | 2011 onward, biennial [verify] | Individual, household, community | About ten thousand households, age 45 and above [verify] |
-| CGSS | 2003 onward, irregular [verify] | Individual | About ten thousand individuals per wave [verify] |
-| CLDS | 2012 onward [verify] | Individual, household | About ten thousand households [verify] |
-| Census and 1% sample surveys | Census rounds and the years between [verify] | Person and household | National; the 1% samples contain millions of records [verify] |
-| UHS | Annual [verify] | Household and individual | Tens of thousands of urban households [verify] |
+| CHIP | 1988 to 2018, six waves (to confirm against the official codebook) | Household and individual | Tens of thousands of households per wave |
+| CFPS | 2010 onward, biennial (to confirm against the official codebook) | Individual, household, community | About ten thousand households (to confirm against the official codebook) |
+| CHARLS | 2011 onward, biennial (to confirm against the official codebook) | Individual, household, community | About ten thousand households, age 45 and above (to confirm against the official codebook) |
+| CGSS | 2003 onward, irregular (to confirm against the official codebook) | Individual | About ten thousand individuals per wave (to confirm against the official codebook) |
+| CLDS | 2012 onward (to confirm against the official codebook) | Individual, household | About ten thousand households (to confirm against the official codebook) |
+| Census and 1% sample surveys | Census rounds and the years between (to confirm against the official codebook) | Person and household | National; the 1% samples contain millions of records (to confirm against the official codebook) |
+| UHS | Annual (to confirm against the official codebook) | Household and individual | Tens of thousands of urban households (to confirm against the official codebook) |
 
 ## Known issues
 

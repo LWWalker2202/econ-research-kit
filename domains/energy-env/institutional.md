@@ -47,4 +47,4 @@ Environmental regulation in the same period was not a single instrument. Alongsi
 - China Environmental Statistics Yearbook and annual ecological environment status bulletins (中国环境统计年鉴、生态环境状况公报).
 - Provincial lists of key pollutant discharging units (重点排污单位名录), published by provincial ecology and environment departments.
 
-Do not cite page numbers or the document reference numbers attached to these files; cite the issuing body and the title year, and mark any specific clause as [verify] until checked.
+Do not cite page numbers or the document reference numbers attached to these files; cite the issuing body and the title year, and mark any specific clause as (to confirm against the official codebook) until checked.

@@ -20,7 +20,7 @@ Most of the data in this field is a transcription of a document into a table, an
 
 | Variable | Source | Original unit or coding | Harmonization note |
 |---|---|---|---|
-| Customs trade value | Annual customs returns | Customs taels, then dollars after the currency reform [verify] | Convert through the documented exchange series and state the conversion in a table note |
+| Customs trade value | Annual customs returns | Customs taels, then dollars after the currency reform (to confirm against the official codebook) | Convert through the documented exchange series and state the conversion in a table note |
 | Tariff revenue | Customs returns; treaty tariff schedules | Customs taels per year | Separate regime change at the late 1920s tariff recovery |
 | Grain price | Gazetteers, price gazetteers, newspapers | Local currency per dou or per shi, weights differing by region | Convert to a common grain unit and a common currency before comparison |
 | Land-tax quota | Fuyi quanshu, gazetteers | Silver taels per county | Check whether the quota is per household, per cultivated mu, or a county total |
@@ -32,12 +32,12 @@ Most of the data in this field is a transcription of a document into a table, an
 
 | Data | Years | Unit | Rough size |
 |---|---|---|---|
-| Customs annual trade returns | Mid nineteenth century to 1949 | Port by year | Hundreds of ports [verify] |
-| Gazetteer quotas and prices | Ming to the twentieth century | County by edition | Thousands of counties [verify] |
-| Newspapers | Late nineteenth and early twentieth century | Page by date | Hundreds of thousands of pages, unevenly indexed [verify] |
-| Enterprise archives | Mainly twentieth century | Firm by year | Hundreds of firms [verify] |
-| Historical administrative geography | Ming to the present | County and prefecture | Thousands of units across dynasties [verify] |
-| Republican yearbooks | 1910s to 1940s | Province by year | Tens of provinces and several agencies [verify] |
+| Customs annual trade returns | Mid nineteenth century to 1949 | Port by year | Hundreds of ports (to confirm against the official codebook) |
+| Gazetteer quotas and prices | Ming to the twentieth century | County by edition | Thousands of counties (to confirm against the official codebook) |
+| Newspapers | Late nineteenth and early twentieth century | Page by date | Hundreds of thousands of pages, unevenly indexed (to confirm against the official codebook) |
+| Enterprise archives | Mainly twentieth century | Firm by year | Hundreds of firms (to confirm against the official codebook) |
+| Historical administrative geography | Ming to the present | County and prefecture | Thousands of units across dynasties (to confirm against the official codebook) |
+| Republican yearbooks | 1910s to 1940s | Province by year | Tens of provinces and several agencies (to confirm against the official codebook) |
 
 ## Known issues
 

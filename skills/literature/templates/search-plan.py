@@ -67,7 +67,7 @@ TEXT = {
     "en": {
         "title": "Search plan",
         "question": "Research question",
-        "how": ("This file is a plan, not a result. Fill the `[to fill]` slots, run the strings, "
+        "how": ("This file is a plan, not a result. Fill the empty slots, run the strings, "
                 "and record every run in the log at the bottom. A plan without a log is a guess."),
         "matrix": "Layer 1: keyword matrix",
         "matrix_head": "| Layer | Primary term | Synonyms to try | Note |\n|---|---|---|---|",
@@ -88,7 +88,7 @@ TEXT = {
     "zh": {
         "title": "检索方案",
         "question": "研究问题",
-        "how": ("这份文件是方案，不是结果。把 `[待填]` 补掉，把检索串真的跑一遍，"
+        "how": ("这份文件是方案，不是结果。把空着的格子补掉，把检索串真的跑一遍，"
                 "每次跑都记到最下面的检索记录里。没有记录的方案只是猜。"),
         "matrix": "第一层：关键词矩阵",
         "matrix_head": "| 层 | 主词 | 可试的同义词 | 说明 |\n|---|---|---|---|",
@@ -133,14 +133,14 @@ def layers(question, lang):
         if len(m) == 2:
             left = m[0].strip("的 ")
             right = re.split(r"的|有什么|的影响|影响", m[1], maxsplit=1)[0].strip("的 ")
-            return left or "[待填]", right or "[待填]"
-        return q or "[待填]", "[待填]"
+            return left or "—", right or "—"
+        return q or "—", "—"
     m = SPLIT_EN.split(q, maxsplit=1)
     if len(m) == 2:
         left = re.sub(r"^(the\s+)?(effect|impact|influence)s?\s+of\s+", "", m[0].strip(), flags=re.I)
         right = re.sub(r"\s+(of|on)\s*$", "", m[1].strip(), flags=re.I)
-        return left.strip() or "[to fill]", right.strip() or "[to fill]"
-    return q or "[to fill]", "[to fill]"
+        return left.strip() or "—", right.strip() or "—"
+    return q or "—", "—"
 
 
 def jel_candidates(question):
@@ -185,10 +185,10 @@ def main():
     lines.append("## %s" % T["matrix"])
     lines.append("")
     lines.append(T["matrix_head"])
-    ph = "[待填]" if a.lang == "zh" else "[to fill]"
+    ph = "—" if a.lang == "zh" else "—"
     layer_rows = [
-        ("concept" if a.lang == "en" else "构念层", toks[0] if toks else "[to fill]",
-         ", ".join(toks[1:4]) or "[to fill]",
+        ("concept" if a.lang == "en" else "构念层", toks[0] if toks else "—",
+         ", ".join(toks[1:4]) or "—",
          "the word a review article would use" if a.lang == "en" else "综述文章会用的那个词"),
         ("measure" if a.lang == "en" else "措施层", treat, ph,
          "the variable name in the data" if a.lang == "en" else "数据里那一列叫什么"),
@@ -216,7 +216,7 @@ def main():
                    if a.lang == "en" else "查一遍这个码的定义；码错了文章会被放进错误的栏目")
             lines.append("| %s | %s | %s |" % (c, why, chk))
     else:
-        lines.append("| %s | %s | %s |" % ("[to fill]", "-", "-"))
+        lines.append("| %s | %s | %s |" % ("—", "-", "-"))
     lines.append("")
 
     lines.append("## %s" % T["bool"])
@@ -249,7 +249,7 @@ def main():
         ("language" if a.lang == "en" else "语言",
          "English plus Chinese if the setting is China" if a.lang == "en"
          else "英文，加中文（研究对象是中国时）"),
-        ("period" if a.lang == "en" else "时间范围", "[to fill]" if a.lang == "en" else "[待填]"),
+        ("period" if a.lang == "en" else "时间范围", "—" if a.lang == "en" else "—"),
         ("must use" if a.lang == "en" else "必须用到",
          "a design that could separate the mechanism" if a.lang == "en"
          else "一个能把机制分离出来的设计"),
@@ -269,8 +269,8 @@ def main():
     lines.append("Google Scholar   : " + strings[0][1])
     lines.append("OpenAlex         : https://api.openalex.org/works?search=" +
                  (toks[0] if toks else "x") + "&per-page=25")
-    lines.append("CNKI (中文)      : (" + (treat if a.lang == "zh" else "[待填]") + ") AND (" +
-                 (outcome if a.lang == "zh" else "[待填]") + ")")
+    lines.append("CNKI (中文)      : (" + (treat if a.lang == "zh" else "—") + ") AND (" +
+                 (outcome if a.lang == "zh" else "—") + ")")
     lines.append("```")
     lines.append("")
 

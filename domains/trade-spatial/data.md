@@ -2,7 +2,7 @@
 
 ## Data sources
 
-**中国海关数据库 (China Customs Trade Database).** Transaction-level records of imports and exports by firm, product, trade mode, and partner country, with quantity and US dollar value. This is the workhorse microdata for trade exposure: it identifies the firm, the HS code, the trade mode (加工贸易 versus 一般贸易), the customs district (关区), and the destination or origin. The extracts used in most papers cover 2000 to 2016 [verify]; later years are less complete, so the window of any firm-level trade design should be stated explicitly. Firm identifiers are the customs registration code, which is not the code used in the industrial enterprise database.
+**中国海关数据库 (China Customs Trade Database).** Transaction-level records of imports and exports by firm, product, trade mode, and partner country, with quantity and US dollar value. This is the workhorse microdata for trade exposure: it identifies the firm, the HS code, the trade mode (加工贸易 versus 一般贸易), the customs district (关区), and the destination or origin. The extracts used in most papers cover 2000 to 2016 (to confirm against the official codebook); later years are less complete, so the window of any firm-level trade design should be stated explicitly. Firm identifiers are the customs registration code, which is not the code used in the industrial enterprise database.
 
 **中国工业企业数据库 (Chinese Industrial Enterprises Database, CIED).** Annual firm-level data for above-scale manufacturing firms, described in the data dictionary entry on the industrial firms database. Here it is used to attach firm characteristics to customs transactions and to map firms to two-digit industries, so that product-level shocks can be aggregated to the firm or region. Matching customs records to CIED records relies on name, address, telephone, and postal code, and a material share of records remains unmatched.
 
@@ -38,23 +38,23 @@
 
 | Data | Years | Level | Size order |
 |---|---|---|---|
-| China Customs Trade Database | 2000 to 2016 [verify] | Firm-product-partner country | About one hundred thousand to one million firms per year [verify] |
-| Chinese Industrial Enterprises Database | 1998 to 2013, with gaps | Firm | About one hundred thousand firms per year [verify] |
+| China Customs Trade Database | 2000 to 2016 (to confirm against the official codebook) | Firm-product-partner country | About one hundred thousand to one million firms per year (to confirm against the official codebook) |
+| Chinese Industrial Enterprises Database | 1998 to 2013, with gaps | Firm | About one hundred thousand firms per year (to confirm against the official codebook) |
 | City statistical yearbooks | Annual from the 1990s | Prefecture-level city | Several hundred cities |
-| County statistical yearbooks | Annual | County and district | About two thousand county-level units [verify] |
+| County statistical yearbooks | Annual | County and district | About two thousand county-level units (to confirm against the official codebook) |
 | DMSP-OLS night lights | 1992 to 2013 | Grid cell | Global coverage |
 | NPP-VIIRS night lights | 2012 onward | Grid cell | Global coverage |
-| CEPII-BACI and UN Comtrade | 1995 onward [verify] | Exporter-importer-HS6 | All reporting countries |
-| Rail timetables and network data | 2008 onward [verify] | City pair | Several thousand station pairs [verify] |
+| CEPII-BACI and UN Comtrade | 1995 onward (to confirm against the official codebook) | Exporter-importer-HS6 | All reporting countries |
+| Rail timetables and network data | 2008 onward (to confirm against the official codebook) | City pair | Several thousand station pairs (to confirm against the official codebook) |
 | Administrative division codes | Annual | Province, city, county | All units above township level |
 
 ## Known issues
 
-1. Customs firm codes are not permanent: a firm that re-registers or changes its trade arrangement can appear under a new code, so an unbalanced firm panel loses and gains firms for administrative rather than economic reasons [verify].
+1. Customs firm codes are not permanent: a firm that re-registers or changes its trade arrangement can appear under a new code, so an unbalanced firm panel loses and gains firms for administrative rather than economic reasons (to confirm against the official codebook).
 2. HS classifications were revised repeatedly, and a product-level panel breaks at each revision unless a concordance is applied; the correspondence is many-to-many in some cells, so the mapped measure carries errors that should be reported.
 3. Processing imports are exempt from duty, so a tariff measure built on all customs imports understates the exposure of processing firms and overstates the average response to a tariff cut.
 4. Customs values are gross border values, not value added; re-exports through Hong Kong and other entrepots are attributed to the entrepot in some series and to the final destination in others, which changes bilateral totals.
 5. The industrial firms database has gaps and definitional breaks in key financial items across years, so firm-level matching on financial variables should be restricted to comparable years.
-6. City statistics report 全市 and 市辖区 for the same city; a series built without choosing one mixes two populations, and the two diverge most for cities that absorbed counties, where a merger-induced jump in population and output can be mistaken for a policy effect [verify].
+6. City statistics report 全市 and 市辖区 for the same city; a series built without choosing one mixes two populations, and the two diverge most for cities that absorbed counties, where a merger-induced jump in population and output can be mistaken for a policy effect (to confirm against the official codebook).
 7. Nighttime light saturates in urban cores and blooms across boundaries, and the sensor changes between the DMSP and VIIRS eras, so a level series is not comparable before and after the change without cross-calibration.
 8. Timetable-based travel time moves when the railway is rescheduled (调图), so a travel-time shock includes schedule changes unrelated to infrastructure investment.

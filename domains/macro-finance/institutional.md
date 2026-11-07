@@ -46,4 +46,4 @@ Local government borrowing in China moved through three partially overlapping re
 - BIS and IMF country reports, for cross-checking the regulatory and external-sector chronology.
 - Bond prospectuses, issue documents and rating reports, for firm-level debt and spread construction.
 
-Do not cite page numbers or document numbers; cite institution, title and year, and mark specific clauses `[verify]` until checked.
+Do not cite page numbers or document numbers; cite institution, title and year, and mark specific clauses ` (to confirm against the official codebook)` until checked.

@@ -1201,6 +1201,18 @@ def write_index(project):
         return None
 
 
+def write_cmd(project, target_dir):
+    """把"该跑哪条命令"写进项目，面板照抄，不用猜路径。"""
+    try:
+        here = os.path.dirname(os.path.abspath(__file__))
+        path = os.path.join(target_dir, "panel-cmd.txt")
+        os.makedirs(target_dir, exist_ok=True)
+        with io.open(path, "w", encoding="utf-8", newline="\n") as f:
+            f.write('python "%s" --project "%s"\n' % (os.path.join(here, "dashboard.py"), project))
+    except Exception:
+        pass
+
+
 def write_panel(root, out_dir, lang, project):
     """把同一份数据写进项目里，返回落点路径。"""
     board = collect(root, out_dir, lang, project)
@@ -1233,6 +1245,7 @@ def write_panel(root, out_dir, lang, project):
             os.makedirs(d)
         with io.open(t, "w", encoding="utf-8", newline="\n") as f:
             f.write(text)
+    write_cmd(project, os.path.join(project, ".econ-kit"))
     return target
 
 

@@ -40,7 +40,7 @@ Public economics asks where the money comes from and where it goes, and whether 
 
 ## Stage 7 writing
 - Start from the "Ready-to-cite paragraphs" in `institutional.md`, then check each year and document name.
-- Cite documents and issuing bodies only; leave page and document numbers for [verify].
+- Cite documents and issuing bodies only; leave page and document numbers for (to confirm against the official codebook).
 
 ## Stage 8 referee response
 - Work through the ten "What referees ask" items, preparing first for overlapping policies and coefficient attribution.

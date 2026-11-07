@@ -6,7 +6,7 @@ Economic history argues from surviving records, and survival is itself selected;
 ## Stage 0 feasibility: three questions to ask first
 - Ask how records survived. Read "Known issues" in `data.md` and establish the rule under which your archives or gazetteers survived, and whether missingness is related to the outcome.
 - Ask how definitions bridge. Read "Constructing the treatment variable" in `measures.md` and confirm the mapping between historical levies, customs duties, or quotas and the modern variable you construct.
-- Ask about boundaries and names. Read the third "What referees ask" item in `pitfalls.md` and confirm that historical counties can be matched to modern ones [verify].
+- Ask about boundaries and names. Read the third "What referees ask" item in `pitfalls.md` and confirm that historical counties can be matched to modern ones (to confirm against the official codebook).
 
 ## Stage 1 question and literature
 - Read "Institutional background" in `institutional.md`, lay out the levy, registration, and treaty-port structure, and pick one institution that changed and can be measured.
@@ -31,7 +31,7 @@ Economic history argues from surviving records, and survival is itself selected;
 ## Stage 5 tables and figures
 - Build the balance table around the first referee question in `pitfalls.md`: whether record survival correlates with county characteristics.
 - The time-series figure should mark institutional changes and changes in the unit of measurement.
-- State original units and conversion factors in the main table [verify].
+- State original units and conversion factors in the main table (to confirm against the official codebook).
 
 ## Stage 6 report
 - Report the sources and the survival mechanism, following the first "How to respond" item in `pitfalls.md`.
@@ -40,7 +40,7 @@ Economic history argues from surviving records, and survival is itself selected;
 
 ## Stage 7 writing
 - Start the institutional section from the "Ready-to-cite paragraphs" in `institutional.md`, and get the names of the archives and gazetteers right.
-- Cite archives, gazetteers, and yearbooks only; leave page and volume numbers for [verify].
+- Cite archives, gazetteers, and yearbooks only; leave page and volume numbers for (to confirm against the official codebook).
 
 ## Stage 8 referee response
 - Prepare the "What referees ask" items in `pitfalls.md`; selection, cross-period deflation, and county matching are the usual three.

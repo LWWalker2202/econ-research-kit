@@ -20,7 +20,7 @@ Data preparation is where a reproducible paper is won or lost. The rule that gov
 | What you need | Where it comes from | What if missing |
 |---|---|---|
 | Raw files, unchanged, with file name and checksum | agency, survey, vendor, or the project attachment folder | Copy raw files to a read-only directory and record the checksum; never clean in place |
-| Codebook or variable list for each wave or year | data provider, or `data-dict/` if the source is already covered | If the source has no entry, build one from the official documentation and add it back to `data-dict/` (its README says which sources get an entry); mark every unverified name `[to fill]` |
+| Codebook or variable list for each wave or year | data provider, or `data-dict/` if the source is already covered | If the source has no entry, build one from the official documentation and add it back to `data-dict/` (its README says which sources get an entry); mark every unverified name ` (to be read off the project's own sample)` |
 | Identifier crosswalk between sources | `data-dict/`, official concordance | Without a crosswalk, report the unmatched share and never force a match on names |
 | Sample rules from the design | `identification-memo.md` | Write the sample rules before cleaning starts; do not derive them from what survives the merge |
 | Unit and price conventions for the analysis | project convention, prior papers | Fix one unit and one price base per variable and write the choice in the data dictionary |

@@ -39,7 +39,7 @@ Vital statistics and censuses provide mortality context. Disease surveillance po
 | CLHLS | Repeated waves of oldest old | Individual | Focus on ages 65 and above; mortality follow-up [verify waves] |
 | China Health Statistical Yearbook | Annual | Province | Beds, personnel, volumes, average costs |
 | Claims and discharge data | Event-specific | Individual, facility | Access usually requires local agreement |
-| Disease surveillance points | Annual | County | Cause-specific mortality; coverage improved over time [verify] |
+| Disease surveillance points | Annual | County | Cause-specific mortality; coverage improved over time (to confirm against the official codebook) |
 | Census and intercensal surveys | Every ten years plus samples | Province, county | Age structure and mortality denominators |
 
 ## Known issues

@@ -32,8 +32,8 @@ Two notes for the writer. First, the ethics paragraph is now expected in the pap
 
 ## Sources
 
-- Institutional review board and ethics committee rules of the authors' universities [verify].
+- Institutional review board and ethics committee rules of the authors' universities (to confirm against the official codebook).
 - Personal Information Protection Law of the People's Republic of China (中华人民共和国个人信息保护法).
 - AEA RCT Registry and Open Science Framework, for pre-registration and materials deposit.
-- Platform documentation and terms of service for the subject pools used (Credamo 见数, Prolific, MTurk) [verify].
-- Journal data and code availability policies of the target outlet [verify].
+- Platform documentation and terms of service for the subject pools used (Credamo 见数, Prolific, MTurk) (to confirm against the official codebook).
+- Journal data and code availability policies of the target outlet (to confirm against the official codebook).

@@ -31,7 +31,7 @@ Public finance work in China is constrained less by the number of datasets than 
 | minimum living guarantee standard | 低保标准 | Monthly or annual benefit level set locally | Yuan per month |
 | social insurance contribution rate | 社保缴费率 | Employer and employee contribution as share of wage | Percentage |
 | local government debt balance | 地方政府债务余额 | Outstanding interest-bearing local debt | Yuan; on- and off-budget differ |
-| budget transparency index | 财政透明度指数 | Score from disclosure of budget documents | Index, higher is more transparent [verify] |
+| budget transparency index | 财政透明度指数 | Score from disclosure of budget documents | Index, higher is more transparent (to confirm against the official codebook) |
 
 ## Coverage
 
@@ -40,8 +40,8 @@ Public finance work in China is constrained less by the number of datasets than 
 | China Finance Yearbook | Annual volumes, year range varies by table | Province and nation | All provinces |
 | China County Statistical Yearbook | Annual volumes, county fiscal tables | County | Several thousand counties |
 | China City Statistical Yearbook | Annual volumes | Prefecture | Several hundred prefectures |
-| National Tax Survey | Restricted access, periodic | Firm | [待填] |
-| China Migrants Dynamic Survey | Repeated waves | Individual | About the hundred-thousand level per wave [verify] |
+| National Tax Survey | Restricted access, periodic | Firm | (to be read off the project's own sample) |
+| China Migrants Dynamic Survey | Repeated waves | Individual | About the hundred-thousand level per wave (to confirm against the official codebook) |
 | Budget disclosure documents | Fiscal year documents | Province and municipality | All provinces, coverage uneven |
 | Minimum living guarantee statistics | Annual | Province and county | All provinces |
 
@@ -52,6 +52,6 @@ Public finance work in China is constrained less by the number of datasets than 
 3. Transfer data are often reported as a total, with the general and earmarked split available only in some years.
 4. County fiscal data are sometimes imputed or back-filled by the yearbook compiler, which matters for panels that treat the county as the unit.
 5. Off-budget debt is not observed in any routine statistical source; audit documents give snapshots, not a panel.
-6. Survey weights and coverage in the migrant survey do not match the local population register; comparisons across waves require attention to the sampling frame [verify].
-7. Local budget documents are published in formats that change, so a transparency index built by scraping is sensitive to the scraper, not only to the government [verify].
+6. Survey weights and coverage in the migrant survey do not match the local population register; comparisons across waves require attention to the sampling frame (to confirm against the official codebook).
+7. Local budget documents are published in formats that change, so a transparency index built by scraping is sensitive to the scraper, not only to the government (to confirm against the official codebook).
 8. Firm tax records and financial statements measure tax burden differently, and studies that mix the two sources can produce an apparent change that is measurement, not behavior.

@@ -29,15 +29,15 @@ Energy data come from the China Energy Statistical Yearbook (中国能源统计�
 
 | Data | Years | Level | Sample size magnitude |
 |---|---|---|---|
-| National air quality monitoring | 2013 onwards | Station-hour, city-day | About one thousand stations [verify] |
-| CEMS | 2013 onwards for key units | Firm-outlet-hour | Tens of thousands of outlets [verify] |
-| Environmental statistics and pollutant discharge declaration | Annual | Firm | About one hundred thousand firms [verify] |
-| Pollutant discharge permit records | 2017 onwards | Firm-outlet | About one hundred thousand firms [verify] |
-| Pilot ETS transactions | 2013 onwards | Firm-day | About one thousand covered firms per pilot [verify] |
-| National ETS transactions | 2021 onwards | Firm-day | About two thousand covered firms at launch [verify] |
+| National air quality monitoring | 2013 onwards | Station-hour, city-day | About one thousand stations (to confirm against the official codebook) |
+| CEMS | 2013 onwards for key units | Firm-outlet-hour | Tens of thousands of outlets (to confirm against the official codebook) |
+| Environmental statistics and pollutant discharge declaration | Annual | Firm | About one hundred thousand firms (to confirm against the official codebook) |
+| Pollutant discharge permit records | 2017 onwards | Firm-outlet | About one hundred thousand firms (to confirm against the official codebook) |
+| Pilot ETS transactions | 2013 onwards | Firm-day | About one thousand covered firms per pilot (to confirm against the official codebook) |
+| National ETS transactions | 2021 onwards | Firm-day | About two thousand covered firms at launch (to confirm against the official codebook) |
 | China Energy Statistical Yearbook | Annual, long series | Province and sector | 31 provincial units |
-| Chinese Industrial Enterprises Database (CIED) | 1998 to 2013, with gaps | Firm | About one hundred thousand firms per year [verify] |
-| China Customs Trade Database (中国海关数据库) | 2000 onwards | Firm-product-destination | About one hundred thousand firms [verify] |
+| Chinese Industrial Enterprises Database (CIED) | 1998 to 2013, with gaps | Firm | About one hundred thousand firms per year (to confirm against the official codebook) |
+| China Customs Trade Database (中国海关数据库) | 2000 onwards | Firm-product-destination | About one hundred thousand firms (to confirm against the official codebook) |
 
 ## Known issues
 

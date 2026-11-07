@@ -89,6 +89,7 @@ SLOT_LABEL = {
     "outcome": ("结果变量", "outcome variable"),
     "comparison": ("对照组", "comparison group"),
 }
+FILL_SLOT = "（待补）"
 STATUS_LABEL = {
     "given": ("你给的", "from you"),
     "implied": ("我猜的", "inferred"),
@@ -180,7 +181,7 @@ def draft_prompt(text, slots, stage, lang):
             status, val = slots.get(key, ("missing", ""))
             label = SLOT_LABEL[key][1]
             if status == "missing":
-                lines.append("- %s: [to fill]" % label)
+                lines.append("- %s: %s" % (label, FILL_SLOT))
             else:
                 lines.append("- %s: %s (%s)" % (label, val, STATUS_LABEL[status][1]))
         lines.append("")
@@ -188,7 +189,7 @@ def draft_prompt(text, slots, stage, lang):
         lines.append("Follow the %s procedure and produce: %s." % (stage_name, ARTIFACTS[stage]))
         lines.append("")
         lines.append("# Constraints")
-        lines.append("- Write [to fill] where information is missing; never guess silently.")
+        lines.append("- %s where information is missing; never guess silently." % FILL_SLOT)
         lines.append("- Start every answer with the three-line status header: stage / what this step does / artifact and whether confirmation is needed.")
         lines.append("- Give a source for every number; give no number you cannot source.")
         lines.append("")

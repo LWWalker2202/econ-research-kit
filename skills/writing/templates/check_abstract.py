@@ -16,7 +16,7 @@ Statuses: ``OK`` passes, ``WEAK`` is present but not what the rule asks for,
 ``MISSING`` is absent. The exit code is 0 only when all seven pass, and the
 last line always reads ``N/7 checks passed``.
 
-A quantified result written as ``[待核实]`` plus a unit passes the number
+A quantified result written as a placeholder plus a unit passes the number
 check on purpose: the point of the run is to catch a missing magnitude, not
 to force the author to invent one. The report flags every placeholder so it
 can be filled before submission.

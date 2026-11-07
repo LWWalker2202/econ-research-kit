@@ -19,7 +19,7 @@ Nothing is blocking. Two things, in order of value:
 
 ## Known gaps
 - The Codex plugin is registered in `config.toml` but has never been looked at in the UI (G2).
-- About 250 `[to fill]` markers sit in illustrative positions on purpose; nobody has triaged
+- About 250 ` (to be read off the project's own sample)` markers sit in illustrative positions on purpose; nobody has triaged
   which belong to the author and which the scripts should fill (G4).
 - Table and report checks are structural only; the semantic layer needs a human gate (G5).
 - The 142 journal names in `journals.json` are verified, but the A/B tiers are still a first-pass

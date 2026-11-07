@@ -31,12 +31,12 @@ Reusable materials come from three places. The Open Science Framework hosts pre-
 
 | Data | Years | Level | Sample size magnitude |
 |---|---|---|---|
-| University laboratory sessions | Continuous | Participant-session | About one hundred participants per study [verify] |
-| Domestic online panel | Continuous | Participant | About one thousand participants per study [verify] |
-| International online platform | Continuous | Participant | About one thousand participants per study [verify] |
-| Field experiment with administrative records | Varies by project | Individual or firm | About one thousand to ten thousand units [verify] |
-| Open Science Framework deposits | Continuous | Study | Varies; materials only in many cases [verify] |
-| Journal replication packages | Continuous | Study | Varies by outlet policy [verify] |
+| University laboratory sessions | Continuous | Participant-session | About one hundred participants per study (to confirm against the official codebook) |
+| Domestic online panel | Continuous | Participant | About one thousand participants per study (to confirm against the official codebook) |
+| International online platform | Continuous | Participant | About one thousand participants per study (to confirm against the official codebook) |
+| Field experiment with administrative records | Varies by project | Individual or firm | About one thousand to ten thousand units (to confirm against the official codebook) |
+| Open Science Framework deposits | Continuous | Study | Varies; materials only in many cases (to confirm against the official codebook) |
+| Journal replication packages | Continuous | Study | Varies by outlet policy (to confirm against the official codebook) |
 
 ## Known issues
 

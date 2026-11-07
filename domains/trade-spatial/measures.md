@@ -28,7 +28,7 @@ Four practical notes. First, the exposure measure inherits the timing of its wei
 | Error | Consequence | Correct approach |
 |---|---|---|
 | Using contemporaneous employment shares to weight the shock | The shares move with the shock, so the measure is endogenous by construction | Fix the weights in a pre-period year and report sensitivity to alternative base years |
-| Merging HS codes across revisions without a concordance | Product-level exposure is measured at the wrong product and the panel has artificial entry and exit | Use an official or published concordance and report the share of trade left unmatched [verify] |
+| Merging HS codes across revisions without a concordance | Product-level exposure is measured at the wrong product and the panel has artificial entry and exit | Use an official or published concordance and report the share of trade left unmatched (to confirm against the official codebook) |
 | Pooling processing and ordinary trade in the customs aggregate | Tariff exposure is overstated, because processing imports entered duty-free | Split by trade mode, or build the exposure measure on ordinary trade only |
 | Treating a zone or rail opening as a city-level binary without a spillover ring | The control group is contaminated and the estimate picks up displacement rather than creation | Add neighboring cities and an exposure gradient, or use a travel-time design instead of a binary |
 | Using straight-line distance where the mechanism is network travel time | Measurement error is systematic, because geography and the network are differently shaped | Use timetable-based travel time and report straight-line distance as a robustness check |

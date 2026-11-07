@@ -8,9 +8,9 @@ The coefficient on `D` is 0.352, with a standard error of 0.143 (standard errors
 
 ## Main results
 
-Baseline specification selected from `skills/estimation/expected/estimation-results.json`: `y ~ D + x1 + x2 | id + year` with fixed effects `id, year`; point estimate 0.352, standard error 0.143, p-value 0.017, R-squared 0.529, observations 600.
+Baseline specification selected from `skills\estimation\expected\estimation-results.json`: `y ~ D + x1 + x2 | id + year` with fixed effects `id, year`; point estimate 0.352, standard error 0.143, p-value 0.017, R-squared 0.529, observations 600.
 
-Table 1 is embedded verbatim from `skills/tables-figures/expected/table1.tex`. A converter should pass the fenced block through unchanged so that the booktabs-style layout, the label and the table note survive. This demo deliberately embeds a table from a different project: read the closing checklist and watch the guard fire.
+Table 1 is embedded verbatim from `skills\tables-figures\expected\table1.tex`. A converter should pass the fenced block through unchanged so that the booktabs-style layout, the label and the table note survive. This demo deliberately embeds a table from a different project: read the closing checklist and watch the guard fire.
 
 ```latex
 \begin{table}[htbp]
@@ -55,17 +55,17 @@ Each item below applies one variance estimator to the robustness specification `
 
 This section is written by the researcher. The builder leaves it open on purpose: the two input files record estimates and exhibits, not sample construction, so any sentence a machine typed here would be invention.
 
-- Sample frame and period: `[to fill]`
-- Unit of observation: `[to fill]`
-- Variable definitions and data sources: `[to fill]`
-- Sample restrictions and winsorizing rules: `[to fill]`
+- Sample frame and period: `—`
+- Unit of observation: `—`
+- Variable definitions and data sources: `—`
+- Sample restrictions and winsorizing rules: `—`
 
 ## How to reproduce
 
-- Estimation script: `[to fill]`
+- Estimation script: `—`
 - Random seed: `20260315` (read from the results file)
-- Input files: `skills/tables-figures/expected/table1.tex` and `skills/estimation/expected/estimation-results.json`
-- Command: `python skills/report/templates/build_report.py --tables skills/tables-figures/expected/table1.tex --results skills/estimation/expected/estimation-results.json --lang en --out output/report.md`
+- Input files: `skills\tables-figures\expected\table1.tex` and `skills\estimation\expected\estimation-results.json`
+- Command: `python skills/report/templates/build_report.py --tables skills/tables-figures/expected/table1.tex --results skills/estimation/expected/estimation-results.json --lang en --out skills/report/expected/report.md`
 
 ## What is still missing
 

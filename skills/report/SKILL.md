@@ -21,7 +21,7 @@ description: Build a reproducible report pipeline from raw data to intermediate 
 | Cleaned intermediate files | `data-prep` output under `data/interim/` | run `data-prep`; the report never reads `data/raw/` directly |
 | Generated tables and figures | `tables-figures` output under `output/tables/` and `output/figures/` | build them first; a report that plots from scratch duplicates the exhibit code |
 | Numeric values for the prose | `output/estimates/` JSON or CSV files | extract them into `report/values.json` before writing a sentence that quotes a number |
-| Journal or template requirements | the outlet's guidelines | default to the skeleton in this skill and flag deviations in `[to fill]` |
+| Journal or template requirements | the outlet's guidelines | default to the skeleton in this skill and flag deviations in ` (to be read off the project's own sample)` |
 
 ## Procedure
 

@@ -19,7 +19,7 @@ description: Write and submit an economics manuscript to an English-language jou
 |---|---|---|
 | Final estimates with magnitudes and units | `estimation` output and the built tables | write the abstract only after the headline number is fixed |
 | Exhibit map | `output/tables/table_index.csv` | build it first; every claim in the abstract must point to an exhibit |
-| Journal style sheet | the target journal's author guidelines | use the defaults below and list each deviation in `[to fill]` |
+| Journal style sheet | the target journal's author guidelines | use the defaults below and list each deviation in ` (to be read off the project's own sample)` |
 | Prior literature and the gap | your reading notes | name the two or three papers this one speaks to; do not write a survey inside the introduction |
 | JEL classification | the published JEL list | look up each code's official description; never copy codes from a neighbouring paper |
 

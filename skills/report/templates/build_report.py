@@ -22,7 +22,7 @@ import os
 import sys
 from pathlib import Path
 
-PLACEHOLDER = {"en": "[to fill]", "zh": "[待填]"}
+PLACEHOLDER = {"en": "—", "zh": "——"}
 
 TEXT = {
     "en": {
@@ -41,7 +41,7 @@ TEXT = {
         ),
         "conclusion_missing": (
             "The results file contains no specification the builder can select, so the "
-            "benchmark statement stays open as `[to fill]`."
+            "benchmark statement is left as an em dash: the builder found no specification to select."
         ),
         "h_main": "Main results",
         "main_estimate": (
@@ -57,7 +57,7 @@ TEXT = {
         ),
         "main_missing": (
             "The results file contains no specification the builder can select, so the "
-            "main estimate stays open as `[to fill]`."
+            "main estimate is left as an em dash: the builder found no specification to select."
         ),
         "h_rob": "Robustness",
         "rob_intro": (
@@ -117,7 +117,7 @@ TEXT = {
         "intro": (
             "本文件由 `skills/report/templates/build_report.py` 从 `## 复现方式` 一节列出的"
             "两个冻结文件生成。下文所有数值都取自这两个文件，文件里没有的字段一律打印为 "
-            "`[待填]`，不由人手补写。"
+            "——，不由人手补写。"
         ),
         "h_conclusion": "一句话结论",
         "conclusion": (
@@ -125,7 +125,7 @@ TEXT = {
             "个观测、设定为 `{formula}`。"
         ),
         "conclusion_missing": (
-            "结果文件里没有可供选取的设定，基准结论暂留为 `[待填]`。"
+            "结果文件里没有可供选取的设定，基准结论暂留为「——」。"
         ),
         "h_main": "主结果",
         "main_estimate": (
@@ -135,7 +135,7 @@ TEXT = {
         "main_embed": (
             "下表从 `{tables}` 原样嵌入。转换时请让代码块原样通过，以保留三线表版式与表注。"
         ),
-        "main_missing": "结果文件里没有可供选取的设定，主结果暂留为 `[待填]`。",
+        "main_missing": "结果文件里没有可供选取的设定，主结果暂留为「——」。",
         "h_rob": "稳健性",
         "rob_intro": (
             "下面每一项对同一个稳健性设定 `{formula}` 换一种方差估计方式；点估计保持不变，"
@@ -143,7 +143,7 @@ TEXT = {
         ),
         "rob_item": "- {vcov_desc}：系数 {coef}，标准误 {se}，p 值 {p}{clusters}。",
         "clusters": "，聚类数 {n}",
-        "rob_missing": "结果文件里没有记录稳健性设定，本节暂留为 `[待填]`。",
+        "rob_missing": "结果文件里没有记录稳健性设定，本节暂留为「——」。",
         "h_data": "数据与口径",
         "data_intro": (
             "本节由研究者填写。生成器故意留空：两个输入文件记录的是估计结果与表图，不含样本"

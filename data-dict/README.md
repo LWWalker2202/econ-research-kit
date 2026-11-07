@@ -1,6 +1,6 @@
 # Data dictionaries
 
-> Where this sits: stage 3 (data). A dictionary entry is usable only when five fields are filled: unit of observation, coverage (years and regions), the key variables with their exact definitions, the access route, and the known defects. Anything still marked `[待核实]` / `[verify]` is a question for the person who owns the data, not a fact you may quote.
+> Where this sits: stage 3 (data). A dictionary entry is usable only when five fields are filled: unit of observation, coverage (years and regions), the key variables with their exact definitions, the access route, and the known defects. Anything still marked ` (to confirm against the official codebook)` / ` (to confirm against the official codebook)` is a question for the person who owns the data, not a fact you may quote.
 
 ## What this directory is
 
@@ -30,7 +30,7 @@ python scripts/lookup_source.py --region 中国数据 --topic 环境数据
 3. `## Known issues` — coverage gaps, definition changes across waves, known measurement problems, what referees ask.
 4. `## Access` — the institution to apply to, the application route, typical lead time. Not a URL: URLs rot, institution names do not.
 
-Five rules for an entry: no URLs, no software version numbers, no invented sample sizes, mark every unverified variable name `[to fill]`, and keep it to the variables you have actually used.
+Five rules for an entry: no URLs, no software version numbers, no invented sample sizes, mark every unverified variable name ` (to be read off the project's own sample)`, and keep it to the variables you have actually used.
 
 ## Class A: Chinese micro data, worth adding an entry
 
@@ -60,7 +60,7 @@ Record it in the project's `data-dictionary.csv`, and keep it consistent with th
 
 1. Search this directory first. If a file already covers the source, extend it; do not create a second one.
 2. Classify the source as A, B, or C using the sections above.
-3. For class A: copy the four section headings, fill what you know, and mark the rest `[to fill]`.
+3. For class A: copy the four section headings, fill what you know, and mark the rest ` (to be read off the project's own sample)`.
 4. For classes B and C: write the notes into the project's `data-dictionary.csv` and do not add a file here.
 5. Run `python scripts/lint_content.py .` before committing.
 

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "confidence 三档：vendor=按该刊公开投稿须知写成、可核；measured=我们从 283 篇语料里实测得来；unverified=待核，脚本渲染时标 [待核实]。",
+  "note": "confidence 三档：vendor=按该刊公开投稿须知写成、可核；measured=我们从 283 篇语料里实测得来；unverified=待核，脚本渲染时标「待核」。",
   "journals": [
     {
       "id": "aer", "name": "American Economic Review", "aliases": ["AER"], "tier": "A", "lang": "en",

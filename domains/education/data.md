@@ -18,7 +18,7 @@ Education data in China come in two layers. Surveys describe individuals and fam
 
 **County education finance data.** Per-student expenditure and budget documents published by county finance and education bureaus. Coverage is uneven, but it is the only source that separates recurrent from capital spending.
 
-**School records and assessment data.** Student registers and standardized test scores held by education bureaus or by survey projects; access is restricted and the sampling frame must be documented. [verify]
+**School records and assessment data.** Student registers and standardized test scores held by education bureaus or by survey projects; access is restricted and the sampling frame must be documented. (to confirm against the official codebook)
 
 ## Variables and definitions
 
@@ -41,13 +41,13 @@ Education data in China come in two layers. Surveys describe individuals and fam
 
 | Data | Years | Level | Sample size order |
 |---|---|---|---|
-| China Family Panel Studies | Multi-wave panel | Individual and household | About the ten-thousand-household level [verify] |
-| China Household Income Project | Repeated rounds | Individual and household | About the ten-thousand-household level [verify] |
-| Chinese General Social Survey | Repeated rounds | Individual | About the ten-thousand level per round [verify] |
-| China Health and Nutrition Survey | Multi-wave panel, fixed provinces | Individual and household | About the thousand-household level per province [verify] |
+| China Family Panel Studies | Multi-wave panel | Individual and household | About the ten-thousand-household level (to confirm against the official codebook) |
+| China Household Income Project | Repeated rounds | Individual and household | About the ten-thousand-household level (to confirm against the official codebook) |
+| Chinese General Social Survey | Repeated rounds | Individual | About the ten-thousand level per round (to confirm against the official codebook) |
+| China Health and Nutrition Survey | Multi-wave panel, fixed provinces | Individual and household | About the thousand-household level per province (to confirm against the official codebook) |
 | Population census and one percent sample | Decennial and inter-census | Individual, full or sampled population | Millions in the census, about the one-percent sample |
 | China Education Statistics Yearbook | Annual | Province, county, and school | Universe of schools |
-| County education finance data | Annual, coverage uneven | County | Varies by province [待填] |
+| County education finance data | Annual, coverage uneven | County | Varies by province (to be read off the project's own sample) |
 
 ## Known issues
 

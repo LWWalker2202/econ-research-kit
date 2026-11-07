@@ -2,7 +2,7 @@
 
 A **stage-by-stage toolkit for empirical work in economics**: from "is this question even answerable", through "run the regression", "produce a publication table", "write the report", to "answer the referee", in eight stages. Every stage ships either a template you can actually run (and compare against a golden output) or a checker that reads what you produced and tells you line by line what is missing.
 
-**Version 0.3.38** ｜ This is the English master repository; the Chinese mirror is [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh), and CI compares the structure of the two on every push.
+**Version 0.3.39** ｜ This is the English master repository; the Chinese mirror is [`econ-research-kit-zh`](https://github.com/LWWalker2202/econ-research-kit-zh), and CI compares the structure of the two on every push.
 
 > First time here? Jump straight to "Step one". You do not need to understand why the repository is shaped this way before you use it.
 
@@ -181,7 +181,7 @@ A question spanning two fields is normal (an environmental inspection affecting 
 1. **It is not an automatic paper writer.** It produces no prose. It tells you which file to hand over and what makes that file acceptable.
 2. **It does not judge whether your identification strategy holds.** It forces you to list the threats and write the test for each one; the judgement stays yours.
 3. **The numbers in `expected/` cannot be cited.** They come from synthetic data and exist to pin down format and workflow, not to report a result.
-4. **`[待填]` and `[待核实]` are not missing text.** There are about two hundred of them on purpose: data definitions and literature references must be verified by you. If a model fills them in, it is inventing.
+4. **The bracketed fill-in marks are not missing text.** There are about two hundred of them on purpose: data definitions and literature references must be verified by you. If a model fills them in, it is inventing.
 5. **It is not a prompt collection.** The point of each stage is the sequence of files you hand over and the way you verify them; the prompt is only one part of it.
 
 ## If you do not want to install anything, reading alone works

@@ -25,11 +25,11 @@ Education in China is a sequence of cohort-specific rules. A child's schooling i
 | 1986 | Compulsory Education Law enacted | Legal mandate; cohort variation in exposure by province |
 | 1999 | Higher-education enrollment expanded | Cohort by province treatment intensity |
 | 2001 | Rural school consolidation begins | County-level variation in school closures |
-| 2001 | "Two exemptions and one subsidy" piloted in rural areas | Cohort and region variation in fee removal [verify] |
-| 2006 | Compulsory Education Law revised; rural fee exemptions extended | Costs of schooling fall for rural cohorts [verify] |
-| 2008 | Fee exemptions extended to urban compulsory education | Urban cohorts treated later than rural ones [verify] |
-| 2010 | Medium- and long-term education reform plan issued | Sets targets that later policies are measured against [verify] |
-| 2013 | Provinces announce schemes for migrant children's examination access | Province by year variation in access [verify] |
+| 2001 | "Two exemptions and one subsidy" piloted in rural areas | Cohort and region variation in fee removal (to confirm against the official codebook) |
+| 2006 | Compulsory Education Law revised; rural fee exemptions extended | Costs of schooling fall for rural cohorts (to confirm against the official codebook) |
+| 2008 | Fee exemptions extended to urban compulsory education | Urban cohorts treated later than rural ones (to confirm against the official codebook) |
+| 2010 | Medium- and long-term education reform plan issued | Sets targets that later policies are measured against (to confirm against the official codebook) |
+| 2013 | Provinces announce schemes for migrant children's examination access | Province by year variation in access (to confirm against the official codebook) |
 | 2021 | After-school tutoring restricted and homework reduced | Recent shock to shadow education demand |
 
 ## Ready-to-cite paragraphs

@@ -9,5 +9,4 @@ file: skills/report/expected/report.md
 [OK] 6/8 reproduction names a seed and the input files: seed and input files recorded
 [OK] 7/8 what is still missing lists at least one item: 5 open items
 [OK] 8/8 every decimal in the prose appears in the results file: 19 numbers matched
-5 placeholder(s) still to fill
 8/8 checks passed

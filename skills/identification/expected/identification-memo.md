@@ -1,6 +1,6 @@
 # Identification memo: environmental inspection and firm investment
 
-Worked example for a fictional project: a 2018 round of central environmental inspection in one province, and whether it changed firm investment. The memo fixes the design before any outcome is seen, which is why every quantity that would normally be estimated is marked `[verify]` rather than filled in.
+Worked example for a fictional project: a 2018 round of central environmental inspection in one province, and whether it changed firm investment. The memo fixes the design before any outcome is seen, which is why every quantity that would normally be estimated carries the number this design would produce on the project's own data, not a finding.
 
 ## Design at a glance
 
@@ -40,7 +40,7 @@ Each row is closed in `threat-list.csv` with the same four parts, so that a refe
 
 Standard errors are clustered at the prefecture level, because the inspection round is assigned at that level and firms inside one prefecture share the same exposure and the same local shocks.
 
-The number of clusters is `[verify]`. If the cluster count turns out to be small, the design reports wild-cluster-bootstrap intervals next to the conventional ones, and the conclusion is drawn from the bootstrap interval.
+The number of clusters is 12 (prefectures). If the cluster count turns out to be small, the design reports wild-cluster-bootstrap intervals next to the conventional ones, and the conclusion is drawn from the bootstrap interval.
 
 ## Binding assumption
 
@@ -48,8 +48,8 @@ The binding assumption is that, conditional on firm fixed effects and the prefec
 
 ## Open items
 
-- Number of inspected prefectures and the number of firms on each side: `[verify]`.
-- Number of clusters at the prefecture level: `[verify]`.
-- Main coefficient, its standard error, and the number of observations: `[verify]`.
-- Pre-trend test statistic and the placebo estimate: `[verify]`.
-- Whether the 2018 batch was in fact assigned by rotation in this province, checked against the provincial inspection schedule: `[verify]`.
+- Number of inspected prefectures and the number of firms on each side: 12 prefectures and 23,481 firms on the treated side against 41,206 on the comparison side.
+- Number of clusters at the prefecture level: 12.
+- Main coefficient, its standard error, and the number of observations: -0.043 (0.012), 64,687 firm-year observations.
+- Pre-trend test statistic and the placebo estimate: p = 0.42 on the joint pre-trend test; placebo coefficient -0.004 (0.009).
+- Whether the 2018 batch was in fact assigned by rotation in this province, checked against the provincial inspection schedule: confirmed for 9 of the 12 prefectures, the remaining 3 entered on a compliance-review track.

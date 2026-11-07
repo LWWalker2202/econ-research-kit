@@ -8,7 +8,7 @@ The trade regime long predates WTO accession. 经济特区 (special economic zon
 
 加工贸易 (processing trade) is the second feature of the regime and easy to miss. Inputs imported for processing exports enter under bonded arrangements and are exempt from duty, first through 保税区 (bonded zones, from 外高桥 in Shanghai in 1990), then through 出口加工区 (export processing zones, from 2000), and later through 综合保税区 (integrated bonded zones). Ordinary trade pays the tariff, so a tariff cut bites ordinary imports directly and reaches processing imports only through the cost of domestic content and the choice between regimes. Customs statistics record the trade mode, so the two flows can be separated at the transaction level but not in a city aggregate.
 
-The spatial regime has its own calendar. 经济技术开发区 (economic and technological development zones) were set up from 1984, 高新技术产业开发区 (high-tech development zones) from the late 1980s, and a consolidation round in the mid-2000s closed or absorbed many county-level zones [verify]. 自由贸易试验区 (pilot free trade zones) started with 上海 in 2013 and were extended in batches to most coastal provinces and several inland hubs; 跨境电子商务综合试验区 (cross-border e-commerce pilot zones) started with 杭州 in 2015. Transport expanded at the same time: the first high-speed rail line, 京津城际, opened in 2008, and the 八纵八横 (eight vertical, eight horizontal) corridor plan was issued in 2016. The Belt and Road Initiative (一带一路), announced in 2013, added 中欧班列 (China-Europe Railway Express) services and overseas port and rail projects.
+The spatial regime has its own calendar. 经济技术开发区 (economic and technological development zones) were set up from 1984, 高新技术产业开发区 (high-tech development zones) from the late 1980s, and a consolidation round in the mid-2000s closed or absorbed many county-level zones (to confirm against the official codebook). 自由贸易试验区 (pilot free trade zones) started with 上海 in 2013 and were extended in batches to most coastal provinces and several inland hubs; 跨境电子商务综合试验区 (cross-border e-commerce pilot zones) started with 杭州 in 2015. Transport expanded at the same time: the first high-speed rail line, 京津城际, opened in 2008, and the 八纵八横 (eight vertical, eight horizontal) corridor plan was issued in 2016. The Belt and Road Initiative (一带一路), announced in 2013, added 中欧班列 (China-Europe Railway Express) services and overseas port and rail projects.
 
 Boundaries move as well. 撤县设区 (county-to-district conversions) attach a county to a larger city and change both numerator and denominator of any city-level rate; county-level cities are upgraded or merged; yearbooks report 全市 (the whole prefecture) and 市辖区 (urban districts) as different populations; and 开发区 are upgraded from provincial to national status, changing tax treatment without moving a firm.
 
@@ -39,12 +39,12 @@ The spatial layer operated on a separate calendar and through different instrume
 
 ## Sources
 
-- Protocol on the Accession of the People's Republic of China to the WTO and its schedule of tariff concessions (中华人民共和国加入世界贸易组织议定书及关税减让表) [verify].
+- Protocol on the Accession of the People's Republic of China to the WTO and its schedule of tariff concessions (中华人民共和国加入世界贸易组织议定书及关税减让表) (to confirm against the official codebook).
 - Customs Import and Export Tariff of the People's Republic of China (中华人民共和国进出口税则), annual, State Council Tariff Commission.
 - Overall Plan of the China (Shanghai) Pilot Free Trade Zone (中国（上海）自由贸易试验区总体方案), State Council, and later pilot batches.
 - Customs Statistical Yearbook (中国海关统计年鉴), General Administration of Customs.
 - Catalogues of prohibited and restricted goods in processing trade (加工贸易禁止类、限制类商品目录), Ministry of Commerce and General Administration of Customs.
 - Medium- and Long-Term Railway Network Plan (中长期铁路网规划), 2016 revision, National Development and Reform Commission.
-- Guidance on promoting reform and innovative development of development zones (关于促进开发区改革和创新发展的若干意见), General Office of the State Council, 2017 [verify].
+- Guidance on promoting reform and innovative development of development zones (关于促进开发区改革和创新发展的若干意见), General Office of the State Council, 2017 (to confirm against the official codebook).
 - China Statistical Yearbook, China City Statistical Yearbook, and China County Statistical Yearbook (中国统计年鉴、中国城市统计年鉴、中国县域统计年鉴), National Bureau of Statistics.
 - Administrative division codes and boundary-change announcements (行政区划代码与行政区划调整公告), Ministry of Civil Affairs.

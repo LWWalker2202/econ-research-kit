@@ -30,7 +30,7 @@ closest  :
 
 ## What to do with each row
 
-1. Pasted only from an abstract, or from a citation you saw inside another paper, mark `[verify]` in `finding` and do not cite it until you have opened it.
+1. Pasted only from an abstract, or from a citation you saw inside another paper, mark ` (to confirm against the official codebook)` in `finding` and do not cite it until you have opened it.
 2. If two rows compete for `closest`, the gap sentence is not sharp yet; rewrite the gap until one row wins.
 3. Keep rejected rows in a second file, not in this one. A matrix that carries everything shows nothing.
 

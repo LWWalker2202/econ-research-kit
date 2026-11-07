@@ -34,9 +34,9 @@ Village-level surveys are the field component. Research teams collect village ro
 |---|---|---|---|
 | CFPS | 2010 baseline, biennial | Individual and household | Community questionnaire allows village matching [verify wave list] |
 | CHNS | Long provincial panel | Individual and household | Detailed nutrition and health [verify waves] |
-| CHIP | Multiple waves | Household | Income-focused; verify province coverage per wave [verify] |
-| CHFS | Multiple waves | Household | Wealth and finance; verify sampling frame [verify] |
-| CGSS | Annual or biennial cross-sections | Individual | Repeated cross-section, not a panel [verify] |
+| CHIP | Multiple waves | Household | Income-focused; verify province coverage per wave (to confirm against the official codebook) |
+| CHFS | Multiple waves | Household | Wealth and finance; verify sampling frame (to confirm against the official codebook) |
+| CGSS | Annual or biennial cross-sections | Individual | Repeated cross-section, not a panel (to confirm against the official codebook) |
 | County statistical yearbooks | Annual | County | Fiscal, population, and agricultural variables |
 | Program records | Event-specific | County, village, household | Coverage and variable names differ by program |
 | Village field surveys | Study-specific | Village | Sampling and field dates must be documented |

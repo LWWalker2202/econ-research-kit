@@ -30,12 +30,12 @@ Security-level data make spreads and leverage measurable. Bond issue documents, 
 
 | Data | Years | Level | Sample size magnitude |
 |---|---|---|---|
-| Money-market and policy rates | From the mid-2000s, with the instrument changing across the period | Daily | Continuous series `[verify]` |
-| Government and credit bond yields | From the late 2000s, better covered after the market expanded | Daily, bond level | Tens of thousands of bond-months `[verify]` |
-| Listed-firm financials | From the late 1990s onward | Firm-year | Several thousand firms `[verify]` |
-| Local government debt and financing vehicles | From the late 2000s, recognition regime changes in the mid-2010s | Province or city-year | About a few hundred cities `[verify]` |
-| Fiscal accounts | From the 1990s, with definition changes | Province-year | About thirty provinces `[verify]` |
-| City house prices | From the 2000s, coverage expands over time | City-month | About one hundred cities in the official index `[verify]` |
+| Money-market and policy rates | From the mid-2000s, with the instrument changing across the period | Daily | Continuous series ` (to confirm against the official codebook)` |
+| Government and credit bond yields | From the late 2000s, better covered after the market expanded | Daily, bond level | Tens of thousands of bond-months ` (to confirm against the official codebook)` |
+| Listed-firm financials | From the late 1990s onward | Firm-year | Several thousand firms ` (to confirm against the official codebook)` |
+| Local government debt and financing vehicles | From the late 2000s, recognition regime changes in the mid-2010s | Province or city-year | About a few hundred cities ` (to confirm against the official codebook)` |
+| Fiscal accounts | From the 1990s, with definition changes | Province-year | About thirty provinces ` (to confirm against the official codebook)` |
+| City house prices | From the 2000s, coverage expands over time | City-month | About one hundred cities in the official index ` (to confirm against the official codebook)` |
 
 ## Known issues
 

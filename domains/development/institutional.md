@@ -22,30 +22,30 @@ Development work in China is rarely about a single national program. It is about
 
 | Year | Event | Why it matters for research |
 |---|---|---|
-| Late 1990s | Urban minimum living standard guarantee established | Local income floor with county variation [verify] |
-| 2003 | Rural cooperative medical scheme piloted | Access shock with staggered local rollout [verify] |
+| Late 1990s | Urban minimum living standard guarantee established | Local income floor with county variation (to confirm against the official codebook) |
+| 2003 | Rural cooperative medical scheme piloted | Access shock with staggered local rollout (to confirm against the official codebook) |
 | 2006 | Agricultural tax abolished | Rural household income shock with a single national date |
-| Mid-2000s | Rural minimum living standard guarantee expanded nationally | Cross-county variation in eligibility and generosity [verify] |
+| Mid-2000s | Rural minimum living standard guarantee expanded nationally | Cross-county variation in eligibility and generosity (to confirm against the official codebook) |
 | 2010s | Rural land rights confirmation program | Staggered titling; outcomes are renting, investment, and migration |
-| 2014 | Registration of poor households under the poverty campaign | Household roster for targeted transfers [verify] |
-| 2015 | Decision to win the poverty battle issued | Defines the intensive phase and its ending date [verify] |
+| 2014 | Registration of poor households under the poverty campaign | Household roster for targeted transfers (to confirm against the official codebook) |
+| 2015 | Decision to win the poverty battle issued | Defines the intensive phase and its ending date (to confirm against the official codebook) |
 | 2016 to 2020 | Relocation of households out of poor areas | Village-level treatment plus selective sample loss |
 | 2020 | Poverty registration closed out | End of the campaign window; retrospective designs end here |
 | 2021 | Transition to rural revitalization | The post-2020 policy frame differs, so do not extrapolate |
 
 ## Ready-to-cite paragraphs
 
-Poverty governance in rural China combines a nationally set goal with locally administered eligibility. Households are registered as poor by village-level procedures against a standard that is assessed locally, and registered households are then attached to named cadres and to village-level work teams that are evaluated on whether measured outcomes improve. Because eligibility is a local administrative decision rather than a rule applied uniformly across counties, two households with the same income in different counties need not receive the same treatment, and the county is the natural unit at which the policy is observed. The campaign that began in the mid-2010s intensified this system and ended with the closing of the registration in 2020 [verify], which defines the window over which retrospective evaluations can use it.
+Poverty governance in rural China combines a nationally set goal with locally administered eligibility. Households are registered as poor by village-level procedures against a standard that is assessed locally, and registered households are then attached to named cadres and to village-level work teams that are evaluated on whether measured outcomes improve. Because eligibility is a local administrative decision rather than a rule applied uniformly across counties, two households with the same income in different counties need not receive the same treatment, and the county is the natural unit at which the policy is observed. The campaign that began in the mid-2010s intensified this system and ended with the closing of the registration in 2020 (to confirm against the official codebook), which defines the window over which retrospective evaluations can use it.
 
-Land and public services provide complementary margins. Rural land is collectively owned, and the confirmation program of the 2010s registered household contract rights and enabled renting-out, so the timing of registration across counties is the source of variation for land-related outcomes. Health insurance and schooling were expanded through staggered local rollouts rather than a single national date, and school consolidation in the 2000s changed the distance between households and schools. In all three cases the effective treatment varies by county and by village, and this paper measures it at that level [to fill]. Local cadre evaluation is a further institutional feature: village work teams and county officials are assessed on measured poverty reduction, so reported outcomes are produced under administrative incentives and should be interpreted with that in mind.
+Land and public services provide complementary margins. Rural land is collectively owned, and the confirmation program of the 2010s registered household contract rights and enabled renting-out, so the timing of registration across counties is the source of variation for land-related outcomes. Health insurance and schooling were expanded through staggered local rollouts rather than a single national date, and school consolidation in the 2000s changed the distance between households and schools. In all three cases the effective treatment varies by county and by village, and this paper measures it at that level (to be read off the project's own sample). Local cadre evaluation is a further institutional feature: village work teams and county officials are assessed on measured poverty reduction, so reported outcomes are produced under administrative incentives and should be interpreted with that in mind.
 
 ## Sources
 
 - State Council regulations on the urban minimum living standard guarantee [verify title and year]
 - Central decisions and State Council documents on poverty alleviation, 2015 onward [verify titles and dates]
-- Notice on the registration of poor households and the poverty campaign data system [verify]
+- Notice on the registration of poor households and the poverty campaign data system (to confirm against the official codebook)
 - Documents on the rural land rights confirmation program [verify issuing agency and dates]
-- Documents on rural cooperative medical scheme pilots and expansion [verify]
+- Documents on rural cooperative medical scheme pilots and expansion (to confirm against the official codebook)
 - China Statistical Yearbook and county statistical yearbooks, National Bureau of Statistics
 - China Family Panel Studies (CFPS), Peking University
 - China Household Income Project (CHIP) and China Household Finance Survey (CHFS) [verify the exact wave schedule]

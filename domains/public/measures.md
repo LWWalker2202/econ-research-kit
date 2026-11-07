@@ -17,9 +17,9 @@ In this field the treatment variable is almost never read directly off a policy 
 | Local public expenditure | Budgetary expenditure by functional category, per capita, in real terms | Whether capital or current spending is included changes the sign in some settings |
 | Transfer dependence | Transfers received divided by total local revenue or by expenditure | Using expenditure as the denominator introduces mechanical correlation with the outcome |
 | Local debt | End-of-year balance of interest-bearing debt, including financing-vehicle debt where available | On-budget and off-budget definitions produce different levels and different trends |
-| Firm tax burden | Taxes paid divided by sales or by value added | The sales denominator is sensitive to firm size and to transfer pricing [verify] |
+| Firm tax burden | Taxes paid divided by sales or by value added | The sales denominator is sensitive to firm size and to transfer pricing (to confirm against the official codebook) |
 | Policy adoption date | First year the locality appears in a reform document | Dating from the announcement rather than the implementation shifts the treatment timing |
-| Reform exposure by sector | Share of local employment or output in the sectors named by the reform | Exposure shares can be endogenous to pre-reform growth [verify] |
+| Reform exposure by sector | Share of local employment or output in the sectors named by the reform | Exposure shares can be endogenous to pre-reform growth (to confirm against the official codebook) |
 
 ## Identification assumptions by definition
 

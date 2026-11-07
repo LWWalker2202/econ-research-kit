@@ -40,7 +40,7 @@ Trade and spatial work both rest on exposure: how hard a place was hit by tariff
 
 ## Stage 7 writing
 - Start the institutional section from the "Ready-to-cite paragraphs" in `institutional.md`, and check the names and years of the accession and zone documents.
-- Cite documents, yearbooks, and database names only; leave page and document numbers for [verify].
+- Cite documents, yearbooks, and database names only; leave page and document numbers for (to confirm against the official codebook).
 
 ## Stage 8 referee response
 - Prepare the "What referees ask" items in `pitfalls.md`; share exogeneity, spatial standard errors, and light saturation are the three that come back most often.

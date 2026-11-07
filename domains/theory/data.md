@@ -14,7 +14,7 @@ A theory paper uses data twice: to fix the moments that identify the parameters,
 | Technology and entry | Entry rates; size distribution of entrants | Firm registries; industrial surveys | Annual, firm | The threshold that defines entry and the treatment of re-registration |
 | Wage and price stickiness | Duration of unchanged prices or wages | Micro price data; personnel records | Monthly, item or worker | Whether durations are censored and how they are modelled |
 
-Moments that matter for identification but are not directly observed should be listed as `[to fill]` with the source that would be needed, not replaced by a plausible-looking number.
+Moments that matter for identification but are not directly observed should be listed as ` (to be read off the project's own sample)` with the source that would be needed, not replaced by a plausible-looking number.
 
 ## Variables and definitions
 
@@ -22,7 +22,7 @@ Moments that matter for identification but are not directly observed should be l
 - Treatment of prices: specify the base year, the deflator, and whether nominal or real quantities enter the moment. A capital share computed from nominal flows is not the same object as one computed from constant-price flows.
 - Self-employment and household production: state explicitly whether they are inside or outside the measured capital share; the choice moves the calibrated value by several percentage points and is not innocuous.
 - Administrative reform dates: use the date the rule took effect, not the date it was announced, and record both if the gap is informative.
-- For moments taken from published research, record the paper, the table, the sample, and the exact number, and mark it `[verify]` until the table has been read. A number quoted from memory is not a source.
+- For moments taken from published research, record the paper, the table, the sample, and the exact number, and mark it ` (to confirm against the official codebook)` until the table has been read. A number quoted from memory is not a source.
 - Numerical inputs that are not moments at all (grid sizes, tolerances, iteration caps, starting values) belong in the replication record, not in the calibration table, but they must be recorded with equal care.
 
 ## Coverage

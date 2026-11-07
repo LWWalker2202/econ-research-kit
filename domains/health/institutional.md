@@ -17,19 +17,19 @@ Why these institutions matter for identification: eligibility is set by hukou st
 | Year | Event | Why it matters for research |
 |---|---|---|
 | Late 1990s | UEBMI established at city level | Urban formal-sector coverage with city-level variation |
-| 2003 | NCMS piloted in rural counties | First large insurance expansion; staggered county rollout [verify] |
-| 2007 | URBMI piloted for urban non-employees | Covers children, students, and non-working urban residents [verify] |
-| 2008 | NCMS reaches full rural coverage | Near-universal rural insurance; a date for before-after designs [verify] |
+| 2003 | NCMS piloted in rural counties | First large insurance expansion; staggered county rollout (to confirm against the official codebook) |
+| 2007 | URBMI piloted for urban non-employees | Covers children, students, and non-working urban residents (to confirm against the official codebook) |
+| 2008 | NCMS reaches full rural coverage | Near-universal rural insurance; a date for before-after designs (to confirm against the official codebook) |
 | 2009 | Essential medicines system and new health reform package | Zero markup at primary care; changes prices and prescribing |
-| 2012 | Critical illness insurance introduced | Supplementary reimbursement above a threshold; local rollout [verify] |
+| 2012 | Critical illness insurance introduced | Supplementary reimbursement above a threshold; local rollout (to confirm against the official codebook) |
 | 2016 | Integration of resident schemes begins | Merges NCMS and URBMI; province-specific timing |
-| 2017 | Zero-markup drug policy extended to public hospitals | Removes drug revenue; nationwide push with local variation [verify] |
+| 2017 | Zero-markup drug policy extended to public hospitals | Removes drug revenue; nationwide push with local variation (to confirm against the official codebook) |
 | 2018 | National Healthcare Security Administration and centralized procurement | Price cuts through national tenders; a price shock with drug-specific exposure |
 | 2019 onward | DRG and DIP payment pilots | Changes hospital incentives; a supply-side treatment |
 
 ## Ready-to-cite paragraphs
 
-China's health insurance system consists of three schemes that differ in who they cover and how generously they reimburse. Urban Employee Basic Medical Insurance covers formal-sector employees and is administered at the city level. The New Cooperative Medical Scheme, piloted in rural counties from 2003 and expanded through 2008, covered rural residents through voluntary household enrollment in county-level risk pools. Urban Resident Basic Medical Insurance, introduced in 2007, extended coverage to urban residents outside formal employment. Because enrollment rules, reimbursement schedules, and pool administration are all set locally, the effective benefit package differs across counties and over time, which is the institutional basis for the variation used in this paper [to fill]. From 2016, the two resident schemes were merged into a single Resident Basic Medical Insurance, province by province [verify].
+China's health insurance system consists of three schemes that differ in who they cover and how generously they reimburse. Urban Employee Basic Medical Insurance covers formal-sector employees and is administered at the city level. The New Cooperative Medical Scheme, piloted in rural counties from 2003 and expanded through 2008, covered rural residents through voluntary household enrollment in county-level risk pools. Urban Resident Basic Medical Insurance, introduced in 2007, extended coverage to urban residents outside formal employment. Because enrollment rules, reimbursement schedules, and pool administration are all set locally, the effective benefit package differs across counties and over time, which is the institutional basis for the variation used in this paper (to be read off the project's own sample). From 2016, the two resident schemes were merged into a single Resident Basic Medical Insurance, province by province (to confirm against the official codebook).
 
 Two further layers shape financial protection. Critical illness insurance, introduced from 2012, reimburses out-of-pocket spending above a local threshold and is financed from basic scheme funds, so it targets the upper tail of the spending distribution rather than the average enrollee. On the supply side, the 2009 reform introduced the essential medicines system and zero-markup drug sales at primary care facilities, public hospital reform extended zero markup on drugs to hospitals around 2017, and centralized volume-based procurement from 2018 reduced prices for selected drugs through national tenders. These supply-side changes alter what a visit costs and what is prescribed, so they enter as separate treatments rather than as parts of the insurance expansion.
 
@@ -40,7 +40,7 @@ Two further layers shape financial protection. Critical illness insurance, intro
 - Documents on critical illness insurance for urban and rural residents [verify date and financing rule]
 - State Council opinions on integrating the urban and rural resident basic medical insurance schemes [verify year]
 - Reform documents on public hospitals and zero-markup drug sales [verify dates]
-- Documents on the essential medicines system and on centralized drug procurement [verify]
+- Documents on the essential medicines system and on centralized drug procurement (to confirm against the official codebook)
 - China Health Statistical Yearbook, National Bureau of Statistics and National Health Commission (annual)
 - China Family Panel Studies (CFPS), Peking University
 - China Health and Nutrition Survey (CHNS)

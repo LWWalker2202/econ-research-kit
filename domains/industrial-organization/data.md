@@ -2,7 +2,7 @@
 
 ## Data sources
 
-The Chinese data environment for industrial organization is an assembly of partial universes, and almost every design choice follows from which universe is used. The 中国工业企业数据库 (Chinese Industrial Enterprises Database, CIED) is the workhorse firm-level source: annual records for manufacturing firms above a size threshold, with sales, employment, capital, intermediate inputs, ownership, and a four-digit industry code. It is not a census of firms and never was. The threshold was raised at the start of the 2010s, which changed the composition of the sample at that year [verify], and firms that fall below the threshold after having been in the database look like exits unless the analyst reconstructs the panel carefully.
+The Chinese data environment for industrial organization is an assembly of partial universes, and almost every design choice follows from which universe is used. The 中国工业企业数据库 (Chinese Industrial Enterprises Database, CIED) is the workhorse firm-level source: annual records for manufacturing firms above a size threshold, with sales, employment, capital, intermediate inputs, ownership, and a four-digit industry code. It is not a census of firms and never was. The threshold was raised at the start of the 2010s, which changed the composition of the sample at that year (to confirm against the official codebook), and firms that fall below the threshold after having been in the database look like exits unless the analyst reconstructs the panel carefully.
 
 The 中国海关数据库 (China Customs Trade Database) supplies firm-level and transaction-level trade records: product code, destination or origin, quantity, value, unit price, trade regime, and a firm identifier. Its value for industrial organization is the unit price, which is the closest observable to a transaction price for traded goods, and the ability to separate processing trade from ordinary trade, because the two operate on different pricing logics. Its weakness is the firm identifier, which is not the same identifier as in the CIED and which changes when a firm's registration status changes.
 
@@ -32,12 +32,12 @@ Ownership data come from the state asset supervision system and from listed-firm
 
 | Data | Years | Level | Sample size magnitude |
 |---|---|---|---|
-| 中国工业企业数据库 (CIED) | Late 1990s to the early 2010s [verify] | Firm | About hundreds of thousands of firms per year [verify] |
-| 中国海关数据库 (customs) | Early 2000s onwards [verify] | Transaction, aggregable to firm-product | About millions of records per year [verify] |
-| Business registration | 2000s onwards, with electronic coverage improving over time [verify] | Firm | About tens of millions of firms [verify] |
-| Listed-firm financials | 1990s onwards | Firm | About thousands of firms [verify] |
-| Price monitoring and yearbooks | Varies by series [verify] | Product or city | About hundreds of price series [verify] |
-| Zone lists and merger cases | 1984 onwards for zones, 2008 onwards for cases [verify] | Zone, case | About thousands of zones and cases [verify] |
+| 中国工业企业数据库 (CIED) | Late 1990s to the early 2010s (to confirm against the official codebook) | Firm | About hundreds of thousands of firms per year (to confirm against the official codebook) |
+| 中国海关数据库 (customs) | Early 2000s onwards (to confirm against the official codebook) | Transaction, aggregable to firm-product | About millions of records per year (to confirm against the official codebook) |
+| Business registration | 2000s onwards, with electronic coverage improving over time (to confirm against the official codebook) | Firm | About tens of millions of firms (to confirm against the official codebook) |
+| Listed-firm financials | 1990s onwards | Firm | About thousands of firms (to confirm against the official codebook) |
+| Price monitoring and yearbooks | Varies by series (to confirm against the official codebook) | Product or city | About hundreds of price series (to confirm against the official codebook) |
+| Zone lists and merger cases | 1984 onwards for zones, 2008 onwards for cases (to confirm against the official codebook) | Zone, case | About thousands of zones and cases (to confirm against the official codebook) |
 
 ## Known issues
 

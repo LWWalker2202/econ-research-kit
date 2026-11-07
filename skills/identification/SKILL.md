@@ -22,7 +22,7 @@ An identification design answers one question: compared to what. The treatment v
 | Research question with unit, treatment variable, outcome, and comparison | `feasibility-memo.md` | Return to `feasibility`; do not design on a question that names no comparison |
 | Source of exogenous variation: a policy, a cutoff, a lottery, an unexpected shock | policy texts, `domains/*/institutional.md` | Name the assignment mechanism; if none exists, label the design as descriptive |
 | Data structure: cross-section, panel, repeated cross-section, and the level at which treatment varies | `data-dict/`, codebooks | Decide this before writing the specification; the estimator and the fixed effects follow from it |
-| What prior papers used and what referees attacked | reading list | Record the design they used and the objection each one faced; mark page-level claims `[to fill]` until verified |
+| What prior papers used and what referees attacked | reading list | Record the design they used and the objection each one faced; mark page-level claims ` (to be read off the project's own sample)` until verified |
 | Pre-registration requirements from the outlet or funder | journal, funder, or registry | Copy the required fields into `pre-registration-draft.md` before estimation starts |
 
 ## Procedure
@@ -34,7 +34,7 @@ An identification design answers one question: compared to what. The treatment v
 5. Match sample to level. Align the level of the treatment variable with the level of the outcome and the level of the clustered standard errors, and state what happens to units that switch treatment status. Completion condition: one sentence in the memo names the unit of analysis and the clustering level together.
 6. Fix the main specification. Write the estimating equation and list every fixed effect and every control with the variation it uses. Completion condition: each control has a one-line reason, and any control that absorbs the identifying variation is either dropped or reported as a separate specification.
 7. Write the robustness plan before estimation. For each planned check, state which threat it addresses and what result would count as a failure. Completion condition: no entry in the plan lacks a named threat.
-8. Freeze the design in `identification-memo.md` and, where required, copy the main specification into `pre-registration-draft.md`. Completion condition: the memo carries a version date, and each pre-registration field is filled or marked `[to fill]`.
+8. Freeze the design in `identification-memo.md` and, where required, copy the main specification into `pre-registration-draft.md`. Completion condition: the memo carries a version date, and each pre-registration field is filled or marked ` (to be read off the project's own sample)`.
 
 ## Outputs (artifacts)
 
@@ -56,7 +56,7 @@ An identification design answers one question: compared to what. The treatment v
 - [ ] The unit of analysis, the level of the treatment variable, and the clustering level appear in one place.
 - [ ] Every fixed effect and control in the main specification has a one-line reason stating the variation it uses.
 - [ ] Every robustness check in the plan names the threat it addresses.
-- [ ] The memo is dated, and every pre-registration field is filled or marked `[to fill]`.
+- [ ] The memo is dated, and every pre-registration field is filled or marked ` (to be read off the project's own sample)`.
 - [ ] Every threat in the memo has a row in `threat-table.md`, and every row carries a verdict of `cleared`, `weakened`, `binding` or `open`.
 
 - `gate.py pass` refuses to advance while the threat table or the memo is missing; `--force` makes you name the gap.

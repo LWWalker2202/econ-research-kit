@@ -5,7 +5,7 @@ Industrial organization studies market structure and firm behaviour, and the har
 
 ## Stage 0 feasibility: three questions to ask first
 - Ask how shares are built. Read the passage on concentration as an outcome in "Constructing the treatment variable" of `measures.md`, and check that numerator and denominator cover the same firms.
-- Ask about coverage. Read "Coverage" in `data.md` and confirm that the CIED size threshold does not contradict your market definition [verify].
+- Ask about coverage. Read "Coverage" in `data.md` and confirm that the CIED size threshold does not contradict your market definition (to confirm against the official codebook).
 - Ask about timing. Read "Timeline" in `institutional.md` and align the antitrust law, the merger notification thresholds, price liberalisation, and the creation of development zones.
 
 ## Stage 1 question and literature
@@ -40,7 +40,7 @@ Industrial organization studies market structure and firm behaviour, and the har
 
 ## Stage 7 writing
 - Start the institutional section from the "Ready-to-cite paragraphs" in `institutional.md`, and get the names of the law and the zone catalogue right.
-- Cite laws, catalogues, and yearbooks only; leave page and document numbers for [verify].
+- Cite laws, catalogues, and yearbooks only; leave page and document numbers for (to confirm against the official codebook).
 
 ## Stage 8 referee response
 - Prepare the "What referees ask" items in `pitfalls.md`; the CIED threshold change and the classification revision are the two that come back most often.

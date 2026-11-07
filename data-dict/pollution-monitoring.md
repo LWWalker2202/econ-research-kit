@@ -1,6 +1,6 @@
 # Pollution monitoring data in China (national control stations and key-discharger online monitoring)
 
-> Where this sits: stage 3 (data). A dictionary entry is usable only when five fields are filled: unit of observation, coverage (years and regions), the key variables with their exact definitions, the access route, and the known defects. Anything still marked `[待核实]` / `[verify]` is a question for the person who owns the data, not a fact you may quote.
+> Where this sits: stage 3 (data). A dictionary entry is usable only when five fields are filled: unit of observation, coverage (years and regions), the key variables with their exact definitions, the access route, and the known defects. Anything still marked ` (to confirm against the official codebook)` / ` (to confirm against the official codebook)` is a question for the person who owns the data, not a fact you may quote.
 
 ## Basic information
 
@@ -8,7 +8,7 @@
 |---|---|
 | Full name (Chinese) | 中国污染监测数据（国控站点与重点排污单位在线监测） |
 | Full name (English) | Pollution monitoring data in China: national control air-quality stations and online monitoring of key pollutant discharging units |
-| Abbreviation | No single abbreviation is in general use [verify] |
+| Abbreviation | No single abbreviation is in general use (to confirm against the official codebook) |
 | Maintainer | Ministry of Ecology and Environment (MEE); national air-quality network operated by the China National Environmental Monitoring Centre (CNEMC) |
 | Start year | Real-time publication of new-standard air quality began in 2013 for the first batch of cities; the network reached all prefecture-level and above cities in 2015 |
 | Frequency | Hourly and daily for air quality; daily or monthly for online emissions monitoring |
@@ -53,7 +53,7 @@ Station-level air quality files and enterprise-level online monitoring files are
 |---|---|
 | Entry type | Public download for station-level air quality; request or purchase for long historical and enterprise-level series |
 | Channel | CNEMC and provincial or municipal environmental monitoring centres for air quality; MEE and provincial ecology and environment departments for online monitoring |
-| Institutional account | Not required for the public real-time pages; required for bulk or historical downloads [verify] |
+| Institutional account | Not required for the public real-time pages; required for bulk or historical downloads (to confirm against the official codebook) |
 | Cost | Free for non-commercial use; some historical and enterprise-level products are paid |
 | Ethics review | No human-subjects review is involved, but enterprise identifiers and permit records may be confidential |
 | Usage agreement | No redistribution, attribute the monitoring authority, and obtain permission before commercial use; the terms of the platform that supplied the data take precedence |

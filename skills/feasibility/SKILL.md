@@ -21,7 +21,7 @@ The feasibility gate is the cheapest stage of a project and the only stage whose
 |---|---|---|
 | Research question naming unit, treatment variable, outcome, and comparison | supervisor, reading list, policy documents | Run `scripts/preflight.py` first; ask the missing slots in at most three questions; if the question cannot be written in one sentence, the idea is not ready |
 | Candidate datasets and their access routes | `data-dict/`, agency portals, coauthors | List at least two alternatives; a dataset with no access route counts as unavailable |
-| Institutional detail on how treatment is assigned | `domains/*/institutional.md` | Read the primary policy documents and mark every claim `[to fill]` until verified |
+| Institutional detail on how treatment is assigned | `domains/*/institutional.md` | Read the primary policy documents and mark every claim ` (to be read off the project's own sample)` until verified |
 | Budget in person-weeks and compute hours | your own project history and the deadline | Fix a number before the assessment starts, not after the idea has become attractive |
 | A statement of what the paper would claim if it worked | field norms, prior papers | Write the claim as one sentence; the claim sets the minimum detectable effect that matters |
 
@@ -31,8 +31,8 @@ The feasibility gate is the cheapest stage of a project and the only stage whose
 2. Screen data coverage. For each candidate dataset, mark each of the four fields present, proxy, or missing. Completion condition: a dataset-by-field matrix with no empty cell.
 3. Screen access. For each dataset record the access route, the responsible person, and the lead time in weeks. Completion condition: every dataset has a week count and a named person who will file the application.
 4. Name the source of exogenous variation in one sentence of the form "X varies across units because of Y, and Y is unrelated to Z". Completion condition: Y is an institution, a rule, or a mechanical formula, not a behavioral choice.
-5. Cost the pipeline in three lines: cleaning and matching, estimation, and writing. Completion condition: a total in person-weeks and compute hours that can be compared directly with the time remaining [to fill].
-6. Write the stop criteria before any further work. Each criterion needs a threshold and a decision rule, for example: two candidate datasets both lack the outcome; no credible counterfactual survives the threat list; the access lead time exceeds the time remaining; the minimum detectable effect exceeds the effect that would matter [to fill]. Completion condition: at least three criteria, each numeric or binary.
+5. Cost the pipeline in three lines: cleaning and matching, estimation, and writing. Completion condition: a total in person-weeks and compute hours that can be compared directly with the time remaining (to be read off the project's own sample).
+6. Write the stop criteria before any further work. Each criterion needs a threshold and a decision rule, for example: two candidate datasets both lack the outcome; no credible counterfactual survives the threat list; the access lead time exceeds the time remaining; the minimum detectable effect exceeds the effect that would matter (to be read off the project's own sample). Completion condition: at least three criteria, each numeric or binary.
 7. Return a verdict and name the binding constraint, the single risk that would kill the project if it materialised. Completion condition: exactly one of go, go with reduced scope, or stop, plus one sentence naming that constraint.
 
 ## Outputs (artifacts)
@@ -55,7 +55,7 @@ The feasibility gate is the cheapest stage of a project and the only stage whose
 - [ ] The cost is a number in person-weeks and compute hours, not a range described in words.
 - [ ] At least three stop criteria carry a threshold and a decision rule.
 - [ ] The memo ends with one of the three verdicts and names the binding constraint.
-- [ ] No figure in the memo is presented as a finding; every unverified figure is marked `[to fill]`.
+- [ ] No figure in the memo is presented as a finding; every unverified figure is marked ` (to be read off the project's own sample)`.
 
 - `python scripts/gate.py status` opens stage 0 and prints what it waits for; `gate.py pass "<your answer>"` records the answer, and `--extra` records work done beyond this stage.
 - `python scripts/coverage.py` lists whether this project has a spec, a ledger and the artifacts of each stage at all.

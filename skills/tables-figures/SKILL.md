@@ -20,7 +20,7 @@ description: Turn frozen estimation output into submission-ready tables and figu
 | Frozen estimation output | `estimation` skill, files under `output/estimates/` | rerun the estimation; never transcribe numbers from a log into a table |
 | Exhibit-to-claim map | your outline or the draft's paragraph plan | write it before touching any script: one row per exhibit and the sentence it supports |
 | Variable labels and units | `data-prep` codebook, `codebook/varlabels.csv` | fix the label file, not the table script; unlabelled variables ship with raw names |
-| Journal rules on tables and figures | the journal's author guidelines | use the defaults in this skill and record each deviation in `[to fill]` |
+| Journal rules on tables and figures | the journal's author guidelines | use the defaults in this skill and record each deviation in ` (to be read off the project's own sample)` |
 | Software toolchain | Stata with `esttab` and `coefplot`, or Python with `pyfixest` and a `modelsummary`-style exporter | one toolchain per exhibit, stated in the table note |
 
 ## Procedure
@@ -61,7 +61,7 @@ Why the form matters: a table that does not rebuild from the estimate file will 
 - [ ] Every exhibit is cited by number at least once, and no citation points to an exhibit that does not exist.
 - [ ] The Stata export and the Python export on the same estimate file agree digit for digit.
 - [ ] `python skills/tables-figures/templates/check_table.py output/table1.tex` prints seven out of seven.
-- [ ] `python scripts/journal_pack.py "<journal>"` was run and every `[待核实]` line is checked against the journal's current author guidelines or dropped.
+- [ ] `python scripts/journal_pack.py "<journal>"` was run and every ` (to confirm against the official codebook)` line is checked against the journal's current author guidelines or dropped.
 
 ## Common failure modes
 

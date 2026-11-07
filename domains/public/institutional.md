@@ -20,15 +20,15 @@ China's fiscal system is a useful setting for policy evaluation because the cent
 
 | Year | Event | What it means for research |
 |---|---|---|
-| 1994 | Tax-sharing reform redefines central and local revenue | Baseline break in local fiscal incentives [verify] |
-| 2000 | Rural fee-to-tax reform piloted | Start of a sequence of rural fiscal changes [verify] |
-| 2006 | Agricultural tax abolished nationwide | Removes a local revenue source and raises transfer dependence [verify] |
-| 2007 | Rural minimum living guarantee established nationwide | Cross-county variation in benefit standards becomes usable [verify] |
+| 1994 | Tax-sharing reform redefines central and local revenue | Baseline break in local fiscal incentives (to confirm against the official codebook) |
+| 2000 | Rural fee-to-tax reform piloted | Start of a sequence of rural fiscal changes (to confirm against the official codebook) |
+| 2006 | Agricultural tax abolished nationwide | Removes a local revenue source and raises transfer dependence (to confirm against the official codebook) |
+| 2007 | Rural minimum living guarantee established nationwide | Cross-county variation in benefit standards becomes usable (to confirm against the official codebook) |
 | 2012 | VAT reform piloted in selected sectors and regions | Staggered firm-level treatment; selection into pilot is not random |
-| 2014 | Budget Law revised | Changes the legal frame for transfers and local borrowing [verify] |
+| 2014 | Budget Law revised | Changes the legal frame for transfers and local borrowing (to confirm against the official codebook) |
 | 2016 | VAT extended to all sectors and sharing adjusted | Nationwide treatment; useful as a before-after design |
-| 2018 | Local debt management tightened | Debt outcomes change definition; series breaks [verify] |
-| 2020 | Special transfer instruments created | New earmarked flow that is easy to date but hard to treat as random [verify] |
+| 2018 | Local debt management tightened | Debt outcomes change definition; series breaks (to confirm against the official codebook) |
+| 2020 | Special transfer instruments created | New earmarked flow that is easy to date but hard to treat as random (to confirm against the official codebook) |
 
 ## Ready-to-cite paragraphs
 
