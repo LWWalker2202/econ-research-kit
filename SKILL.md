@@ -35,7 +35,9 @@ Economics research as a set of executable steps. Not a prompt collection — a w
 
 ## Routing: what the user says, which skill to enter
 
-Before reading the table below, run `python scripts/preflight.py "<the user's words>"`. It tells you which of the four slots are missing. Then run `python scripts/spec.py "<the user's words>"`: it prints a task-spec draft — the four slots, the stage it reads, an editable prompt, and the three things to confirm — and **that draft is what you show the user before doing any work**. At any point, `python scripts/dashboard.py` prints one page: which stage the project stands in, the question the next stage will ask, how many checks pass, and how far the cleaning has moved the sample. Edit it together, then start. Every "first move" in the table happens only after the four slots are filled; while a slot is open, the only move is to ask about it.
+Before reading the table below, run `python scripts/preflight.py "<the user's words>"`. It tells you which of the four slots are missing. Then run `python scripts/spec.py "<the user's words>"`: it prints a task-spec draft — the four slots, the stage it reads, an editable prompt, and the three things to confirm — and **that draft is what you show the user before doing any work**. At any point, `python scripts/dashboard.py` prints one page: which stage the project stands in, the question the next stage will ask, how many checks pass, and how far the cleaning has moved the sample.
+
+**Open the gate before writing anything**: `python scripts/gate.py status`. No state yet means `gate.py start "<the question>"`. `gate.py pass` refuses until `.econ-kit/spec.md` exists, and that file is written by `scripts/spec.py` — the spec plus prompt draft you show the user first. `gate.py start` also drops `AGENTS.md` and `.econ-kit/PROTOCOL.md` into the project so any later agent sees the contract. Edit it together, then start. Every "first move" in the table happens only after the four slots are filled; while a slot is open, the only move is to ask about it.
 
 | The user says something like | Enter | First move |
 |---|---|---|
